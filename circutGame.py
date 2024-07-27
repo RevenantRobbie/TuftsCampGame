@@ -8,7 +8,7 @@ clock = pygame.time.Clock()
 running = True
 
 testing_rectangle = pygame.Rect(screen.get_width()/2,screen.get_height()/2,250,100)
-
+rectangleClickCount = 0
 
 while running:
     # poll for events
@@ -19,8 +19,9 @@ while running:
             #thank you to https://medium.com/@01one/how-to-create-clickable-button-in-pygame-8dd608d17f1b for providing help with the code
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             if testing_rectangle.collidepoint(event.pos):
+                #rectangleClickCount += 1
                 print("clicked")
-
+                testing_rectangle = pygame.Rect(mo)
 
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("purple")
