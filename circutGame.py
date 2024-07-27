@@ -9,7 +9,7 @@ running = True
 
 testing_rectangle = pygame.Rect(screen.get_width()/2,screen.get_height()/2,250,100)
 rectangleClickCount = 0
-pickUpRectangle = True
+pickUpRectangle = False
 
 while running:
     # poll for events
@@ -24,7 +24,9 @@ while running:
             if testing_rectangle.collidepoint(event.pos):
                 rectangleClickCount += 1
                 if rectangleClickCount % 2 == 1:
+                    print("picked up")
                     pickUpRectangle = True
+                    print("dropped")
                 else:
                     pickUpRectangle = False
                 #print(pygame.mouse.get_pos()[0])
