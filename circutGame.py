@@ -20,8 +20,9 @@ while running:
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             if testing_rectangle.collidepoint(event.pos):
                 #rectangleClickCount += 1
-                print("clicked")
-                testing_rectangle = pygame.Rect(pygame.mouse.get_pos(), 250,100)
+                #print(pygame.mouse.get_pos()[0])
+                #print(type(pygame.mouse.get_pos()))
+                testing_rectangle = pygame.Rect(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1], 250,100)
 
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("purple")
