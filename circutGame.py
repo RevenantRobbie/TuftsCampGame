@@ -41,7 +41,7 @@ while running:
     pygame.draw.rect(screen, "white", testing_rectangle)
     # RENDER YOUR GAME HERE
 
-    while pickUpRectangle == True:
+    if pickUpRectangle == True:
         testing_rectangle = testing_rectangle = pygame.Rect(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1], 250,100)
         pygame.draw.rect(screen, "white", testing_rectangle)
     # flip() the display to put your work on screen
