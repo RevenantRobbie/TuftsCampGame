@@ -7,7 +7,7 @@ screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
 
-testing rectangle = pygame.rec
+testing_rectangle = pygame.Rect(screen.get_width()/2,screen.get_height()/2,250,100)
 
 
 while running:
@@ -22,7 +22,7 @@ while running:
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("purple")
 
-    pygame.draw.rect(screen, "white", pygame.Rect(screen.get_width()/2,screen.get_height()/2,250,100))
+    pygame.draw.rect(screen, "white", testing_rectangle)
     # RENDER YOUR GAME HERE
 
     # flip() the display to put your work on screen
