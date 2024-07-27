@@ -17,6 +17,10 @@ while running:
         if event.type == pygame.QUIT:
             running = False
             #thank you to https://medium.com/@01one/how-to-create-clickable-button-in-pygame-8dd608d17f1b for providing help with the code
+
+        if pygame.mouse.get_pressed()[0]:
+                print(event.pos)
+
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and pygame.mouse.get_pressed():
             if testing_rectangle.collidepoint(event.pos):
                 #rectangleClickCount += 1
