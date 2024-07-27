@@ -16,7 +16,10 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+            #thank you to https://medium.com/@01one/how-to-create-clickable-button-in-pygame-8dd608d17f1b for providing help with the code
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+            if testing_rectangle.collidepoint(event.pos):
+                print("clicked")
 
 
     # fill the screen with a color to wipe away anything from last frame
