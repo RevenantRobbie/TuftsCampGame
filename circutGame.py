@@ -7,6 +7,8 @@ screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
 
+screenCenter = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
+
 while running:
     # poll for events
     # pygame.QUIT event means the user clicked X to close your window
@@ -17,7 +19,7 @@ while running:
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("purple")
 
-    pygame.draw.rectangle(screen, "white", player_pos, 40)
+    pygame.draw.circle(screen, "white", screenCenter, 40)
     # RENDER YOUR GAME HERE
 
     # flip() the display to put your work on screen
