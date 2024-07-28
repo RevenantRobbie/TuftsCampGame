@@ -42,6 +42,7 @@ while running:
     screen.fill("purple")
 
     pygame.draw.rect(screen, "white", testing_rectangle)
+    pygame.draw.rect(screen,  "blue", testing_rectangle2)
     # RENDER YOUR GAME HERE
 
     #the drag rectangle function was made by Aidan Z. That's why it looks so janky.
