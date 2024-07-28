@@ -15,9 +15,9 @@ rectangleClickCount = 0
 pickUpRectangle = False
 
 def cloneRectangle(thing):
-    otherThing = thing.copy()
     print("cloning")
-    pygame.draw.rect(screen, "red", otherThing)
+    return thing.copy()
+
 
 while running:
     # poll for events
@@ -59,7 +59,8 @@ while running:
         testing_rectangle = pygame.Rect(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1], 250,100)
         pygame.draw.rect(screen, "white", testing_rectangle)
     if clicked == True:
-        cloneRectangle(testing_rectangle3)
+
+        pygame.draw.rect(screen, "red", cloneRectangle(testing_rectangle3))
         clicked = False
 
 
