@@ -12,6 +12,9 @@ testing_rectangle2 = pygame.Rect(screen.get_width()/3, screen.get_height()/3, 10
 rectangleClickCount = 0
 pickUpRectangle = False
 
+def cloneThing(thing):
+    return thing.copy()
+
 while running:
     # poll for events
     # pygame.QUIT event means the user clicked X to close your window
