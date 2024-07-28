@@ -9,12 +9,14 @@ running = True
 
 testing_rectangle = pygame.Rect(screen.get_width()/2,screen.get_height()/2,250,100)
 testing_rectangle2 = pygame.Rect(screen.get_width()/3, screen.get_height()/3, 100, 100)
+testing_rectangle3 = pygame.Rect(screen.get_width()/2,screen.get_height()/2,250,100)
 rectangleClickCount = 0
 pickUpRectangle = False
 
-def cloneThing(thing):
-    otherThing = thing.copy(testing_rectangle)
-    pygame.draw.rect(screen, "white", testing_rectangle)
+def cloneRectangle(thing):
+    otherThing = thing.copy()
+    print("cloning")
+    pygame.draw.rect(screen, "red", otherThing)
 
 while running:
     # poll for events
@@ -36,8 +38,7 @@ while running:
                     pickUpRectangle = False
             elif testing_rectangle2.collidepoint(event.pos):
                 print("wahoo")
-                other = testing_rectangle.copy()
-                pygame.draw.rect(screen, "white", other)
+                cloneRectangle(testing_rectangle3)
                 #print(pygame.mouse.get_pos()[0])
                 #print(type(pygame.mouse.get_pos()))
                 #testing_rectangle = pygame.Rect(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1], 250,100)
