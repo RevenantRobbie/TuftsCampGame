@@ -6,6 +6,7 @@ pygame.init()
 screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
+clicked = False
 
 testing_rectangle = pygame.Rect(screen.get_width()/2,screen.get_height()/2,250,100)
 testing_rectangle2 = pygame.Rect(screen.get_width()/3, screen.get_height()/3, 100, 100)
@@ -38,7 +39,8 @@ while running:
                     pickUpRectangle = False
             elif testing_rectangle2.collidepoint(event.pos):
                 print("wahoo")
-                cloneRectangle(testing_rectangle3)
+                clicked = True
+
                 #print(pygame.mouse.get_pos()[0])
                 #print(type(pygame.mouse.get_pos()))
                 #testing_rectangle = pygame.Rect(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1], 250,100)
@@ -56,6 +58,11 @@ while running:
     if pickUpRectangle == True:
         testing_rectangle = pygame.Rect(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1], 250,100)
         pygame.draw.rect(screen, "white", testing_rectangle)
+    if clicked == True:
+        cloneRectangle(testing_rectangle3)
+        clicked = False
+
+
     # flip() the display to put your work on screen
     pygame.display.flip()
 
