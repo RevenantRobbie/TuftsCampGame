@@ -62,9 +62,8 @@ while running:
 
         otherRect = pygame.draw.rect(screen, "white", cloneRectangle(testing_rectangle))
         #otherRect = pygame.Rect(100,100,100,100)
-        #clicked = False
-    elif clicked == True:
         clicked = False
+
 
 
     # flip() the display to put your work on screen
