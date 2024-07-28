@@ -8,6 +8,7 @@ clock = pygame.time.Clock()
 running = True
 
 testing_rectangle = pygame.Rect(screen.get_width()/2,screen.get_height()/2,250,100)
+testing_rectangle2 = pygame.Rect(screen.get_width()/3, screen.get_height()/3, 100, 100)
 rectangleClickCount = 0
 pickUpRectangle = False
 
@@ -29,6 +30,8 @@ while running:
                     print("dropped")
                 else:
                     pickUpRectangle = False
+            elif testing_rectangle2.collidepoint(event.pos):
+                other = testing_rectangle.copy()
                 #print(pygame.mouse.get_pos()[0])
                 #print(type(pygame.mouse.get_pos()))
                 #testing_rectangle = pygame.Rect(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1], 250,100)
@@ -43,7 +46,7 @@ while running:
 
     #the drag rectangle function was made by Aidan Z. That's why it looks so janky.
     if pickUpRectangle == True:
-        testing_rectangle = testing_rectangle = pygame.Rect(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1], 250,100)
+        testing_rectangle = pygame.Rect(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1], 250,100)
         pygame.draw.rect(screen, "white", testing_rectangle)
     # flip() the display to put your work on screen
     pygame.display.flip()
