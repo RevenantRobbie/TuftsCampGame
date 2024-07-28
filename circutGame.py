@@ -31,7 +31,9 @@ while running:
                 else:
                     pickUpRectangle = False
             elif testing_rectangle2.collidepoint(event.pos):
+                print("wahoo")
                 other = testing_rectangle.copy()
+                pygame.draw.rect(screen, "white", other)
                 #print(pygame.mouse.get_pos()[0])
                 #print(type(pygame.mouse.get_pos()))
                 #testing_rectangle = pygame.Rect(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1], 250,100)
