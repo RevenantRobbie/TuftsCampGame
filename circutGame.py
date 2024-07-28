@@ -13,7 +13,8 @@ rectangleClickCount = 0
 pickUpRectangle = False
 
 def cloneThing(thing):
-    return thing.copy()
+    otherThing = thing.copy(testing_rectangle)
+    pygame.draw.rect(screen, "white", testing_rectangle)
 
 while running:
     # poll for events
