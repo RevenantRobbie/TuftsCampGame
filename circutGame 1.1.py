@@ -48,12 +48,12 @@ def main():
                 for shape in createdShapes:
                     if dragging == False:
                         if shape.shape.collidepoint(event.pos):
+                            print("clicked on shape")
                             dragging = True
                             shape.pickedUp = True
                     elif dragging == True:
                         dragging = False
-                else:
-                    print("clicked on nothing")
+
 
 
 
