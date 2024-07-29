@@ -1,74 +1,35 @@
-#basic frame of pygame code obtained from https://www.pygame.org/docs/.
 import pygame
 
-# pygame setup
-pygame.init()
-screen = pygame.display.set_mode((1280, 720))
-clock = pygame.time.Clock()
-running = True
-clicked = False
+SCREEN_W = 500  # height of screen
+SCREEN_H = 500  # width of screen
 
-testing_rectangle = pygame.Rect(screen.get_width()/2,screen.get_height()/2,250,100)
-testing_rectangle2 = pygame.Rect(screen.get_width()/3, screen.get_height()/3, 100, 100)
-testing_rectangle3 = pygame.Rect(screen.get_width()/2,screen.get_height()/2,250,100)
-rectangleClickCount = 0
-pickUpRectangle = False
+createdShapes = []
 
-def cloneRectangle(thing):
-    print("cloning")
-    return thing.copy()
+def main():
+    pygame.init() # creates game window
+    clock = pygame.time.Clock() # creates needed clock object
+    bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # creates specific sized screen. bg stands for background in this case
+    # bg = pygame.display.set_mode((0,0), pygame.FULLSCREEN) # creates fullscreen version
+    # bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.RESIZABLE) # creates resizable version
 
+    while True: # game runs until user decides to end it
+        clock.tick(30)  # set FPS
 
-while running:
-    # poll for events
-    # pygame.QUIT event means the user clicked X to close your window
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-            #thank you to https://medium.com/@01one/how-to-create-clickable-button-in-pygame-8dd608d17f1b for providing help with the code
+        for event in pygame.event.get(): # check for input
+            if event.type == pygame.QUIT: # closes program if X in top right clicked
+                exit() # this function call closes the program
 
+        bg.fill((255, 255, 255))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
 
-        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and pygame.mouse.get_pressed():
-            if testing_rectangle.collidepoint(event.pos):
-                rectangleClickCount += 1
-                if rectangleClickCount % 2 == 1:
-                    print("picked up")
-                    pickUpRectangle = True
-                    print("dropped")
-                else:
-                    pickUpRectangle = False
-            elif testing_rectangle2.collidepoint(event.pos):
-                clicked = True
+        # ======================
+        # game stuff goes here!
+        # ======================
 
-                #print(pygame.mouse.get_pos()[0])
-                #print(type(pygame.mouse.get_pos()))
-                #testing_rectangle = pygame.Rect(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1], 250,100)
+        pygame.display.update()  # update screen
+        #sometimes ppl do pygame.display.flip()
+        #update is better in most situations
 
+#for most games, this should get you through
 
-
-    # fill the screen with a color to wipe away anything from last frame
-    screen.fill("purple")
-
-    pygame.draw.rect(screen, "white", testing_rectangle)
-    pygame.draw.rect(screen,  "blue", testing_rectangle2)
-    # RENDER YOUR GAME HERE
-
-    #the drag rectangle function was made by Aidan Z. That's why it looks so janky.
-    if pickUpRectangle == True:
-        testing_rectangle = pygame.Rect(pygame.mouse.get_pos()[0],pygame.mouse.get_pos()[1], 250,100)
-        pygame.draw.rect(screen, "white", testing_rectangle)
-    if clicked == True:
-
-        otherRect = pygame.draw.rect(screen, "white", cloneRectangle(testing_rectangle))
-        #otherRect = pygame.Rect(100,100,100,100)
-        clicked = False
-
-
-
-    # flip() the display to put your work on screen
-    pygame.display.flip()
-
-    clock.tick(60)  # limits FPS to 60
-
-pygame.quit()
-
+if __name__ == '__main__':
+    main()
