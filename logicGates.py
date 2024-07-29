@@ -9,10 +9,7 @@
 
 
 def andGate(input1, input2):
-    if input1 and input2 == True:
-        return True
-    else:
-        return False
+    return input1 and input2
 
 def orGate(input1, input2):
     if input1 or input2:
