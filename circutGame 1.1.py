@@ -48,7 +48,6 @@ def main():
                     createdShapes.append(newShape)
                 for shape in createdShapes:
                     if shape.shape.collidepoint(event.pos):
-
                         if dragging == False:
                             dragging = True
                             shape.pickedUp = True
