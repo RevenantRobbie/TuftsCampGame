@@ -45,6 +45,7 @@ def main():
                 #print("down")
                 for shape in createdShapes:
                     if shape.shape.collidepoint(event.pos):
+                        print("clicked on gate")
                         clickedOnGate = True
                         if dragging == False:
                             dragging = True
