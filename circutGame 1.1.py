@@ -53,12 +53,18 @@ def main():
                         dragging = False
 
 
-        bg.fill((0,  0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
+
+
+        bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
 
         pygame.draw.rect(bg, "purple", testingRect)
 
         for shape in createdShapes:
             pygame.draw.rect(bg, "white", shape.shape)
+
+        for shape in createdShapes:
+            if shape.pickedUp == True:
+                shape.shape = pygame. Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
         # ======================
         # game stuff goes here!
         # ======================
