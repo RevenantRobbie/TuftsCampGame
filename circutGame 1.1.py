@@ -50,6 +50,7 @@ def main():
                     if shape.shape.collidepoint(event.pos):
                         print("Clicked on shape")
                         if dragging == False:
+                            print("picking shape up")
                             dragging = True
                             shape.pickedUp = True
                         elif dragging == True:
