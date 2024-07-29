@@ -4,7 +4,8 @@ SCREEN_W = 500  # height of screen
 SCREEN_H = 500  # width of screen
 
 class logicGate:
-    def __init__ (self, pickedUp, input1, input2, output)
+    def __init__ (self, shape, pickedUp, input1, input2, output)
+        self.shape = shape
         self.pickedUp = pickedUp
         self.input1 = input1
         self.input2 = input2
@@ -47,6 +48,9 @@ def main():
 
         bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
 
+        pygame.draw.rect(bg, "white", testingRect)
+        for shape in createdShapes:
+            pygame.draw.rect(bg, "white", shape)
         # ======================
         # game stuff goes here!
         # ======================

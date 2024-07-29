@@ -33,8 +33,7 @@ def nandGate(input1,input2):
     return notGate(andGate(input1, input2))
 
 def xorGate(input1, input2):
-
-
+    if input1 or input2 == True:
 
 
 def xnorGate(input1, input2):
