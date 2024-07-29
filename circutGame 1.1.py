@@ -63,8 +63,6 @@ def main():
                         dragging == False
                         for shape in createdShapes:
                             shape.pickedUp = False
-                clickedOnGate = False
-
 
 
 
