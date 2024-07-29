@@ -54,9 +54,9 @@ def main():
                 print("motion")
                 for shape in createdShapes:
                     if dragging == True and shape.pickedUp == True:
-                        mouse_pose = pygame.mouse.get_pos()
-                        shape.shape = pygame.Rect(mouse_pose[0], mouse_pose[1],250,100)          
-                    
+                        mouse_pos = pygame.mouse.get_pos()
+                        shape.shape = pygame.Rect(mouse_pose[0], mouse_pose[1],250,100)
+
             elif event.type == pygame.MOUSEBUTTONUP:
                 print("up")
                 dragging = False
