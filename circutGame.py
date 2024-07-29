@@ -4,6 +4,7 @@ SCREEN_W = 500  # height of screen
 SCREEN_H = 500  # width of screen
 
 createdShapes = []
+pickedUp = False
 
 def main():
     pygame.init() # creates game window
@@ -19,7 +20,12 @@ def main():
             if event.type == pygame.QUIT: # closes program if X in top right clicked
                 exit() # this function call closes the program
             elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and pygame.mouse.get_pressed():
-                for i in createdShapes
+                for shape in createdShapes:
+                    if shape.collidepoint(event.pos):
+                        pickedUp == True
+
+
+                        break
 
         bg.fill((255, 255, 255))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
 
