@@ -9,6 +9,11 @@ class logicGate:
         self.input1 = input1
         self.input2 = input2
         self.output = output
+    def togglePickedUp():
+        if self.pickedUp == True:
+            self.pickedUp = False
+        else
+            self.pickedUp = True
 
 createdShapes = []
 pickedUp = False
