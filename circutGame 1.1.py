@@ -55,6 +55,7 @@ def main():
 
                         elif dragging == True:
                             dragging = False
+                            shape.pickedUp = False
 
 
 
