@@ -41,9 +41,11 @@ def main():
                 exit() # this function call closes the program
 
             elif event.type == pygame.MOUSEBUTTONDOWN:
+                clickedOnGate = False
                 #print("down")
                 for shape in createdShapes:
                     if shape.shape.collidepoint(event.pos):
+                        clickedOnGate = True
                         if dragging == False:
                             dragging = True
                             shape.pickedUp = True
@@ -55,10 +57,13 @@ def main():
                     print("clicked on button")
                     newShape = logicGate(defaultGateShape, False, False, False,False)
                     createdShapes.append(newShape)
-                # else:
-                #     dragging == False
-                #     for shape in createdShapes:
-                #         shape.pickedUp = False
+                else:
+                    if clickedOnGate == False:
+                        print("clicked on nothing")
+                        dragging == False
+                        for shape in createdShapes:
+                            shape.pickedUp = False
+                clickedOnGate = False
 
 
 
@@ -74,7 +79,6 @@ def main():
         for shape in createdShapes:
             if dragging == True:
                 if shape.pickedUp == True:
-                    print(shape)
                     shape.shape = pygame. Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
         # ======================
         # game stuff goes here!
