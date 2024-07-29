@@ -49,22 +49,11 @@ def main():
                         if shape.shape.collidepoint(event.pos):
                             dragging = True
                             shape.pickedUp = True
-
-            elif event.type == pygame.MOUSEMOTION:
-                print("motion")
-                for shape in createdShapes:
-                    if dragging == True and shape.pickedUp == True:
-                        mouse_pos = pygame.mouse.get_pos()
-                        shape.shape = pygame.Rect(mouse_pos[0], mouse_pos[1],250,100)
-
-            elif event.type == pygame.MOUSEBUTTONUP:
-                print("up")
-                dragging = False
-                for shape in createdShapes:
-                    shape.pickedUp = False
+                    elif dragging == True:
+                        dragging = False
 
 
-        bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
+        bg.fill((0,  0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
 
         pygame.draw.rect(bg, "purple", testingRect)
 
