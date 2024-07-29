@@ -42,20 +42,23 @@ def main():
 
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 #print("down")
-                if testingRect.collidepoint(event.pos):
-                    print("clicked on button")
-                    newShape = logicGate(defaultGateShape, False, False, False,False)
-                    createdShapes.append(newShape)
                 for shape in createdShapes:
                     if shape.shape.collidepoint(event.pos):
                         if dragging == False:
                             dragging = True
                             shape.pickedUp = True
                             print(createdShapes)
-
                         elif dragging == True:
                             dragging = False
                             shape.pickedUp = False
+                if testingRect.collidepoint(event.pos):
+                    print("clicked on button")
+                    newShape = logicGate(defaultGateShape, False, False, False,False)
+                    createdShapes.append(newShape)
+                # else:
+                #     dragging == False
+                #     for shape in createdShapes:
+                #         shape.pickedUp = False
 
 
 
