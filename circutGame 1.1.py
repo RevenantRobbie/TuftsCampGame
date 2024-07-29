@@ -49,7 +49,8 @@ def main():
                         if shape.shape.collidepoint(event.pos):
                             dragging = True
                             shape.pickedUp = True
-                   
+                    elif dragging == True:
+                        dragging = False
 
 
 
