@@ -2,8 +2,8 @@ import pygame
 
 screen = pygame.display.set_mode((1280,720))
 
-SCREEN_W = screen.get_width  # height of screen
-SCREEN_H = screen.get_height  # width of screen
+SCREEN_W = screen.get_width()  # height of screen
+SCREEN_H = screen.get_height()  # width of screen
 
 class logicGate:
     def __init__ (self, shape, pickedUp, input1, input2, output):
