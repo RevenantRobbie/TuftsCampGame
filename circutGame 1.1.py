@@ -25,7 +25,9 @@ testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
 createdShapes = []
 pickedUp = False
 
+
 def main():
+    dragging = False
     pygame.init() # creates game window
     clock = pygame.time.Clock() # creates needed clock object
     bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # creates specific sized screen. bg stands for background in this case
@@ -34,7 +36,6 @@ def main():
 
     while True: # game runs until user decides to end it
         clock.tick(30)  # set FPS
-        dragging = False
         for event in pygame.event.get(): # check for input
             if event.type == pygame.QUIT: # closes program if X in top right clicked
                 exit() # this function call closes the program
@@ -46,13 +47,23 @@ def main():
                     newShape = logicGate(defaultGateShape, False, False, False,False)
                     createdShapes.append(newShape)
                 for shape in createdShapes:
-                    if dragging == False:
-                        if shape.shape.collidepoint(event.pos):
-                            print("clicked on shape")
+                    if shape.shape.collidepoint(event.pos):
+                        print("Clicked on shape")
+                        if dragging == False:
                             dragging = True
                             shape.pickedUp = True
-                    elif dragging == True:
-                        dragging = False
+                        elif dragging == True:
+                            print("Setting shape down")
+                            dragging = False
+
+                    # if dragging == False:
+                    #     if shape.shape.collidepoint(event.pos):
+                    #         print("clicked on shape")
+                    #         dragging = True
+                    #         shape.pickedUp = True
+                    # elif dragging == True:
+                    #     print("setting shape down")
+                    #     dragging = False
 
 
 
