@@ -2,7 +2,7 @@
  #       NOT gate     /
   #      XOR gate
    #     XNOR gate
-    #    NAND gate
+    #    NAND gate    /
      #   OR gate     /
       #  NOR gate   /
 
@@ -27,10 +27,15 @@ def notGate(input1):
         return True
 
 def norGate(input1, input2):
-    notGate(andGate(input1, input2))
-
-
-
+    return notGate(orGate(input1, input2))
 
 def nandGate(input1,input2):
+    return notGate(andGate(input1, input2))
 
+def xorGate(input1, input2):
+
+
+
+
+def xnorGate(input1, input2):
+    return notGate(xorGate(input1, input2))

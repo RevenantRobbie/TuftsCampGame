@@ -9,12 +9,15 @@ class logicGate:
         self.input1 = input1
         self.input2 = input2
         self.output = output
+
     def togglePickedUp():
         if self.pickedUp == True:
             self.pickedUp = False
         else
             self.pickedUp = True
 
+
+testingRect = pygame.Rect(screen.get_width(/2,screen.get_height (/2,250,100)
 createdShapes = []
 pickedUp = False
 
@@ -32,14 +35,17 @@ def main():
             if event.type == pygame.QUIT: # closes program if X in top right clicked
                 exit() # this function call closes the program
             elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and pygame.mouse.get_pressed():
+                if testingRect.collidepoint(event.pos):
+                    #create new shape here
                 for shape in createdShapes:
                     if shape.collidepoint(event.pos):
                         pickedUp == True
 
 
+
                         break
 
-        bg.fill((255, 255, 255))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
+        bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
 
         # ======================
         # game stuff goes here!
