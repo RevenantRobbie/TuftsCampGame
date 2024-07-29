@@ -1,7 +1,7 @@
 import pygame
 
-SCREEN_W = 500  # height of screen
-SCREEN_H = 500  # width of screen
+SCREEN_W = screen.get_width  # height of screen
+SCREEN_H = screen.get_height  # width of screen
 
 class logicGate:
     def __init__ (self, shape, pickedUp, input1, input2, output)
@@ -18,6 +18,7 @@ class logicGate:
             self.pickedUp = True
 
 
+defaultGateShape = pygame.Rect(screen.get_width(/2,screen.get_height (/2,100,100)
 testingRect = pygame.Rect(screen.get_width(/2,screen.get_height (/2,250,100)
 createdShapes = []
 pickedUp = False
@@ -37,7 +38,8 @@ def main():
                 exit() # this function call closes the program
             elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and pygame.mouse.get_pressed():
                 if testingRect.collidepoint(event.pos):
-                    #create new shape here
+                    newShape = logicGate(defaultGateShape, True, )
+                    createdShapes.append()
                 for shape in createdShapes:
                     if shape.collidepoint(event.pos):
                         pickedUp == True
@@ -48,7 +50,8 @@ def main():
 
         bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
 
-        pygame.draw.rect(bg, "white", testingRect)
+        pygame.draw.rect(bg, "purple", testingRect)
+
         for shape in createdShapes:
             pygame.draw.rect(bg, "white", shape)
         # ======================
