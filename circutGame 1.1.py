@@ -12,8 +12,7 @@ class logicGate:
         self.input1 = input1
         self.input2 = input2
         self.output = output
-    def print(a):
-        print(a)
+
 
     # def togglePickedUp():
     #     if self.pickedUp == True:
@@ -27,7 +26,7 @@ testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
 createdShapes = []
 pickedUp = False
 
-b = logicGate()
+
 
 def main():
     dragging = False
