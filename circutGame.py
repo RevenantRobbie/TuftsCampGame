@@ -19,6 +19,9 @@ class logicGate:
         else:
             self.pickedUp = True
 
+    def pickUp():
+        
+
 
 defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
 testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
