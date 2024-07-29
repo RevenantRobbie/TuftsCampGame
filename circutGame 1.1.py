@@ -56,6 +56,7 @@ def main():
                         elif dragging == True:
                             print("Setting shape down")
                             dragging = False
+                            print(dragging)
 
                     # if dragging == False:
                     #     if shape.shape.collidepoint(event.pos):
