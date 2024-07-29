@@ -48,24 +48,14 @@ def main():
                     createdShapes.append(newShape)
                 for shape in createdShapes:
                     if shape.shape.collidepoint(event.pos):
-                        print("Clicked on shape")
+
                         if dragging == False:
-                            print("picking shape up")
+
                             dragging = True
                             shape.pickedUp = True
                         elif dragging == True:
-                            print("Setting shape down")
-                            dragging = False
-                            print(dragging)
 
-                    # if dragging == False:
-                    #     if shape.shape.collidepoint(event.pos):
-                    #         print("clicked on shape")
-                    #         dragging = True
-                    #         shape.pickedUp = True
-                    # elif dragging == True:
-                    #     print("setting shape down")
-                    #     dragging = False
+                            dragging = False
 
 
 
@@ -79,8 +69,9 @@ def main():
             pygame.draw.rect(bg, "white", shape.shape)
 
         for shape in createdShapes:
-            if shape.pickedUp == True and dragging == True:
-                shape.shape = pygame. Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
+            if dragging == True:
+                if shape.pickedUp == True
+                    shape.shape = pygame. Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
         # ======================
         # game stuff goes here!
         # ======================
