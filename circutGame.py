@@ -38,7 +38,6 @@ while running:
                 else:
                     pickUpRectangle = False
             elif testing_rectangle2.collidepoint(event.pos):
-                print("wahoo")
                 clicked = True
 
                 #print(pygame.mouse.get_pos()[0])
