@@ -55,7 +55,7 @@ def main():
                 for shape in createdShapes:
                     if dragging == True and shape.pickedUp == True:
                         mouse_pos = pygame.mouse.get_pos()
-                        shape.shape = pygame.Rect(mouse_pose[0], mouse_pose[1],250,100)
+                        shape.shape = pygame.Rect(mouse_pos[0], mouse_pos[1],250,100)
 
             elif event.type == pygame.MOUSEBUTTONUP:
                 print("up")
