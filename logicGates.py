@@ -38,7 +38,5 @@ def xorGate(input1, input2):
     elif input1 == notGate(input2):
         return True
 
-
-
 def xnorGate(input1, input2):
     return notGate(xorGate(input1, input2))

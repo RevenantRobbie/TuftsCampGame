@@ -1,10 +1,12 @@
 import pygame
 
+screen = pygame.display.set_mode((1280,720))
+
 SCREEN_W = screen.get_width  # height of screen
 SCREEN_H = screen.get_height  # width of screen
 
 class logicGate:
-    def __init__ (self, shape, pickedUp, input1, input2, output)
+    def __init__ (self, shape, pickedUp, input1, input2, output):
         self.shape = shape
         self.pickedUp = pickedUp
         self.input1 = input1
@@ -14,12 +16,12 @@ class logicGate:
     def togglePickedUp():
         if self.pickedUp == True:
             self.pickedUp = False
-        else
+        else:
             self.pickedUp = True
 
 
-defaultGateShape = pygame.Rect(screen.get_width(/2,screen.get_height (/2,100,100)
-testingRect = pygame.Rect(screen.get_width(/2,screen.get_height (/2,250,100)
+defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
+testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
 createdShapes = []
 pickedUp = False
 
@@ -38,14 +40,11 @@ def main():
                 exit() # this function call closes the program
             elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and pygame.mouse.get_pressed():
                 if testingRect.collidepoint(event.pos):
-                    newShape = logicGate(defaultGateShape, True, )
-                    createdShapes.append()
+                    newShape = logicGate(defaultGateShape, False, False, False,False)
+                    createdShapes.append(newShape)
                 for shape in createdShapes:
                     if shape.collidepoint(event.pos):
-                        pickedUp == True
-
-
-
+                        print(shape)
                         break
 
         bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
