@@ -43,7 +43,7 @@ def main():
                     newShape = logicGate(defaultGateShape, False, False, False,False)
                     createdShapes.append(newShape)
                 for shape in createdShapes:
-                    if shape.collidepoint(event.pos):
+                    if shape.shape.collidepoint(event.pos):
                         print(shape)
 
         bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
@@ -51,7 +51,7 @@ def main():
         pygame.draw.rect(bg, "purple", testingRect)
 
         for shape in createdShapes:
-            pygame.draw.rect(bg, "white", shape)
+            pygame.draw.rect(bg, "white", shape.shape)
         # ======================
         # game stuff goes here!
         # ======================
