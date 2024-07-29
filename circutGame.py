@@ -45,7 +45,6 @@ def main():
                 for shape in createdShapes:
                     if shape.collidepoint(event.pos):
                         print(shape)
-                        break
 
         bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
 
