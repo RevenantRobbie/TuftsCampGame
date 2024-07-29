@@ -11,7 +11,8 @@
 def andGate(input1, input2):
     if input1 and input2 == True:
         return True
-    elif
+    else:
+        return False
 
 
 
@@ -19,6 +20,8 @@ def andGate(input1, input2):
 def orGate(input1, input2):
     if input1 or input2:
         return True
+    elif input1 and input2 == True:
+            return True
     else:
         return False
 
@@ -28,4 +31,7 @@ def notGate(input1):
     else:
         return True
 
-def norgate
+def norGate(input1, input2):
+    if input1 == False and input2 == False
+
+

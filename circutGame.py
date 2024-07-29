@@ -3,6 +3,13 @@ import pygame
 SCREEN_W = 500  # height of screen
 SCREEN_H = 500  # width of screen
 
+class logicGate:
+    def __init__ (self, pickedUp, input1, input2, output)
+        self.pickedUp = pickedUp
+        self.input1 = input1
+        self.input2 = input2
+        self.output = output
+
 createdShapes = []
 pickedUp = False
 
