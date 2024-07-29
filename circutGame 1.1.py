@@ -52,6 +52,7 @@ def main():
                             dragging = True
                             shape.pickedUp = True
                             print(createdShapes)
+
                         elif dragging == True:
                             dragging = False
 
@@ -69,6 +70,7 @@ def main():
         for shape in createdShapes:
             if dragging == True:
                 if shape.pickedUp == True:
+                    print(shape)
                     shape.shape = pygame. Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
         # ======================
         # game stuff goes here!
