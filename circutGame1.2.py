@@ -106,9 +106,9 @@ class wires:
 
     def drawLine(self):
         if self.pickedUp == False:
-            pygame.draw.lines(bg, "orange", False, [(self.startPoint[0], self.startPoint[1]),(self.endPoint[0], self.endPoint[1])], 3)
+            pygame.draw.line(bg, "orange", (self.startPoint[0], self.startPoint[1]),(self.endPoint[0], self.endPoint[1]), 3)
         elif self.pickedUp == True:
-            pygame.draw.lines(bg, "orange", False, [(self.startPoint[0], self.startPoint[1]), (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1])],3)
+            pygame.draw.line(bg, "orange", (self.startPoint[0], self.startPoint[1]), (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1]),3)
 
 
 
@@ -153,9 +153,9 @@ def main():
                                 createdWires.append(newWire)
                                 draggedWire = newWire
                             elif shape.inUse == False and draggedWire != None:
-                                draggedWire.endpoint = (shape.shape[0], shape.shape[1])
+                                draggedWire.endpoint = (100,500)
                                 draggedWire.pickedUp = False
-                                draggedWire = None
+                                #draggedWire = None
 
 
 
