@@ -192,7 +192,7 @@ def main():
 
                 elif event.button == 3:
                     print("m2 clicked")
-                    for  i, shape in enumerate(createdRectangles): #check if rectangles are clicked on
+                    for  shape in createdRectangles: #check if rectangles are clicked on
                         if shape.shape.collidepoint(event.pos):
                             print("deleting something")
                             len_Node = len(createdNodes)
