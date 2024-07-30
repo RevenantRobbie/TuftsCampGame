@@ -7,8 +7,9 @@ SCREEN_H = screen.get_height()  # width of screen
 bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # creates specific sized screen. bg stands for background in this case
 #objects declared
 class logicGate:
-    def __init__ (self, shape, pickedUp, input1, input2, output):
+    def __init__ (self, type, shape, pickedUp, input1, input2, output):
         self.shape = shape
+        self.type = type
         self.pickedUp = pickedUp
         self.input1 = input1
         self.input2 = input2
@@ -94,7 +95,7 @@ def main():
 
                 if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
                     print("clicked on button")
-                    newShape = logicGate(defaultGateShape, False, False, False,False)
+                    newShape = logicGate("AND",defaultGateShape, False, False, False,False)
                     newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
                     newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
                     newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
