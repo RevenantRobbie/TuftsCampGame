@@ -65,8 +65,8 @@ def main():
     createdWires = []
     #inUse = False #checks if the mouse is doing something so it can't do 2 things at once
     manipulation_gate = False
-    draggingWire = False
-    draggedWire = null
+    #draggingWire = False
+    draggedWire = None
 
     # dragging = False
     pygame.init() # creates game window
@@ -90,14 +90,13 @@ def main():
                     #TODO drop logic on m1 click on anything. This can probably be done by changing pickedUp/inUse whenever a m1 event takes place.
                     for shape in createdNodes:
                         if shape.shape.collidepoint(event.pos) and manipulation_gate == False:
-                            if shape.inUse == False and draggingWire == False: #create wire
+                            if shape.inUse == False and draggedWire == None: #create wire
                                 newWire = wires((shape.shape[0], shape.shape[1]), (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1]), True)
                                 createdWires.append(newWire)
-                            elif shape.inUse == False and draggingWire == True:
-                                print(shape)
-                                print(shape.inUse)
-                                draggingWire == True
-                                shape.inUse = True
+                                draggedWire = newWire
+                            elif shape.inUse == False and draggedWire != None:
+                                draggedWire.endpoint = (shape.shape[0], shape.shape[1])
+                                draggedWire = None
 
 
 
@@ -136,6 +135,7 @@ def main():
                     for shape in createdRectangles: #check if rectangles are clicked on
                         if shape.shape.collidepoint(event.pos):
                             #nodes need to be deleted
+                            del shape.shape
 
 
 
