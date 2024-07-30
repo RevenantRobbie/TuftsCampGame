@@ -34,6 +34,13 @@ class connectorNode:
 
     def returnSelf(self):
         return self
+class wires:
+    def __init__ (self, startPoint, endPoint):
+        self.startPoint = startPoint
+        self.endPoint = endPoint
+
+    def drawLine(self):
+        line
 
 
 #variables declared
@@ -73,7 +80,7 @@ def main():
                     if shape.shape.collidepoint(event.pos) and manipulation_gate == False:
                         if shape.inUse == False: #create wire
                             """" so, this is crazy
-                            
+
                             """
                             print(shape)
                             print(shape.inUse)
@@ -85,14 +92,16 @@ def main():
                 for shape in createdRectangles: #check if rectangles are clicked on
                     if shape.shape.collidepoint(event.pos):
                         print("clicked on gate")
-                        clickedOnGate = True
-                        if dragging == False:
-                            dragging = True
-                            shape.pickedUp = True
-                            print(createdRectangles)
-                        elif dragging == True:
-                            dragging = False
-                            shape.pickedUp = False
+                        if manipulation_gate == True:
+
+                    #     clickedOnGate = True
+                    #     if dragging == False:
+                    #         dragging = True
+                    #         shape.pickedUp = True
+                    #         print(createdRectangles)
+                    #     elif dragging == True:
+                    #         dragging = False
+                    #         shape.pickedUp = False
 
                 if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
                     print("clicked on button")
