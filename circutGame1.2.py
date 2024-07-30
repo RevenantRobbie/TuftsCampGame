@@ -58,6 +58,8 @@ def main():
             if event.type == pygame.QUIT: # closes program if X in top right clicked
                 exit() # this function call closes the program
 #---m1 event---
+
+#TODO clean up code here.
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 clickedOnGate = False
                 #TODO check if circle nodes are clicked on
@@ -65,7 +67,7 @@ def main():
                 #TODO drop logic on m1 click on anything. This can probably be done by changing pickedUp/inUse whenever a m1 event takes place.
 
                 for shape in createdNodes:
-                    if shape.shape.collidepoint(event.pos):
+                    if shape.shape.collidepoint(event.pos) and dragging == False:
 
                         if shape.inUse == False: #create wire
                             print(shape)
