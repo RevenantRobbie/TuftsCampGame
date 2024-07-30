@@ -22,6 +22,8 @@ class connectorNode:
         self.inUse = inUse
 
     def drawCircle(self)
+        if self.inputOutput = "input1":
+            pygame.draw.circle(bg, parent.shape[0]+75)
 
 
 #variables declared
