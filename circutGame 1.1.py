@@ -83,8 +83,8 @@ def main():
 
         for shape in createdRectangles:
             pygame.draw.rect(bg, "white", shape.shape)
-            pygame.draw.circle(bg, "blue", (shape.shape., 0), 25)
-            pygame.draw.circle(bg, "blue", (175, 0), 25)
+            pygame.draw.circle(bg, "blue", (shape.shape[0]+75, shape.shape[1]), 25)
+            #pygame.draw.circle(bg, "blue", (175, 0), 25)
 
         for shape in createdRectangles:
             if dragging == True:
