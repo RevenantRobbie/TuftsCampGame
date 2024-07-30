@@ -195,16 +195,16 @@ def main():
                     for  i, shape in enumerate(createdRectangles): #check if rectangles are clicked on
                         if shape.shape.collidepoint(event.pos):
                             print("deleting something")
-                            print(len(createdNodes))
-                            for i,node in enumerate(createdNodes):
-                                print(i)
-                                print(node)
+                            len_Node = len(createdNodes)
+                            for i in range(len_Node):
                                 #print(node.parent)
-                                if node.parent == shape:
+                                Node =createdNodes.pop()
+                                if Node.parent == shape:
                                     print("Length:", len(createdNodes))
                                     print("we removed something")
-                                    createdNodes.remove(node)
-                                
+                                else:
+                                    createdNodes.append(Node)
+
 
 
                             #nodes need to be deleted
