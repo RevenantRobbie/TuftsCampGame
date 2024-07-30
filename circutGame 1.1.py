@@ -17,7 +17,7 @@ class logicGate:
 class connectorNode:
     def __init__ (self, parent, circleLoc, inputOutput, inUse): #NOTE only circleLoc is a var here since the circle radius, color, and background remain consistent
         self.parent = parent
-        self.circleLoc = circleLoc
+        self.circleLoc = circleLoc #idk if this is nessecary
         self.inputOutput = inputOutput
         self.inUse = inUse
 
