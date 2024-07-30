@@ -23,9 +23,6 @@ class connectorNode:
 
 #variables declared
 defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
-defaultNodeX = 0
-defaultNodeY = 0
-defaultNodeShape = pygame.Rect(defaultNodeX,defaultNodeY, 25,25)
 testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
 createdRectangles = []
 createdCircles = []
@@ -89,19 +86,10 @@ def main():
         for shape in createdRectangles:
             pygame.draw.rect(bg, "white", shape.shape)
             #TODO make circles a seperate class where you can click on them and drag a line to other circles
-            defaultNodeX = shape.shape[0]+75
-            defaultNodeY = shape.shape[1]+100
-            print(defaultNodeShape)
-            pygame.draw.rect(bg, "blue", defaultNodeShape)
-            defaultNodeX = shape.shape[0] + 175
-            pygame.draw.rect(bg, "blue", defaultNodeShape)
-            defaultNodeX = shape.shape[0]+125
-            defaultNodeY = shape.shape[1]
-            pygame.draw.rect(bg, "blue", defaultNodeShape)
 
-            # pygame.draw.circle(bg, "blue", (shape.shape[0]+75, shape.shape[1]+100), 25) #input1
-            # pygame.draw.circle(bg, "blue", (shape.shape[0]+175, shape.shape[1]+100), 25) #input2
-            # pygame.draw.circle(bg, "blue", (shape.shape[0]+125, shape.shape[1]), 25) #output
+            pygame.draw.circle(bg, "blue", (shape.shape[0]+75, shape.shape[1]+100), 25) #input1
+            pygame.draw.circle(bg, "blue", (shape.shape[0]+175, shape.shape[1]+100), 25) #input2
+            pygame.draw.circle(bg, "blue", (shape.shape[0]+125, shape.shape[1]), 25) #output
 
         for shape in createdRectangles:
             if dragging == True:
