@@ -197,6 +197,8 @@ def main():
                             print("deleting something")
                             len_Node = len(createdNodes)
                             for i in range(len_Node):
+                                print(Node.parent)
+                                print(shape)
                                 #print(node.parent)
                                 Node =createdNodes.pop()
                                 if Node.parent == shape:
