@@ -17,11 +17,11 @@ class logicGate:
 class connectorNode:
     def __init__ (self, parent, inputOutput, inUse): #NOTE only circleLoc is a var here since the circle radius, color, and background remain consistent
         self.parent = parent
-        self.circleLoc = circleLoc #idk if this is nessecary
+        #self.circleLoc = circleLoc #idk if this is nessecary
         self.inputOutput = inputOutput
         self.inUse = inUse
 
-    def drawCircle(self)
+    def drawCircle(self):
         if self.inputOutput == "input1":
             pygame.draw.circle(bg, (parent.shape[0]+75, parent.shape[1]+100), 25)
         elif self.inputOutput == "input2":
@@ -111,7 +111,7 @@ def main():
                 if shape.pickedUp == True:
                     shape.shape = pygame. Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
         for shape in createdNodes:
-            
+            shape.drawCircle()
 
         pygame.display.update()  # update screen
         #sometimes ppl do pygame.display.flip()
