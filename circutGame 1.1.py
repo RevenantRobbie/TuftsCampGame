@@ -26,7 +26,7 @@ testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
 createdShapes = []
 pickedUp = False
 
-inputOutputNode = pygame.Rect(50,50,50,50)
+
 
 def main():
     dragging = False
