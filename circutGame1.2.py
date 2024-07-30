@@ -150,12 +150,13 @@ def main():
                     for shape in createdNodes:
                         if shape.shape.collidepoint(event.pos):
                             if shape.inUse == False and draggedWire == None: #create wire
+                                draggedWire.
                                 newWire = wires((shape.shape[0], shape.shape[1]), [0,0], True)
                                 createdWires.append(newWire)
                                 draggedWire = newWire
                                 shape.inUse = True
                             elif shape.inUse == False and draggedWire != None:
-                                draggedWire.endPoint = [shape.shape[0], shape.shape[1]]
+                                draggedWire.endPoint = shape
                                 print(draggedWire.endPoint)
                                 draggedWire.pickedUp = False
                                 shape.inUse = True
