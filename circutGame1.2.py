@@ -31,6 +31,9 @@ class connectorNode:
             self.shape = pygame.Rect(self.parent.shape[0]+125, self.parent.shape[1]-15, 15, 15)
         pygame.draw.rect(bg, "blue", self.shape)
 
+    def returnSelf(self):
+        return self
+
 
 #variables declared
 defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
