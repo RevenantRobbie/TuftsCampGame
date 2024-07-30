@@ -109,7 +109,7 @@ def main():
                 if shape.pickedUp == True:
                     shape.shape = pygame.Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
         for shape in createdNodes:
-            shape.drawCircle()
+            shape.redrawSelf()
 
         pygame.display.update()  # update screen
         #sometimes ppl do pygame.display.flip()
