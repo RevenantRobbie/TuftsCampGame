@@ -58,7 +58,7 @@ def main():
     createdRectangles = []
     createdNodes = []
     createdWires = []
-    inUse = False #checks if the mouse is doing something so it can't do 2 things at once
+    #inUse = False #checks if the mouse is doing something so it can't do 2 things at once
     manipulation_gate = False
 
     # dragging = False
