@@ -151,7 +151,7 @@ def main():
                     for shape in createdNodes:
                         if shape.shape.collidepoint(event.pos):
                             if shape.inUse == False and draggedWire == None: #create wire
-                                newWire = wires((shape.shape[0], shape.shape[1]), (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1]), True)
+                                newWire = wires((shape.shape[0], shape.shape[1]), None, True)
                                 createdWires.append(newWire)
                                 draggedWire = newWire
                             elif shape.inUse == False and draggedWire != None:
