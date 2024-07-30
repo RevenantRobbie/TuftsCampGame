@@ -4,7 +4,7 @@ screen = pygame.display.set_mode((1280,720))
 
 SCREEN_W = screen.get_width()  # height of screen
 SCREEN_H = screen.get_height()  # width of screen
-
+bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # creates specific sized screen. bg stands for background in this case
 #objects declared
 class logicGate:
     def __init__ (self, shape, pickedUp, input1, input2, output):
@@ -23,11 +23,11 @@ class connectorNode:
 
     def drawCircle(self):
         if self.inputOutput == "input1":
-            pygame.draw.circle(bg, (parent.shape[0]+75, parent.shape[1]+100), 25)
+            pygame.draw.circle(bg, (self.parent.shape[0]+75, self.parent.shape[1]+100), 25)
         elif self.inputOutput == "input2":
-            pygame.draw.circle(bg, "blue", (parent.shape[0]+175, parent.shape[1]+100), 25) #input2
+            pygame.draw.circle(bg, "blue", (self.parent.shape[0]+175, self.parent.shape[1]+100), 25) #input2
         elif self.inputOutput == "output":
-            pygame.draw.circle(bg, "blue", (parent.shape[0]+125, parent.shape[1]), 25) #output
+            pygame.draw.circle(bg, "blue", (self.parent.shape[0]+125, self.parent.shape[1]), 25) #output
 
 
 #variables declared
@@ -43,7 +43,7 @@ def main():
     dragging = False
     pygame.init() # creates game window
     clock = pygame.time.Clock() # creates needed clock object
-    bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # creates specific sized screen. bg stands for background in this case
+
     # bg = pygame.display.set_mode((0,0), pygame.FULLSCREEN) # creates fullscreen version
     # bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.RESIZABLE) # creates resizable version
 
