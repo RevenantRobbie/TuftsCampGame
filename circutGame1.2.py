@@ -155,7 +155,7 @@ def main():
                                 draggedWire = newWire
                             elif shape.inUse == False and draggedWire != None:
                                 print("ouwhehiwhurh")
-
+                                draggedWire.endPoint.clear()
                                 draggedWire.endpoint = [shape.shape[0], shape.shape[1]]
                                 print([shape.shape[0], shape.shape[1]])
                                 print(draggedWire.endPoint)
