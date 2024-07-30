@@ -23,7 +23,7 @@ class connectorNode:
 
     def drawCircle(self):
         if self.inputOutput == "input1":
-            pygame.draw.circle(bg, (self.parent.shape[0]+75, self.parent.shape[1]+100), 25)
+            pygame.draw.circle(bg, "blue", (self.parent.shape[0]+75, self.parent.shape[1]+100), 25)
         elif self.inputOutput == "input2":
             pygame.draw.circle(bg, "blue", (self.parent.shape[0]+175, self.parent.shape[1]+100), 25) #input2
         elif self.inputOutput == "output":
