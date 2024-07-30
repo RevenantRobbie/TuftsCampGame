@@ -40,7 +40,7 @@ class wires:
         self.endPoint = endPoint
 
     def drawLine(self):
-        line
+        pygame.draw.lines(bg, "orange", )
 
 
 #variables declared
@@ -93,7 +93,11 @@ def main():
                     if shape.shape.collidepoint(event.pos):
                         print("clicked on gate")
                         if manipulation_gate == True:
-
+                            manipulation_gate = False
+                            shape.pickedUp =False
+                        elif manipulation_gate == False:
+                            manipulation_gate = True
+                            shape.pickedUp
                     #     clickedOnGate = True
                     #     if dragging == False:
                     #         dragging = True
