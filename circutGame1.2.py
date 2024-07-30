@@ -155,6 +155,7 @@ def main():
                             elif shape.inUse == False and draggedWire != None:
                                 draggedWire.endpoint = (shape.shape[0], shape.shape[1])
                                 draggedWire = None
+                                draggedWire.pickedUp = False
 
 
 
