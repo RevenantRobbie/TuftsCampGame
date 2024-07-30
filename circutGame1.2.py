@@ -66,6 +66,7 @@ def main():
 
                 for shape in createdNodes:
                     if shape.shape.collidepoint(event.pos):
+                        
                         if shape.inUse == False: #create wire
                             print(shape)
                             print(shape.inUse)
