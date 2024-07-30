@@ -59,8 +59,8 @@ def main():
                 if testingRect.collidepoint(event.pos):
                     print("clicked on button")
                     newShape = logicGate(defaultGateShape, False, False, False,False)
-                    inputNode1 = pygame.draw.circle(newShape.shape, "black", 75, 0, 25)
-                    inputNode2 = pygame.draw.circle(newShape.shape, "black", 175, 0, 25)
+                    inputNode1 = pygame.draw.circle(bg, "blue", 75, 0, 25)
+                    inputNode2 = pygame.draw.circle(bg, "blue", 175, 0, 25)
                     createdShapes.append(newShape)
                 else:
                     if clickedOnGate == False:
