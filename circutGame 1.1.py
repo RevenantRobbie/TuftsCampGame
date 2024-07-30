@@ -15,7 +15,7 @@ class logicGate:
         self.output = output
 
 class connectorNode:
-    def __init__ (self, parent, circleLoc, inputOutput, inUse): #NOTE only circleLoc is a var here since the circle radius, color, and background remain consistent
+    def __init__ (self, parent, inputOutput, inUse): #NOTE only circleLoc is a var here since the circle radius, color, and background remain consistent
         self.parent = parent
         self.circleLoc = circleLoc #idk if this is nessecary
         self.inputOutput = inputOutput
@@ -34,7 +34,7 @@ class connectorNode:
 defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
 testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
 createdRectangles = []
-createdCircles = []
+createdNodes = []
 pickedUp = False #TODO change pickedUp name in inUse. It would probably be more apt since it will most likely serve as a var for when you are dragging a circut line too
 
 
@@ -75,10 +75,16 @@ def main():
                 if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
                     print("clicked on button")
                     newShape = logicGate(defaultGateShape, False, False, False,False)
+                    newInput1 = connectorNode(newShape, "input1", False)
+                    newInput2 = connectorNode(newShape, "input2", False)
+                    newOutput = connectorNode(newShape, "output", False)
 
 
                     print(newShape)
                     createdRectangles.append(newShape)
+                    createdNodes.append(newInput1)
+                    createdNodes.append(newInput2)
+                    createdNodes.append(newOutput)
                 else: #check if nothing was clicked on
                     if clickedOnGate == False:
                         print("clicked on nothing")
@@ -104,6 +110,8 @@ def main():
             if dragging == True:
                 if shape.pickedUp == True:
                     shape.shape = pygame. Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
+        for shape in createdNodes:
+            
 
         pygame.display.update()  # update screen
         #sometimes ppl do pygame.display.flip()
