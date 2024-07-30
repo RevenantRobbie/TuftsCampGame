@@ -196,7 +196,8 @@ def main():
                             print("deleting something")
                             print(len(createdNodes))
                             for node in createdNodes:
-                                print(node.parent)
+                                print(node)
+                                #print(node.parent)
                                 if node.parent == shape:
                                     createdNodes.remove(node)
 
