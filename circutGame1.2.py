@@ -76,7 +76,7 @@ class logicGate:
         #detects if gate only has one input and deletes one of the two input if so
 
 
-
+#TODO create differentiation between input to output in use
 class connectorNode:
     def __init__ (self, shape ,parent, inputOutput, inUse): #NOTE only circleLoc is a var here since the circle radius, color, and background remain consistent
         self.parent = parent
@@ -96,6 +96,7 @@ class connectorNode:
 
     def returnSelf(self):
         return self
+
 
 
 class wires:
@@ -124,7 +125,6 @@ def main():
     createdWires = []
     #inUse = False #checks if the mouse is doing something so it can't do 2 things at once
     manipulation_gate = False
-    #draggingWire = False
     draggedWire = None
 
     # dragging = False
@@ -153,14 +153,14 @@ def main():
                                 newWire = wires((shape.shape[0], shape.shape[1]), [0,0], True)
                                 createdWires.append(newWire)
                                 draggedWire = newWire
+                                shape.inUse = True
                             elif shape.inUse == False and draggedWire != None:
-                                print("ouwhehiwhurh")
-                                draggedWire.endPoint.clear()
-                                draggedWire.endpoint = [shape.shape[0], shape.shape[1]]
-                                print([shape.shape[0], shape.shape[1]])
+                                draggedWire.endPoint = [shape.shape[0], shape.shape[1]]
                                 print(draggedWire.endPoint)
                                 draggedWire.pickedUp = False
-                                #draggedWire = None
+                                shape.inUse = True
+                                draggedWire = None
+
 
 
 
