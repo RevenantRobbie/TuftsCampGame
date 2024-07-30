@@ -13,6 +13,14 @@ class logicGate:
         self.input2 = input2
         self.output = output
 
+class connectorNode:
+    def __init__ (self, shape, parent, inputOutput, inUse):
+        self.shape = shape
+        self.parent = parent
+        self.inputOutput = inputOutput
+        self.inUse = inUse
+
+
 
     # def togglePickedUp():
     #     if self.pickedUp == True:
@@ -23,7 +31,8 @@ class logicGate:
 
 defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
 testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
-createdShapes = []
+createdRectangles = []
+createdCircles = []
 pickedUp = False
 
 
@@ -45,14 +54,14 @@ def main():
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 clickedOnGate = False
                 #print("down")
-                for shape in createdShapes:
+                for shape in createdRectangles:
                     if shape.shape.collidepoint(event.pos):
                         print("clicked on gate")
                         clickedOnGate = True
                         if dragging == False:
                             dragging = True
                             shape.pickedUp = True
-                            print(createdShapes)
+                            print(createdRectangles)
                         elif dragging == True:
                             dragging = False
                             shape.pickedUp = False
@@ -61,14 +70,15 @@ def main():
                     newShape = logicGate(defaultGateShape, False, False, False,False)
                     inputNode1 = pygame.draw.circle(bg, "blue", (75, 0), 25)
                     inputNode2 = pygame.draw.circle(bg, "blue", (175, 0), 25)
-                    createdShapes.append(newShape)
-                    createdShapes.append(inputNode1)
-                    createdShapes.append(inputNode2)
+                    print(inputNode2)
+                    createdRectangles.append(newShape)
+                    createdCircles.append(inputNode1)
+                    createdCircles.append(inputNode2)
                 else:
                     if clickedOnGate == False:
                         print("clicked on nothing")
                         dragging == False
-                        for shape in createdShapes:
+                        for shape in createdRectangles:
                             shape.pickedUp = False
 
 
@@ -78,10 +88,10 @@ def main():
 
         pygame.draw.rect(bg, "purple", testingRect)
 
-        for shape in createdShapes:
+        for shape in createdRectangles:
             pygame.draw.rect(bg, "white", shape.shape)
 
-        for shape in createdShapes:
+        for shape in createdRectangles:
             if dragging == True:
                 if shape.pickedUp == True:
                     shape.shape = pygame. Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
