@@ -196,8 +196,7 @@ def main():
                         if shape.shape.collidepoint(event.pos):
                             print("deleting something")
                             print(len(createdNodes))
-                            listLen = len(createdNodes)
-                            for i,node in enumerate(3):
+                            for i,node in enumerate(createdNodes):
                                 print(i)
                                 print(node)
                                 #print(node.parent)
@@ -205,6 +204,7 @@ def main():
                                     print("Length:", len(createdNodes))
                                     print("we removed something")
                                     createdNodes.remove(node)
+                                
 
 
                             #nodes need to be deleted
