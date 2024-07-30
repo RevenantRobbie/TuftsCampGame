@@ -155,11 +155,11 @@ def main():
                             elif shape.inUse == False and draggedWire != None:
                                 if shape.inputOutput[0] != draggedWire.startConnectionType[0]:
                                     print("aeiou")
-                                    print(shape.shape)
                                     draggedWire.endPoint = shape
-                                    print(draggedWire.endPoint)
                                     draggedWire.pickedUp = False
                                     shape.inUse = True
+                                    draggedWire.startPoint.parent. #find startConnectionType
+                                    draggedWire.endPoint.parent #find current connection type
                                     draggedWire = None
 
 
