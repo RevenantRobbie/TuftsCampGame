@@ -91,6 +91,7 @@ def main():
             #TODO make circles a seperate class where you can click on them and drag a line to other circles
             defaultNodeX = shape.shape[0]+75
             defaultNodeY = shape.shape[1]+100
+            print(defaultNodeShape)
             pygame.draw.rect(bg, "blue", defaultNodeShape)
             defaultNodeX = shape.shape[0] + 175
             pygame.draw.rect(bg, "blue", defaultNodeShape)
@@ -98,6 +99,9 @@ def main():
             defaultNodeY = shape.shape[1]
             pygame.draw.rect(bg, "blue", defaultNodeShape)
 
+            # pygame.draw.circle(bg, "blue", (shape.shape[0]+75, shape.shape[1]+100), 25) #input1
+            # pygame.draw.circle(bg, "blue", (shape.shape[0]+175, shape.shape[1]+100), 25) #input2
+            # pygame.draw.circle(bg, "blue", (shape.shape[0]+125, shape.shape[1]), 25) #output
 
         for shape in createdRectangles:
             if dragging == True:
