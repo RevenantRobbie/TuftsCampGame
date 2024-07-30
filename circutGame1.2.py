@@ -64,6 +64,16 @@ def main():
 
                 #TODO drop logic on m1 click on anything. This can probably be done by changing pickedUp/inUse whenever a m1 event takes place.
 
+                for shape in createdNodes:
+                    if shape.shape.collidepoint(event.pos):
+                        if shape.inUse == False: #create wire
+                            print(shape)
+                            print(shape.inUse)
+                            shape.inUse = True
+                        else: #sever connection
+                            shape.inUse = False
+                            print(shape.inUse)
+
                 for shape in createdRectangles: #check if rectangles are clicked on
                     if shape.shape.collidepoint(event.pos):
                         print("clicked on gate")
