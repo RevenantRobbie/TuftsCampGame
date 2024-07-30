@@ -66,7 +66,7 @@ def main():
     #inUse = False #checks if the mouse is doing something so it can't do 2 things at once
     manipulation_gate = False
     draggingWire = False
-    draggedWire
+    draggedWire = null
 
     # dragging = False
     pygame.init() # creates game window
@@ -105,36 +105,40 @@ def main():
 
 
 
-                for shape in createdRectangles: #check if rectangles are clicked on
-                    if shape.shape.collidepoint(event.pos):
-                        print("clicked on gate")
-                        if manipulation_gate == True:
-                            manipulation_gate = False
-                            shape.pickedUp = False
-                        elif manipulation_gate == False:
-                            manipulation_gate = True
-                            shape.pickedUp = True
+                    for shape in createdRectangles: #check if rectangles are clicked on
+                        if shape.shape.collidepoint(event.pos):
+                            print("clicked on gate")
+                            if manipulation_gate == True:
+                                manipulation_gate = False
+                                shape.pickedUp = False
+                            elif manipulation_gate == False:
+                                manipulation_gate = True
+                                shape.pickedUp = True
 
-                if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
-                    print("clicked on button")
-                    newShape = logicGate("AND ",defaultGateShape, False, False, False,False)
-                    newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
-                    newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
-                    newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
+                    if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
+                        print("clicked on button")
+                        newShape = logicGate("AND ",defaultGateShape, False, False, False,False)
+                        newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
+                        newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
+                        newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
 
-                    createdRectangles.append(newShape)
-                    createdNodes.append(newInput1)
-                    createdNodes.append(newInput2)
-                    createdNodes.append(newOutput)
-                else: #check if nothing was clicked on
-                    if manipulation_gate == False:
-                        print("clicked on nothing")
-                        for shape in createdRectangles:
-                            shape.pickedUp = False
+                        createdRectangles.append(newShape)
+                        createdNodes.append(newInput1)
+                        createdNodes.append(newInput2)
+                        createdNodes.append(newOutput)
+                    else: #check if nothing was clicked on
+                        if manipulation_gate == False:
+                            print("clicked on nothing")
+                            for shape in createdRectangles:
+                                shape.pickedUp = False
 
-            elif event.button == 3:
-                for shape in createdRectangles: #check if rectangles are clicked on
-                    if shape.shape.collidepoint(event.pos):
+                elif event.button == 3:
+                    for shape in createdRectangles: #check if rectangles are clicked on
+                        if shape.shape.collidepoint(event.pos):
+                            #nodes need to be deleted
+
+
+
 
 
 
