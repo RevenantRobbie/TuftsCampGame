@@ -196,7 +196,8 @@ def main():
                         if shape.shape.collidepoint(event.pos):
                             print("deleting something")
                             print(len(createdNodes))
-                            for node in createdNodes:
+                            for i,node in enumerate(createdNodes):
+                                print(i)
                                 print(node)
                                 #print(node.parent)
                                 if node.parent == shape:
