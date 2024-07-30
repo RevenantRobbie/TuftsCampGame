@@ -79,11 +79,8 @@ def main():
 
             #TODO clean up code here.
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                #clickedOnGate = False
-                # manipulation_gate = False
                 #TODO drop logic on m1 click on anything. This can probably be done by changing pickedUp/inUse whenever a m1 event takes place.
                 for shape in createdNodes:
-                    # if shape.shape.collidepoint(event.pos) and dragging == False:
                     if shape.shape.collidepoint(event.pos) and manipulation_gate == False:
                         if shape.inUse == False: #create wire
                             """" so, this is crazy
@@ -105,14 +102,8 @@ def main():
                         elif manipulation_gate == False:
                             manipulation_gate = True
                             shape.pickedUp = True
-                    #     clickedOnGate = True
-                    #     if dragging == False:
-                    #         dragging = True
-                    #         shape.pickedUp = True
-                    #         print(createdRectangles)
-                    #     elif dragging == True:
-                    #         dragging = False
-                    #         shape.pickedUp = False
+
+
 
                 if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
                     print("clicked on button")
@@ -126,10 +117,8 @@ def main():
                     createdNodes.append(newInput2)
                     createdNodes.append(newOutput)
                 else: #check if nothing was clicked on
-                    # if clickedOnGate == False:
                     if manipulation_gate == False:
                         print("clicked on nothing")
-                        # dragging == False
                         for shape in createdRectangles:
                             shape.pickedUp = False
 
