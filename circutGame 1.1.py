@@ -14,12 +14,7 @@ class logicGate:
         self.output = output
 
 class connectorNode:
-    def __init__ (self, shape, parent, inputOutput, inUse):
-        self.shape = shape
-        self.parent = parent
-        self.inputOutput = inputOutput
-        self.inUse = inUse
-
+    def __init__ (self, parent, 
 
 
     # def togglePickedUp():
@@ -68,14 +63,14 @@ def main():
                 if testingRect.collidepoint(event.pos):
                     print("clicked on button")
                     newShape = logicGate(defaultGateShape, False, False, False,False)
-                    inputNode1 = pygame.draw.circle(bg, "blue", (75, 0), 25)
-                    inputNode2 = pygame.draw.circle(bg, "blue", (175, 0), 25)
+                    pygame.draw.circle(bg, "blue", (75, 0), 25)
+                    pygame.draw.circle(bg, "blue", (175, 0), 25)
                     print("oaoaoao")
-                    print(inputNode2)
+                    #print(inputNode2)
                     print(newShape)
                     createdRectangles.append(newShape)
-                    createdCircles.append(inputNode1)
-                    createdCircles.append(inputNode2)
+                    #createdCircles.append(inputNode1)
+                    #createdCircles.append(inputNode2)
                 else:
                     if clickedOnGate == False:
                         print("clicked on nothing")
