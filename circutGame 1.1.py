@@ -5,6 +5,7 @@ screen = pygame.display.set_mode((1280,720))
 SCREEN_W = screen.get_width()  # height of screen
 SCREEN_H = screen.get_height()  # width of screen
 
+#objects declared
 class logicGate:
     def __init__ (self, shape, pickedUp, input1, input2, output):
         self.shape = shape
@@ -14,16 +15,13 @@ class logicGate:
         self.output = output
 
 class connectorNode:
-    def __init__ (self, parent, 
+    def __init__ (self, parent, circleLoc, inputOutput, inUse): #NOTE only circleLoc is a var here since the circle radius, color, and background remain consistent
+        self.parent = parent
+        self.circleLoc = circleLoc
+        self.inputOutput = inputOutput
+        self.inUse = inUse
 
-
-    # def togglePickedUp():
-    #     if self.pickedUp == True:
-    #         self.pickedUp = False
-    #     else:
-    #         self.pickedUp = True
-
-
+#variables declared
 defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
 testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
 createdRectangles = []
