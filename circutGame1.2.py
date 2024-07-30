@@ -205,17 +205,9 @@ def main():
                             for i in range(len_Node):
 
                                 #print(node.parent)
-                                Node =createdNodes.pop()
-                                print(i)
-                                print(Node.parent)
-                                print(shape)
-                                if Node.parent == shape:
-                                    print("Length:", len(createdNodes))
-                                    print("we removed something")
-                                else:
+                                Node =createdNodes.pop(0)
+                                if Node.parent != shape:
                                     createdNodes.append(Node)
-
-
 
                             #nodes need to be deleted
                             createdRectangles.remove(shape)
