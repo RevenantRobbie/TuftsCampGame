@@ -150,7 +150,6 @@ def main():
                     for shape in createdNodes:
                         if shape.shape.collidepoint(event.pos):
                             if shape.inUse == False and draggedWire == None: #create wire
-                                draggedWire.
                                 newWire = wires((shape.shape[0], shape.shape[1]), [0,0], True)
                                 createdWires.append(newWire)
                                 draggedWire = newWire
@@ -161,14 +160,6 @@ def main():
                                 draggedWire.pickedUp = False
                                 shape.inUse = True
                                 draggedWire = None
-
-
-
-
-
-
-
-
 
                     for shape in createdRectangles: #check if rectangles are clicked on
                         if shape.shape.collidepoint(event.pos):
@@ -219,13 +210,6 @@ def main():
 
                             #nodes need to be deleted
                             createdRectangles.remove(shape)
-
-
-
-
-
-
-
 
 #---create or recreate all shapes---
         bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
