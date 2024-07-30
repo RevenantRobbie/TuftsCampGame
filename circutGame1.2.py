@@ -100,11 +100,11 @@ class connectorNode:
 
 
 class wires:
-    def __init__ (self, startPoint, endPoint, pickedUp):
+    def __init__ (self, startPoint, endPoint, pickedUp, startConnectionType):
         self.startPoint = startPoint
         self.endPoint = endPoint
         self.pickedUp = pickedUp
-
+        self.startConnectionType = startConnectionType
     def drawLine(self):
         if self.pickedUp == False:
             pygame.draw.line(bg, "orange", (self.startPoint.shape[0], self.startPoint.shape[1]),(self.endPoint.shape[0], self.endPoint.shape[1]), 3)
@@ -148,12 +148,12 @@ def main():
                     for shape in createdNodes:
                         if shape.shape.collidepoint(event.pos):
                             if shape.inUse == False and draggedWire == None: #create wire
-                                newWire = wires(shape, [0,0], True)
+                                newWire = wires(shape, [0,0], True, shape.inputOutput)
                                 createdWires.append(newWire)
                                 draggedWire = newWire
                                 shape.inUse = True
                             elif shape.inUse == False and draggedWire != None:
-                                if shape.inputOutput == 
+                                if shape.inputOutput ==
                                 print("aeiou")
                                 print(shape.shape)
                                 draggedWire.endPoint = shape
