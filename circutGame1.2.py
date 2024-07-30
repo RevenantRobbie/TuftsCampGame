@@ -157,13 +157,15 @@ def main():
                                 newWire = wires(shape, [0,0], True, shape.inputOutput)
                                 createdWires.append(newWire)
                                 draggedWire = newWire
-                                shape.inUse = True
+                                if shape.inputOutput != "output":
+                                    shape.inUse = True
                             elif shape.inUse == False and draggedWire != None:
                                 if shape.inputOutput[0] != draggedWire.startConnectionType[0]:
                                     print("aeiou")
                                     draggedWire.endPoint = shape
                                     draggedWire.pickedUp = False
-                                    shape.inUse = True
+                                    if shape.inputOutput != "output":
+                                        shape.inUse = True
                                     #draggedWire.startPoint.parent. + draggedWire.startConnectionType #find startConnectionType
                                     draggedWire.endPoint.parent #find current connection type
                                     draggedWire = None
