@@ -175,16 +175,17 @@ def main():
                     if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
                         print("clicked on button")
                         newShape = logicGate("AND ",defaultGateShape, False, False, False,False)
-                        print(newShape)
                         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
                         newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
                         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
+
 
                         createdRectangles.append(newShape)
                         createdNodes.append(newInput1)
                         createdNodes.append(newInput2)
                         createdNodes.append(newOutput)
-                        print(newInput2.parent)
+                        for v in createdNodes:
+                            print (v.parent)
                     else: #check if nothing was clicked on
                         if manipulation_gate == False:
                             print("clicked on nothing")
@@ -193,6 +194,10 @@ def main():
 
                 elif event.button == 3:
                     print("m2 clicked")
+
+                    for v in createdNodes:
+                            print (v.parent)
+
                     for  shape in createdRectangles: #check if rectangles are clicked on
                         if shape.shape.collidepoint(event.pos):
                             print("deleting something")
