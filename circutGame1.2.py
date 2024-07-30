@@ -131,6 +131,11 @@ def main():
     #inUse = False #checks if the mouse is doing something so it can't do 2 things at once
     manipulation_gate = False
     draggedWire = None
+    Nodetype_dic={
+        "input1": None,
+        "input2": None,
+        "output": None
+    }
 
     # dragging = False
     pygame.init() # creates game window
@@ -164,7 +169,7 @@ def main():
                                     draggedWire.endPoint = shape
                                     draggedWire.pickedUp = False
                                     shape.inUse = True
-                                    draggedWire.startPoint.parent. + draggedWire.startConnectionType #find startConnectionType
+                                    #draggedWire.startPoint.parent. + draggedWire.startConnectionType #find startConnectionType
                                     draggedWire.endPoint.parent #find current connection type
                                     draggedWire = None
 
