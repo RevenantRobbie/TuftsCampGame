@@ -103,8 +103,6 @@ def main():
                             manipulation_gate = True
                             shape.pickedUp = True
 
-
-
                 if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
                     print("clicked on button")
                     newShape = logicGate("AND ",defaultGateShape, False, False, False,False)
