@@ -201,6 +201,7 @@ def main():
                                 print(node)
                                 #print(node.parent)
                                 if node.parent == shape:
+                                    print("Length:", len(createdNodes))
                                     print("we removed something")
                                     createdNodes.remove(node)
 
