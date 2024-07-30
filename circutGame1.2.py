@@ -183,6 +183,7 @@ def main():
                         createdNodes.append(newInput1)
                         createdNodes.append(newInput2)
                         createdNodes.append(newOutput)
+                        print(createdNodes)
                     else: #check if nothing was clicked on
                         if manipulation_gate == False:
                             print("clicked on nothing")
