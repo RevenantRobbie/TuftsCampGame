@@ -63,11 +63,9 @@ def main():
                 exit() # this function call closes the program
 #---m1 event---
 
-#TODO clean up code here.
+            #TODO clean up code here.
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 clickedOnGate = False
-                #TODO check if circle nodes are clicked on
-
                 #TODO drop logic on m1 click on anything. This can probably be done by changing pickedUp/inUse whenever a m1 event takes place.
 
                 for shape in createdNodes:
@@ -95,7 +93,7 @@ def main():
 
                 if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
                     print("clicked on button")
-                    newShape = logicGate("AND",defaultGateShape, False, False, False,False)
+                    newShape = logicGate("AND ",defaultGateShape, False, False, False,False)
                     newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
                     newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
                     newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
