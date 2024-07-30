@@ -14,6 +14,8 @@ class logicGate:
         self.input1 = input1
         self.input2 = input2
         self.output = output
+    def excecuteLogic(self):
+        #wip
 
 class connectorNode:
     def __init__ (self, shape ,parent, inputOutput, inUse): #NOTE only circleLoc is a var here since the circle radius, color, and background remain consistent
