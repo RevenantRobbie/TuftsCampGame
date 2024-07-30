@@ -40,7 +40,7 @@ class wires:
         self.endPoint = endPoint
 
     def drawLine(self):
-        pygame.draw.lines(bg, "orange", )
+        pygame.draw.lines(bg, "orange", False, [(self.startPoint[0], self.startPoint[1]),(self.endPoint[0], self.endPoint[1])], 3)
 
 
 #variables declared
@@ -49,12 +49,13 @@ defaultNodeShape = pygame.Rect(0, 0, 15, 15)
 testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
 createdRectangles = []
 createdNodes = []
+createdWires = []
 inUse = False #checks if the mouse is doing something so it can't do 2 things at once
 
 manipulation_gate = False
 
 def main():
-    dragging = False
+    # dragging = False
     pygame.init() # creates game window
     clock = pygame.time.Clock() # creates needed clock object
 
@@ -73,14 +74,14 @@ def main():
             #TODO clean up code here.
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 #clickedOnGate = False
-                manipulation_gate = False
+                # manipulation_gate = False
                 #TODO drop logic on m1 click on anything. This can probably be done by changing pickedUp/inUse whenever a m1 event takes place.
                 for shape in createdNodes:
                     # if shape.shape.collidepoint(event.pos) and dragging == False:
                     if shape.shape.collidepoint(event.pos) and manipulation_gate == False:
                         if shape.inUse == False: #create wire
                             """" so, this is crazy
-
+                            createdWires.append()
                             """
                             print(shape)
                             print(shape.inUse)
@@ -94,10 +95,10 @@ def main():
                         print("clicked on gate")
                         if manipulation_gate == True:
                             manipulation_gate = False
-                            shape.pickedUp =False
+                            shape.pickedUp = False
                         elif manipulation_gate == False:
                             manipulation_gate = True
-                            shape.pickedUp
+                            shape.pickedUp = True
                     #     clickedOnGate = True
                     #     if dragging == False:
                     #         dragging = True
@@ -119,9 +120,10 @@ def main():
                     createdNodes.append(newInput2)
                     createdNodes.append(newOutput)
                 else: #check if nothing was clicked on
-                    if clickedOnGate == False:
+                    # if clickedOnGate == False:
+                    if manipulation_gate == False:
                         print("clicked on nothing")
-                        dragging == False
+                        # dragging == False
                         for shape in createdRectangles:
                             shape.pickedUp = False
 
@@ -139,7 +141,8 @@ def main():
             #TODO make circles a seperate class where you can click on them and drag a line to other circles
 
         for shape in createdRectangles:
-            if dragging == True:
+            # if dragging == True:
+            if manipulation_gate == True:
                 if shape.pickedUp == True:
                     shape.shape = pygame.Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
 
