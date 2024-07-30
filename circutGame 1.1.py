@@ -50,7 +50,7 @@ def main():
                 clickedOnGate = False
                 #TODO check if circle nodes are clicked on
 
-                #TODO drop logic on m1 click on anything. This can probably be done by changing pickedUp/inUse whenever a m1 event takes place. 
+                #TODO drop logic on m1 click on anything. This can probably be done by changing pickedUp/inUse whenever a m1 event takes place.
                 for shape in createdRectangles: #check if rectangles are clicked on
                     if shape.shape.collidepoint(event.pos):
                         print("clicked on gate")
