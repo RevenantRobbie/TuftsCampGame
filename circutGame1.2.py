@@ -175,6 +175,7 @@ def main():
                     if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
                         print("clicked on button")
                         newShape = logicGate("AND ",defaultGateShape, False, False, False,False)
+                        print(newShape)
                         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
                         newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
                         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
