@@ -83,8 +83,6 @@ def main():
                     newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
                     newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
 
-
-                    print(newShape)
                     createdRectangles.append(newShape)
                     createdNodes.append(newInput1)
                     createdNodes.append(newInput2)
