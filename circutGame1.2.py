@@ -158,7 +158,7 @@ def main():
                                     draggedWire.endPoint = shape
                                     draggedWire.pickedUp = False
                                     shape.inUse = True
-                                    draggedWire.startPoint.parent. #find startConnectionType
+                                    draggedWire.startPoint.parent. + draggedWire.startConnectionType #find startConnectionType
                                     draggedWire.endPoint.parent #find current connection type
                                     draggedWire = None
 
