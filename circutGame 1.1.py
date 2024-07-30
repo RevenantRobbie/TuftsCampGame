@@ -21,6 +21,9 @@ class connectorNode:
         self.inputOutput = inputOutput
         self.inUse = inUse
 
+    def drawCircle(self)
+
+
 #variables declared
 defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
 testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
