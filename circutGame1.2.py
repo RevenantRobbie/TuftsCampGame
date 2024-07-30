@@ -210,8 +210,9 @@ def main():
                         if manipulation_gate == False and clickedOnNothing == True:
                             print("clicked on nothing")
                             if len(createdWires) >= 1 and draggedWire != None:
-                                createdWires.pop(len(createdWires)-1)
-                                createdWires.startPoint.inUse = False
+                                createdWires[-1].startPoint.inUse = False
+                                createdWires.pop(-1)
+
                                 draggedWire = None
                             for shape in createdRectangles:
                                 shape.pickedUp = False
