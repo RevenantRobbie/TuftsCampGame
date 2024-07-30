@@ -40,14 +40,18 @@ def main():
 
     while True: # game runs until user decides to end it
         clock.tick(30)  # set FPS
+
+#---events---
         for event in pygame.event.get(): # check for input
             if event.type == pygame.QUIT: # closes program if X in top right clicked
                 exit() # this function call closes the program
-
+#---m1 event---
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 clickedOnGate = False
-                #print("down")
-                for shape in createdRectangles:
+                #TODO check if circle nodes are clicked on
+
+
+                for shape in createdRectangles: #check if rectangles are clicked on
                     if shape.shape.collidepoint(event.pos):
                         print("clicked on gate")
                         clickedOnGate = True
@@ -58,16 +62,15 @@ def main():
                         elif dragging == True:
                             dragging = False
                             shape.pickedUp = False
-                if testingRect.collidepoint(event.pos):
+
+                if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
                     print("clicked on button")
                     newShape = logicGate(defaultGateShape, False, False, False,False)
                     print("oaoaoao")
-                    #print(inputNode2)
+
                     print(newShape)
                     createdRectangles.append(newShape)
-                    #createdCircles.append(inputNode1)
-                    #createdCircles.append(inputNode2)
-                else:
+                else: #check if nothing was clicked on
                     if clickedOnGate == False:
                         print("clicked on nothing")
                         dragging == False
@@ -75,24 +78,22 @@ def main():
                             shape.pickedUp = False
 
 
-
-
+#---create or recreate all shapes---
         bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
 
         pygame.draw.rect(bg, "purple", testingRect)
 
         for shape in createdRectangles:
             pygame.draw.rect(bg, "white", shape.shape)
-            pygame.draw.circle(bg, "blue", (shape.shape[0]+75, shape.shape[1]), 25)
-            #pygame.draw.circle(bg, "blue", (175, 0), 25)
+            #TODO make circles a seperate class where you can click on them and drag a line to other circles
+            pygame.draw.circle(bg, "blue", (shape.shape[0]+75, shape.shape[1]+100), 25) #input1
+            pygame.draw.circle(bg, "blue", (shape.shape[0]+175, shape.shape[1]+100), 25) #input2
+            pygame.draw.circle(bg, "blue", (shape.shape[0]+125, shape.shape[1]), 25) #output
 
         for shape in createdRectangles:
             if dragging == True:
                 if shape.pickedUp == True:
                     shape.shape = pygame. Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
-        # ======================
-        # game stuff goes here!
-        # ======================
 
         pygame.display.update()  # update screen
         #sometimes ppl do pygame.display.flip()
