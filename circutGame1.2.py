@@ -38,7 +38,7 @@ defaultNodeShape = pygame.Rect(0, 0, 15, 15)
 testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
 createdRectangles = []
 createdNodes = []
-inUse = False #TODO change pickedUp name in inUse. It would probably be more apt since it will most likely serve as a var for when you are dragging a circut line too
+inUse = False #checks if the mouse is doing something so it can't do 2 things at once
 
 
 
