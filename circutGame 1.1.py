@@ -26,7 +26,7 @@ defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,1
 testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
 createdRectangles = []
 createdCircles = []
-pickedUp = False
+pickedUp = False #TODO change pickedUp name in inUse. It would probably be more apt since it will most likely serve as a var for when you are dragging a circut line too
 
 
 
@@ -67,7 +67,7 @@ def main():
                     #print(inputNode2)
                     print(newShape)
                     createdRectangles.append(newShape)
-                    #createdCircles.append(inputNode1)
+                    createdCircles.append(inputNode1)
                     #createdCircles.append(inputNode2)
                 else:
                     if clickedOnGate == False:
