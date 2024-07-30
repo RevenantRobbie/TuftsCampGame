@@ -38,6 +38,8 @@ class connectorNode:
 
     def returnSelf(self):
         return self
+
+    
 class wires:
     def __init__ (self, startPoint, endPoint, pickedUp):
         self.startPoint = startPoint
@@ -47,8 +49,8 @@ class wires:
     def drawLine(self):
         if self.pickedUp == False:
             pygame.draw.lines(bg, "orange", False, [(self.startPoint[0], self.startPoint[1]),(self.endPoint[0], self.endPoint[1])], 3)
-        elif self.pickedUp == TrueL
-            pygame.draw.lines(bg, "orange", False, [(self.startPoint[0], self.startPoint[1]), ()])
+        elif self.pickedUp == True:
+            pygame.draw.lines(bg, "orange", False, [(self.startPoint[0], self.startPoint[1]), (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1])])
 
 
 
@@ -94,10 +96,11 @@ def main():
                                 print(shape)
                                 print(shape.inUse)
                                 shape.inUse = True
-                            else: #sever connection
-                                shape.inUse = False
-                                print(shape.inUse)
-                elif
+
+                elif event.button == 2:
+
+
+
 
                 for shape in createdRectangles: #check if rectangles are clicked on
                     if shape.shape.collidepoint(event.pos):
