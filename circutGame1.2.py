@@ -203,8 +203,9 @@ def main():
                         for v in createdNodes:
                             print (v.parent)
                     else: #check if nothing was clicked on
-                        if manipulation_gate == False:
+                        if manipulation_gate:
                             print("clicked on nothing")
+                            draggedWire = None
                             for shape in createdRectangles:
                                 shape.pickedUp = False
 
