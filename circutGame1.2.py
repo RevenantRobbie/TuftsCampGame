@@ -148,19 +148,19 @@ def main():
                     for shape in createdNodes:
                         if shape.shape.collidepoint(event.pos):
                             if shape.inUse == False and draggedWire == None: #create wire
-                                newWire = wires(shape, [0,0], True, shape.inputOutput)
+                                newWire = wires(shape, [0,0], True, shape.inputOutput[0])
                                 createdWires.append(newWire)
                                 draggedWire = newWire
                                 shape.inUse = True
                             elif shape.inUse == False and draggedWire != None:
-                                if shape.inputOutput ==
-                                print("aeiou")
-                                print(shape.shape)
-                                draggedWire.endPoint = shape
-                                print(draggedWire.endPoint)
-                                draggedWire.pickedUp = False
-                                shape.inUse = True
-                                draggedWire = None
+                                if shape.inputOutput[0] != draggedWire.startConnectionType[0]:
+                                    print("aeiou")
+                                    print(shape.shape)
+                                    draggedWire.endPoint = shape
+                                    print(draggedWire.endPoint)
+                                    draggedWire.pickedUp = False
+                                    shape.inUse = True
+                                    draggedWire = None
 
 
 
