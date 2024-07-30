@@ -75,7 +75,7 @@ def main():
                     newShape = logicGate(defaultGateShape, False, False, False,False)
                     newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
                     newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
-                    newInput3 = connectorNode(defaultNodeShape, newShape, "")
+                    newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
 
 
                     print(newShape)
