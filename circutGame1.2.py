@@ -65,6 +65,8 @@ def main():
     createdWires = []
     #inUse = False #checks if the mouse is doing something so it can't do 2 things at once
     manipulation_gate = False
+    draggingWire = False
+    draggedWire
 
     # dragging = False
     pygame.init() # creates game window
@@ -85,18 +87,18 @@ def main():
             #TODO clean up code here.
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
-                #TODO drop logic on m1 click on anything. This can probably be done by changing pickedUp/inUse whenever a m1 event takes place.
-                    depoint(event.pos) and manipulation_gate == False:
-                    if shape.inUse == False: #create wire
-
+                    #TODO drop logic on m1 click on anything. This can probably be done by changing pickedUp/inUse whenever a m1 event takes place.
+                    for shape in createdNodes:
+                        if shape.shape.collidepoint(event.pos) and manipulation_gate == False:
+                            if shape.inUse == False and draggingWire == False: #create wire
                                 newWire = wires((shape.shape[0], shape.shape[1]), (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1]), True)
                                 createdWires.append(newWire)
-
+                            elif shape.inUse == False and draggingWire == True:
                                 print(shape)
                                 print(shape.inUse)
+                                draggingWire == True
                                 shape.inUse = True
 
-                elif event.button == 2:
 
 
 
@@ -129,6 +131,12 @@ def main():
                         print("clicked on nothing")
                         for shape in createdRectangles:
                             shape.pickedUp = False
+
+            elif event.button == 3:
+                for shape in createdRectangles: #check if rectangles are clicked on
+                    if shape.shape.collidepoint(event.pos):
+
+
 
 
 #---create or recreate all shapes---
