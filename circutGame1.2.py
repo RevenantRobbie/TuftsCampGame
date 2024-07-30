@@ -21,17 +21,13 @@ class connectorNode:
         self.inputOutput = inputOutput
         self.inUse = inUse
 
-    def drawCircle(self):
-        if self.inputOutput == "input1":
-            pygame.draw.circle(bg, "blue", (self.parent.shape[0]+75, self.parent.shape[1]+100), 25)
-        elif self.inputOutput == "input2":
-            pygame.draw.circle(bg, "blue", (self.parent.shape[0]+175, self.parent.shape[1]+100), 25) #input2
-        elif self.inputOutput == "output":
-            pygame.draw.circle(bg, "blue", (self.parent.shape[0]+125, self.parent.shape[1]), 25) #output
+    def redrawSelf(self):
+        self.shape = rect(self.parent.shape[0]+75, self.parent.shape[1]+100, 15, 15)
 
 
 #variables declared
 defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
+
 testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
 createdRectangles = []
 createdNodes = []
@@ -78,9 +74,7 @@ def main():
                 if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
                     print("clicked on button")
                     newShape = logicGate(defaultGateShape, False, False, False,False)
-                    newInput1 = connectorNode(newShape, "input1", False)
-                    newInput2 = connectorNode(newShape, "input2", False)
-                    newOutput = connectorNode(newShape, "output", False)
+                    newInput1 = connectorNode(newShape
 
 
                     print(newShape)
