@@ -22,12 +22,13 @@ class connectorNode:
         self.inUse = inUse
 
     def redrawSelf(self):
-        self.shape = rect(self.parent.shape[0]+75, self.parent.shape[1]+100, 15, 15)
+        self.shape = pygame.Rect(self.parent.shape[0]+75, self.parent.shape[1]+100, 15, 15)
+        pygame.draw.rect(bg, "blue", self.shape)
 
 
 #variables declared
 defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
-
+defaultNodeShape = pygame.Rect(0, 0, 15, 15)
 testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
 createdRectangles = []
 createdNodes = []
@@ -56,8 +57,6 @@ def main():
                 #TODO check if circle nodes are clicked on
 
                 #TODO drop logic on m1 click on anything. This can probably be done by changing pickedUp/inUse whenever a m1 event takes place.
-                for shape in createdNodes:
-                    if node
 
                 for shape in createdRectangles: #check if rectangles are clicked on
                     if shape.shape.collidepoint(event.pos):
@@ -74,7 +73,7 @@ def main():
                 if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
                     print("clicked on button")
                     newShape = logicGate(defaultGateShape, False, False, False,False)
-                    newInput1 = connectorNode(newShape
+                    newInput1 = connectorNode(defaultNodeShape
 
 
                     print(newShape)
@@ -106,7 +105,7 @@ def main():
         for shape in createdRectangles:
             if dragging == True:
                 if shape.pickedUp == True:
-                    shape.shape = pygame. Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
+                    shape.shape = pygame.Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
         for shape in createdNodes:
             shape.drawCircle()
 
