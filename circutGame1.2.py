@@ -153,7 +153,7 @@ def main():
                                 createdWires.append(newWire)
                                 draggedWire = newWire
                             elif shape.inUse == False and draggedWire != None:
-                                draggedWire.endpoint = (100,500)
+                                draggedWire.endpoint = (shape.shape[0], shape.shape[1])
                                 draggedWire.pickedUp = False
                                 #draggedWire = None
 
