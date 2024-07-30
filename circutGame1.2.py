@@ -39,7 +39,7 @@ class connectorNode:
     def returnSelf(self):
         return self
 
-    
+
 class wires:
     def __init__ (self, startPoint, endPoint, pickedUp):
         self.startPoint = startPoint
@@ -86,18 +86,19 @@ def main():
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                 #TODO drop logic on m1 click on anything. This can probably be done by changing pickedUp/inUse whenever a m1 event takes place.
-                    for shape in createdNodes:
-                        if shape.shape.collidepoint(event.pos) and manipulation_gate == False:
-                            if shape.inUse == False: #create wire
+                    depoint(event.pos) and manipulation_gate == False:
+                    if shape.inUse == False: #create wire
 
-                                newWire = wires()
-                                createdWires.append()
+                                newWire = wires((shape.shape[0], shape.shape[1]), (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1]), True)
+                                createdWires.append(newWire)
 
                                 print(shape)
                                 print(shape.inUse)
                                 shape.inUse = True
 
                 elif event.button == 2:
+
+
 
 
 
@@ -147,6 +148,9 @@ def main():
             if manipulation_gate == True:
                 if shape.pickedUp == True:
                     shape.shape = pygame.Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
+
+        for shape in createdWires:
+            shape.drawLine()
 
 
         pygame.display.update()  # update screen
