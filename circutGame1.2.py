@@ -132,13 +132,17 @@ def main():
                                 shape.pickedUp = False
 
                 elif event.button == 3:
+                    print("m2 clicked")
                     for shape in createdRectangles: #check if rectangles are clicked on
                         if shape.shape.collidepoint(event.pos):
+                            print("deleting something")
                             for node in createdNodes:
                                 if node.parent == shape:
+                                    del node.shape
                                     del node
 
                             #nodes need to be deleted
+                            del shape.shape
                             del shape
 
 
