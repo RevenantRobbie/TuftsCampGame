@@ -107,10 +107,10 @@ class wires:
 
     def drawLine(self):
         if self.pickedUp == False:
-            pygame.draw.line(bg, "orange", (self.startPoint[0], self.startPoint[1]),(self.endPoint[0], self.endPoint[1]), 3)
+            pygame.draw.line(bg, "orange", (self.startPoint.shape[0], self.startPoint.shape[1]),(self.endPoint.shape[0], self.endPoint.shape[1]), 3)
             print(self.endPoint)
         elif self.pickedUp == True:
-            pygame.draw.line(bg, "orange", (self.startPoint[0], self.startPoint[1]), (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1]),3)
+            pygame.draw.line(bg, "orange", (self.startPoint.shape[0], self.startPoint.shape[1]), (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1]),3)
 
 
 
@@ -150,14 +150,14 @@ def main():
                     for shape in createdNodes:
                         if shape.shape.collidepoint(event.pos):
                             if shape.inUse == False and draggedWire == None: #create wire
-                                newWire = wires((shape.shape[0], shape.shape[1]), [0,0], True)
+                                newWire = wires(shape, [0,0], True)
                                 createdWires.append(newWire)
                                 draggedWire = newWire
                                 shape.inUse = True
                             elif shape.inUse == False and draggedWire != None:
                                 print("aeiou")
                                 print(shape.shape)
-                                draggedWire.endPoint = shape.shape
+                                draggedWire.endPoint = shape
                                 print(draggedWire.endPoint)
                                 draggedWire.pickedUp = False
                                 shape.inUse = True
