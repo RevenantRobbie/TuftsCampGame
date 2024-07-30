@@ -211,7 +211,6 @@ def main():
                             print("clicked on nothing")
                             if len(createdWires) >= 1 and draggedWire != None:
                                 createdWires[-1].startPoint.inUse = False
-                                createdWires[-1].endPoint.inUse = False
                                 createdWires.pop(-1)
 
                                 draggedWire = None
