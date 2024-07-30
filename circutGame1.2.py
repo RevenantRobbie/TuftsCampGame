@@ -148,7 +148,7 @@ def main():
                     for shape in createdNodes:
                         if shape.shape.collidepoint(event.pos):
                             if shape.inUse == False and draggedWire == None: #create wire
-                                newWire = wires(shape, [0,0], True, shape.inputOutput[0])
+                                newWire = wires(shape, [0,0], True, shape.inputOutput)
                                 createdWires.append(newWire)
                                 draggedWire = newWire
                                 shape.inUse = True
