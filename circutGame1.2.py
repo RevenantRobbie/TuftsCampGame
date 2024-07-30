@@ -39,13 +39,16 @@ class connectorNode:
     def returnSelf(self):
         return self
 class wires:
-    def __init__ (self, startPoint, endPoint):
+    def __init__ (self, startPoint, endPoint, pickedUp):
         self.startPoint = startPoint
         self.endPoint = endPoint
+        self.pickedUp = pickedUp
 
     def drawLine(self):
-        pygame.draw.lines(bg, "orange", False, [(self.startPoint[0], self.startPoint[1]),(self.endPoint[0], self.endPoint[1])], 3)
-
+        if self.pickedUp == False:
+            pygame.draw.lines(bg, "orange", False, [(self.startPoint[0], self.startPoint[1]),(self.endPoint[0], self.endPoint[1])], 3)
+        elif self.pickedUp == TrueL
+            pygame.draw.lines(bg, "orange", False, [(self.startPoint[0], self.startPoint[1]), ()])
 
 
 
@@ -79,19 +82,22 @@ def main():
 
             #TODO clean up code here.
             elif event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
                 #TODO drop logic on m1 click on anything. This can probably be done by changing pickedUp/inUse whenever a m1 event takes place.
-                for shape in createdNodes:
-                    if shape.shape.collidepoint(event.pos) and manipulation_gate == False:
-                        if shape.inUse == False: #create wire
-                            """" so, this is crazy
-                            createdWires.append()
-                            """
-                            print(shape)
-                            print(shape.inUse)
-                            shape.inUse = True
-                        else: #sever connection
-                            shape.inUse = False
-                            print(shape.inUse)
+                    for shape in createdNodes:
+                        if shape.shape.collidepoint(event.pos) and manipulation_gate == False:
+                            if shape.inUse == False: #create wire
+
+                                newWire = wires()
+                                createdWires.append()
+
+                                print(shape)
+                                print(shape.inUse)
+                                shape.inUse = True
+                            else: #sever connection
+                                shape.inUse = False
+                                print(shape.inUse)
+                elif
 
                 for shape in createdRectangles: #check if rectangles are clicked on
                     if shape.shape.collidepoint(event.pos):
