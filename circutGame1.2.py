@@ -149,10 +149,12 @@ def main():
 #---m1 event---
 
             elif event.type == pygame.MOUSEBUTTONDOWN:
+                clickedOnNothing = True
                 if event.button == 1:
                     #TODO drop logic on m1 click on anything. This can probably be done by changing pickedUp/inUse whenever a m1 event takes place.
                     for shape in createdNodes:
                         if shape.shape.collidepoint(event.pos):
+                            clickedOnNothing = False
                             if shape.inUse == False and draggedWire == None: #create wire
                                 newWire = wires(shape, [0,0], True, shape.inputOutput)
                                 createdWires.append(newWire)
@@ -180,6 +182,7 @@ def main():
 
                     for shape in createdRectangles: #check if rectangles are clicked on
                         if shape.shape.collidepoint(event.pos):
+                            clickedOnNothing = False
                             print("clicked on gate")
                             if manipulation_gate == True:
                                 manipulation_gate = False
@@ -189,6 +192,7 @@ def main():
                                 shape.pickedUp = True
 
                     if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
+                        clickedOnNothing = False
                         print("clicked on button")
                         newShape = logicGate("AND ",defaultGateShape, False, None)
                         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
@@ -203,9 +207,12 @@ def main():
                         for v in createdNodes:
                             print (v.parent)
                     else: #check if nothing was clicked on
-                        if manipulation_gate == False:
+                        if manipulation_gate == False and clickedOnNothing == True:
                             print("clicked on nothing")
-                            draggedWire = None
+                            if len(createdWires) >= 1 and draggedWire != None:
+                                createdWires.pop(len(createdWires)-1)
+                                createdWires.startPoint.inUse = False
+                                draggedWire = None
                             for shape in createdRectangles:
                                 shape.pickedUp = False
 
