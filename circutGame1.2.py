@@ -28,7 +28,7 @@ class connectorNode:
         elif self.inputOutput == "input2":
             self.shape = pygame.Rect(self.parent.shape[0]+175, self.parent.shape[1]+100, 15, 15) #input2
         elif self.inputOutput == "output":
-            self.shape = pygame.Rect(self.parent.shape[0]+125, self.parent.shape[1], 15, 15)
+            self.shape = pygame.Rect(self.parent.shape[0]+125, self.parent.shape[1]-15, 15, 15)
         pygame.draw.rect(bg, "blue", self.shape)
 
 
@@ -101,7 +101,6 @@ def main():
         pygame.draw.rect(bg, "purple", testingRect)
 
         for shape in createdNodes:
-            print(shape)
             shape.redrawSelf()
 
         for shape in createdRectangles:
