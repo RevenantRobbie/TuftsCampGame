@@ -142,7 +142,6 @@ def main():
                 exit() # this function call closes the program
 #---m1 event---
 
-            #TODO clean up code here.
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     #TODO drop logic on m1 click on anything. This can probably be done by changing pickedUp/inUse whenever a m1 event takes place.
@@ -154,6 +153,7 @@ def main():
                                 draggedWire = newWire
                                 shape.inUse = True
                             elif shape.inUse == False and draggedWire != None:
+                                if shape.inputOutput == 
                                 print("aeiou")
                                 print(shape.shape)
                                 draggedWire.endPoint = shape
