@@ -108,7 +108,7 @@ class wires:
     def drawLine(self):
         if self.pickedUp == False:
             pygame.draw.line(bg, "orange", (self.startPoint[0], self.startPoint[1]),(self.endPoint[0], self.endPoint[1]), 3)
-            #print(self.endPoint)
+            print(self.endPoint)
         elif self.pickedUp == True:
             pygame.draw.line(bg, "orange", (self.startPoint[0], self.startPoint[1]), (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1]),3)
 
