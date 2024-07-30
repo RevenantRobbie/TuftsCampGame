@@ -66,8 +66,8 @@ def main():
                 if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
                     print("clicked on button")
                     newShape = logicGate(defaultGateShape, False, False, False,False)
-                    print("oaoaoao")
 
+                    
                     print(newShape)
                     createdRectangles.append(newShape)
                 else: #check if nothing was clicked on
