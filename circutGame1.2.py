@@ -22,7 +22,13 @@ class connectorNode:
         self.inUse = inUse
 
     def redrawSelf(self):
-        self.shape = pygame.Rect(self.parent.shape[0]+75, self.parent.shape[1]+100, 15, 15)
+        #TODO certain shapes may only have 1 input, scan self.parent to see how many inputs/outputs it has and adjust positions accordingly
+        if self.inputOutput == "input1":
+            self.shape = pygame.Rect(self.parent.shape[0]+75, self.parent.shape[1]+100, 15, 15)
+        elif self.inputOutput == "input2":
+            self.shape = pygame.Rect(self.parent.shape[0]+175, self.parent.shape[1]+100, 15, 15) #input2
+        elif self.inputOutput == "output":
+            self.shape = pygame.Rect(self.parent.shape[0]+125, self.parent.shape[1], 15, 15)
         pygame.draw.rect(bg, "blue", self.shape)
 
 
@@ -96,20 +102,19 @@ def main():
 
         pygame.draw.rect(bg, "purple", testingRect)
 
+        for shape in createdNodes:
+            print(shape)
+            shape.redrawSelf()
+
         for shape in createdRectangles:
             pygame.draw.rect(bg, "white", shape.shape)
             #TODO make circles a seperate class where you can click on them and drag a line to other circles
-
-            pygame.draw.circle(bg, "blue", (shape.shape[0]+75, shape.shape[1]+100), 25) #input1
-            pygame.draw.circle(bg, "blue", (shape.shape[0]+175, shape.shape[1]+100), 25) #input2
-            pygame.draw.circle(bg, "blue", (shape.shape[0]+125, shape.shape[1]), 25) #output
 
         for shape in createdRectangles:
             if dragging == True:
                 if shape.pickedUp == True:
                     shape.shape = pygame.Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
-        for shape in createdNodes:
-            shape.redrawSelf()
+
 
         pygame.display.update()  # update screen
         #sometimes ppl do pygame.display.flip()
