@@ -61,13 +61,11 @@ def main():
                 if testingRect.collidepoint(event.pos):
                     print("clicked on button")
                     newShape = logicGate(defaultGateShape, False, False, False,False)
-                    pygame.draw.circle(bg, "blue", (75, 0), 25)
-                    pygame.draw.circle(bg, "blue", (175, 0), 25)
                     print("oaoaoao")
                     #print(inputNode2)
                     print(newShape)
                     createdRectangles.append(newShape)
-                    createdCircles.append(inputNode1)
+                    #createdCircles.append(inputNode1)
                     #createdCircles.append(inputNode2)
                 else:
                     if clickedOnGate == False:
@@ -85,6 +83,8 @@ def main():
 
         for shape in createdRectangles:
             pygame.draw.rect(bg, "white", shape.shape)
+            pygame.draw.circle(bg, "blue", (shape.shape., 0), 25)
+            pygame.draw.circle(bg, "blue", (175, 0), 25)
 
         for shape in createdRectangles:
             if dragging == True:
