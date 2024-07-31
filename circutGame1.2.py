@@ -85,7 +85,7 @@ class logicGate:
 
         #detects if gate only has one input and deletes one of the two input if so
     def doLogic(self):
-        self.processingInfo[2] = self.processingInfo[0] or self.processingInfo[1]
+        self.processingInfo[2] = self.processingInfo[0] and self.processingInfo[1]
 
 
 
