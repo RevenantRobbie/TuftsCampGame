@@ -415,7 +415,7 @@ def main():
 
 
         for node in topoSort:
-            processLogic()
+            node.doLogic()
 
 
 
@@ -456,7 +456,7 @@ def main():
         for shape in createdRectangles:
             bg.blit(font.render(shape.type, 1, "black"), (shape.shape[0], shape.shape[1]))
             # if dragging == True:
-            shape.doLogic()
+            #shape.doLogic()
             #print(shape.processingInfo[2])
             if manipulation_gate == True:
                 if shape.pickedUp == True:
