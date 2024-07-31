@@ -115,6 +115,10 @@ class logicGate:
 
         #detects if gate only has one input and deletes one of the two input if so
     def enhancedLogic()
+        if linkedGates[0] != None:
+            processingInfo[0] = linkedGates[0].processingInfo[2]
+        if linkedGates[1] != None:
+            processingInfo[1] = linkedGates[1].processingInfo[2]
 
     def doLogic(self):
         #print("doingLogic")
