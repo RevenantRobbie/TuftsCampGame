@@ -377,7 +377,7 @@ def main():
             #print(shape.processingInfo[2])
             if manipulation_gate == True:
                 if shape.pickedUp == True:
-                    shape.shape = pygame.Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
+                    shape.shape = pygame.Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], standardOutputRect[2],standardOutputRect[3])
 
         outputRect.changeColor()
         pygame.draw.rect(bg, outputRect.color, outputRect.shape)
