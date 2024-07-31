@@ -217,7 +217,7 @@ def main():
                             for shape in createdRectangles:
                                 shape.pickedUp = False
 
-                elif event.button == 3:
+                elif event.button == 3: #deletes shapes
                     print("m2 clicked")
 
                     for v in createdNodes:
@@ -225,12 +225,17 @@ def main():
 
                     for  shape in createdRectangles: #check if rectangles are clicked on
                         if shape.shape.collidepoint(event.pos):
+
+
                             print("deleting something")
                             len_Node = len(createdNodes)
                             for i in range(len_Node):
 
-                                #print(node.parent)
                                 Node =createdNodes.pop(0)
+                                for i in range(len(createdWires)):
+                                    wire = createdWires.pop(0)
+                                    if wire.startPoint != Node and wire.endPoint != Node:
+                                        createdWires.append(wire)
                                 if Node.parent != shape:
                                     createdNodes.append(Node)
 
