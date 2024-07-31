@@ -263,9 +263,13 @@ def main():
 
 
 #---create or recreate all shapes---
-        bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
 
+        bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
+        #draw buttons to spawn in gates
         pygame.draw.rect(bg, "purple", testingRect)
+
+        #draw input and output box
+        
 
         for shape in createdNodes:
             shape.redrawSelf()
