@@ -114,6 +114,8 @@ class logicGate:
         self.processingInfo = processingInfo
 
         #detects if gate only has one input and deletes one of the two input if so
+    def enhancedLogic()
+
     def doLogic(self):
         #print("doingLogic")
         if self.type == "AND":
