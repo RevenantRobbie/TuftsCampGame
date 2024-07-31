@@ -135,7 +135,7 @@ class output:
         elif self.processingInfo[0] == False:
             self.color = "red"
 
-currentIndex = 0
+
 
 def main():
 
@@ -162,6 +162,7 @@ def main():
     draggedWire = None
     standardProcessingInfo = [False, False, None]
 
+    currentIndex = 0
     def createGate(a):
         print("clicked on button")
         newShape = logicGate(a, defaultGateShape, False, standardProcessingInfo, currentIndex + 1)
