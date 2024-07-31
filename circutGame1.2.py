@@ -280,8 +280,8 @@ def main():
             #TODO make circles a seperate class where you can click on them and drag a line to other circles
 
         for shape in createdWires:
-            shape.updateGates()
             shape.drawLine()
+            shape.updateGates()
 
         for shape in createdRectangles:
             # if dragging == True:
