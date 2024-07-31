@@ -1,4 +1,6 @@
 #this code is held together by sticks duct tape and prayers
+#going to attempt a topilogical sort like the one depicted here https://www.geeksforgeeks.org/topological-sorting/
+
 import pygame
 
 screen = pygame.display.set_mode((1280,720))
@@ -41,11 +43,12 @@ def xnorGate(input1, input2):
 
 #objects declared
 class logicGate:
-    def __init__ (self, type, shape, pickedUp, processingInfo):
+    def __init__ (self, type, shape, pickedUp, processingInfo, idx):
         self.shape = shape
         self.type = type
         self.pickedUp = pickedUp
         self.processingInfo = processingInfo
+        self.idx= idx
 
         #detects if gate only has one input and deletes one of the two input if so
     def doLogic(self):
@@ -140,6 +143,8 @@ def main():
     defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,75,50)
     defaultNodeShape = pygame.Rect(0, 0, 15, 15)
 
+    currentIndex = 0
+
     ANDButton = pygame.Rect(screen.get_width()-100, screen.get_height()-125,100,100)
     ORButton = pygame.Rect(screen.get_width()-100, screen.get_height()-225,100,100)
     NOTButton = pygame.Rect(screen.get_width()-100, screen.get_height()-325,100,100)
@@ -153,13 +158,14 @@ def main():
     createdNodes = []
     createdWires = []
 
+
     manipulation_gate = False
     draggedWire = None
     standardProcessingInfo = [False, False, None]
 
     def createGate(a):
         print("clicked on button")
-        newShape = logicGate(a,defaultGateShape, False, standardProcessingInfo)
+        newShape = logicGate(a,defaultGateShape, False, standardProcessingInfo, currentIndex += 1)
         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
         newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
