@@ -94,7 +94,7 @@ def xorGate(input1, input2):
 
 def xnorGate(input1, input2):
     return notGate(xorGate(input1, input2),0)
-#
+
 
 
 #objects declared
@@ -132,11 +132,12 @@ class logicGate:
 
 #TODO create differentiation between input to output in use
 class connectorNode:
-    def __init__ (self, shape ,parent, inputOutput, inUse): #NOTE only circleLoc is a var here since the circle radius, color, and background remain consistent
+    def __init__ (self, shape ,parent, inputOutput, inUse, indegree): #NOTE only circleLoc is a var here since the circle radius, color, and background remain consistent
         self.parent = parent
         self.shape = shape #idk if this is nessecary
         self.inputOutput = inputOutput
         self.inUse = inUse
+        self.indegree = indegree
 
     def redrawSelf(self):
         #TODO certain shapes may only have 1 input, scan self.parent to see how many inputs/outputs it has and adjust positions accordingly
@@ -217,7 +218,7 @@ def main():
 
     def createGate(a):
         print("clicked on button")
-        newShape = logicGate(a,defaultGateShape, False, standardProcessingInfo)
+        newShape = logicGate(a,defaultGateShape, False, standardProcessingInfo, 0)
         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
         newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
@@ -359,11 +360,13 @@ def main():
                             #nodes need to be deleted
                             createdRectangles.remove(shape)
 
-
-
-
-
-
+#---process logic---
+        #calculate indegree
+        for wire in createdWires:
+            if wire.endPoint[0] == "i":
+                wire.endPoint.parent.indegree += 1
+            elif wire.endPoint[0] == "o":
+                wire.startPoint.parent.indegree += 1
 
 
 #---create or recreate all shapes---
@@ -379,7 +382,6 @@ def main():
         pygame.draw.rect(bg, "orange", NANDButton)
         pygame.draw.rect(bg, "cyan", XORButton)
         pygame.draw.rect(bg, "pink", XNORButton)
-
         #draw input and output box
 
 
