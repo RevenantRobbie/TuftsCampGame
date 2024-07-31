@@ -176,10 +176,19 @@ def main():
         createdNodes.append(newOutput)
 
     def Topological_Sort():
+        next_point = []
+        from_point_number= []
         for shape in createdWires:
-            if shape.startPoint.inputOutput[0] == 'o'
+            if shape.startPoint.inputOutput[0] == 'o':
+                in_point = shape.endPoint.parent.idx
+                out_point = shape.startPoint.parent.idx
+            elif shape.endPoint.inputOutpue[0] == 'i':
                 in_point = shape.startPoint.parent.idx
-                out_point = shape.
+                out_point = shape.endPoint.parent.idx
+            next_point[in_point].append(out_point)
+            from_point_number[out_point]+=1
+
+
 
     #initializeGame
 
