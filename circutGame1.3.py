@@ -191,10 +191,14 @@ def main():
 
         temper = []
         for shape in createdRectangles:
-            if shape.idx == 0:
+            if from_point_number[shape.idx] == 0:
                 temper.append(shape)
 
-        while len(temper)
+        while len(temper) != 0:
+            shape =temper.pop()
+            order.append(shape)
+            for point in next_point[shape.idx]:
+                from_point_number[point]-=1
     #initializeGame
 
     outputRect = output(standardOutputRect, [False], "red")
