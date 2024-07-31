@@ -107,11 +107,13 @@ def xnorGate(input1, input2):
 
 """
 class logicGate:
-    def __init__ (self, type, shape, pickedUp, processingInfo, linkedGates):
+    def __init__ (self, type, shape, pickedUp, processingInfo, indegree, linkedGates):
         self.shape = shape
         self.type = type
         self.pickedUp = pickedUp
         self.processingInfo = processingInfo
+        self.indegree = indegree
+        self.linkedGates = linkedGates
 
         #detects if gate only has one input and deletes one of the two input if so
     def doLogic(self):
@@ -151,7 +153,7 @@ class logicGate:
 
 #TODO create differentiation between input to output in use
 class connectorNode:
-    def __init__ (self, shape ,parent, inputOutput, inUse, indegree): #NOTE only circleLoc is a var here since the circle radius, color, and background remain consistent
+    def __init__ (self, shape ,parent, inputOutput, inUse): #NOTE only circleLoc is a var here since the circle radius, color, and background remain consistent
         self.parent = parent
         self.shape = shape #idk if this is nessecary
         self.inputOutput = inputOutput
