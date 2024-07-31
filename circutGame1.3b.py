@@ -362,7 +362,8 @@ def main():
                             createdRectangles.remove(shape)
 #---Wires process connections---
         for wire in createdWires:
-            wire.
+            if wire.startPoint[0] == "o":
+
 
 #---process logic---
         #calculate indegree
