@@ -189,9 +189,12 @@ def main():
             next_point[in_point].append(out_point)
             from_point_number[out_point]+=1
 
+        temper = []
         for shape in createdRectangles:
-            if shape.idx == 0 and shape is not in output_order:
+            if shape.idx == 0:
+                temper.append(shape)
 
+        while len(temper)
     #initializeGame
 
     outputRect = output(standardOutputRect, [False], "red")
