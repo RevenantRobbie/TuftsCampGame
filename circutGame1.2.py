@@ -163,7 +163,7 @@ class wires:
     def updateGates(self):
         if isinstance(self.endPoint, connectorNode) and isinstance(self.startPoint, connectorNode):
             if self.startPoint.inputOutput[0] == "o":
-
+                print(int(self.endPoint.inputOutput[-1])-1)
                 self.endPoint.parent.processingInfo[int(self.endPoint.inputOutput[-1])-1] = self.startPoint.parent.processingInfo[2]
             else:
                 self.startPoint.inputOutput[int(self.startPoint.inputOutput[-1]) -1] = self.endPoint.parent.processingInfo[2]
