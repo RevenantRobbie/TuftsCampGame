@@ -183,7 +183,7 @@ class output:
         print(self.processingInfo)
         if self.processingInfo[0] == True:
             self.color = "green"
-        else:
+        elif self.processingInfo[1] == False:
             self.color == "red"
 
 
