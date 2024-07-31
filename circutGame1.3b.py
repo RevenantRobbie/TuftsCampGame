@@ -369,12 +369,18 @@ def main():
                 wire.startPoint.parent.indegree += 1
         #findLowestIndegree and store all in q
         q = deque() #q acts as an "advanced list"
+        topoSort = []
         lowestNum = None
         for shape in createdRectangles:
             if lowestNum == None or shape.indegree < lowestNum:
                 q.clear()
                 lowestNum = shape.indegree
                 q.append(shape)
+
+        while q:
+            shape = q.popleft()
+            topoSort.append(shape)
+
 
 
 
