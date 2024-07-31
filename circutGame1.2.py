@@ -190,7 +190,7 @@ def main():
     defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
     defaultNodeShape = pygame.Rect(0, 0, 15, 15)
     testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
-    standardOutputRect = pygame.rect(screen.get_width()/2, 0, 50, 50)
+    standardOutputRect = pygame.Rect(screen.get_width()/2, 0, 50, 50)
 
     createdRectangles = []
     createdNodes = []
@@ -350,12 +350,12 @@ def main():
         for shape in createdRectangles:
             # if dragging == True:
             shape.doLogic()
-            print(shape.processingInfo[2])
+
             if manipulation_gate == True:
                 if shape.pickedUp == True:
                     shape.shape = pygame.Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
 
-        outputRect:changeColor()
+        outputRect.changeColor()
         pygame.draw.rect(bg, outputRect.color, outputRect.shape)
 
 
