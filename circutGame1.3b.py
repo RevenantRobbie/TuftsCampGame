@@ -219,7 +219,7 @@ def main():
 
     def createGate(a):
         print("clicked on button")
-        newShape = logicGate(a,defaultGateShape, False, standardProcessingInfo, 0, [])
+        newShape = logicGate(a,defaultGateShape, False, standardProcessingInfo, 0, [None, None, None])
         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
         newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
