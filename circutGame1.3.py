@@ -181,24 +181,26 @@ def main():
         from_point_number= []
         for shape in createdWires:
             if shape.startPoint.inputOutput[0] == 'o':
-                in_point = shape.endPoint.parent.idx
-                out_point = shape.startPoint.parent.idx
+                in_point = shape.endPoint.parent
+                out_point = shape.startPoint.parent
             elif shape.endPoint.inputOutpue[0] == 'i':
-                in_point = shape.startPoint.parent.idx
-                out_point = shape.endPoint.parent.idx
+                in_point = shape.startPoint.parent
+                out_point = shape.endPoint.parent
             next_point[in_point].append(out_point)
             from_point_number[out_point]+=1
 
         temper = []
         for shape in createdRectangles:
-            if from_point_number[shape.idx] == 0:
+            if from_point_number[shape] == 0:
                 temper.append(shape)
 
         while len(temper) != 0:
             shape =temper.pop()
-            order.append(shape)
+            output_order.append(shape)
             for point in next_point[shape.idx]:
                 from_point_number[point]-=1
+                if from_point_number[point] == 0:
+                    temper.append(point)
     #initializeGame
 
     outputRect = output(standardOutputRect, [False], "red")
