@@ -127,12 +127,14 @@ class wires:
             pygame.draw.line(bg, "orange", (self.startPoint.shape[0], self.startPoint.shape[1]), (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1]),3)
 
     def updateGates(self):
-        if 
-        if self.startPoint.inputOutput[0] == "o":
-            print(self.endPoint)
-            self.endPoint.parent.processingInfo[int(self.endPoint.inputOutput[-1])-1] = self.startPoint.parent.processingInfo[2]
+        if type(self.startPoint) != 'list' and type(self.endPoint) != 'list':
+            if self.startPoint.inputOutput[0] == "o":
+                print(self.endPoint)
+                self.endPoint.parent.processingInfo[int(self.endPoint.inputOutput[-1])-1] = self.startPoint.parent.processingInfo[2]
+            else:
+                self.startPoint.inputOutput[int(self.startPoint.inputOutput[-1]) -1] = self.endPoint.parent.processingInfo[2]
         else:
-            self.startPoint.inputOutput[int(self.startPoint.inputOutput[-1]) -1] = self.endPoint.parent.processingInfo[2]
+            print("uhOh")
 
 
 
@@ -287,7 +289,7 @@ def main():
         for shape in createdRectangles:
             # if dragging == True:
             shape.doLogic()
-            print(shape.processingInfo[2])
+            #print(shape.processingInfo[2])
             if manipulation_gate == True:
                 if shape.pickedUp == True:
                     shape.shape = pygame.Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
