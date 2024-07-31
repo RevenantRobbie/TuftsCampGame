@@ -95,6 +95,8 @@ class connectorNode:
             self.shape = pygame.Rect(self.parent.shape[0]+125, self.parent.shape[1]-15, 15, 15)
         pygame.draw.rect(bg, "blue", self.shape)
 
+
+
     def returnSelf(self):
         return self
 
@@ -112,6 +114,8 @@ class wires:
         elif self.pickedUp == True:
             pygame.draw.line(bg, "orange", (self.startPoint.shape[0], self.startPoint.shape[1]), (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1]),3)
 
+    def updateEndpoint(self):
+        
 
 
 
