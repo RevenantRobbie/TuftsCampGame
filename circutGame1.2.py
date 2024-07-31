@@ -198,13 +198,14 @@ def main():
 
     manipulation_gate = False
     draggedWire = None
-    standardProcessingInfo = [False, False, None]
+    standardProcessingInfo = [True, True, None]
     gameInitialized = False
 
     #initializeGame
 
     outputRect = output(standardOutputRect, [False], "red")
     newInput = connectorNode(defaultNodeShape, outputRect, "input1", False)
+    createdNodes.append(newInput)
 
 
 
@@ -357,6 +358,7 @@ def main():
 
         outputRect.changeColor()
         pygame.draw.rect(bg, outputRect.color, outputRect.shape)
+        print(outputRect.color)
 
 
 
