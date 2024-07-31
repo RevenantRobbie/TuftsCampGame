@@ -183,6 +183,7 @@ class output:
         self.shape = shape
         self.processingInfo = processingInfo
         self.color = color
+        self.indegree = indegree
 
     def changeColor(self):
         #print(self.processingInfo)
