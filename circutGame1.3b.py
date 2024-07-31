@@ -99,7 +99,7 @@ def xnorGate(input1, input2):
 
 #objects declared
 class logicGate:
-    def __init__ (self, type, shape, pickedUp, processingInfo):
+    def __init__ (self, type, shape, pickedUp, processingInfo, linkedGates):
         self.shape = shape
         self.type = type
         self.pickedUp = pickedUp
@@ -218,7 +218,7 @@ def main():
 
     def createGate(a):
         print("clicked on button")
-        newShape = logicGate(a,defaultGateShape, False, standardProcessingInfo, 0)
+        newShape = logicGate(a,defaultGateShape, False, standardProcessingInfo, 0, [])
         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
         newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
@@ -381,7 +381,7 @@ def main():
                 shape = q.popleft()
                 topoSort.append(shape)
             iteration += 1
-        
+
 
 
 
