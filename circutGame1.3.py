@@ -182,6 +182,7 @@ def main():
         from_point_number= []
         for i in range(currentIndex):
             from_point_number.append(0)
+            next_point.append(0)
         for shape in createdWires:
             if shape.startPoint.inputOutput[0] == 'o':
                 in_point = shape.endPoint.parent.idx
