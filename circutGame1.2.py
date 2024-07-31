@@ -64,6 +64,18 @@ SCREEN_W = screen.get_width()  # height of screen
 SCREEN_H = screen.get_height()  # width of screen
 bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # creates specific sized screen. bg stands for background in this case
 #objects declared
+
+'''
+processing info is an array laid out like so
+[
+input1Value
+input2Value
+outputVale
+
+note, input1 and 2 start as False but output always initializes as None. It's vale will be processed at the end of the script
+]
+
+'''
 class logicGate:
     def __init__ (self, type, shape, pickedUp, processingInfo):
         self.shape = shape
@@ -115,7 +127,10 @@ class wires:
             pygame.draw.line(bg, "orange", (self.startPoint.shape[0], self.startPoint.shape[1]), (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1]),3)
 
     def updateEndpoint(self):
-        self.startPoint.inputOutput
+        if self.startPoint.inputOutput[0] == "o":
+            self.endpoint.parent.processingInfo[int(self.endPoint.inputOutput[-1])-1] = self.startPoint.parent.processingInfo[2]
+        else
+            self.startPoint.inputOutput[int(self.startPoint.inputOutput[-1]) -1] = self.endpoint.parent.processingInfo[2]
 
 
 
