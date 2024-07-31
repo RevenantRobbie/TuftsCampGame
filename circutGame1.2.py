@@ -115,7 +115,8 @@ class wires:
             pygame.draw.line(bg, "orange", (self.startPoint.shape[0], self.startPoint.shape[1]), (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1]),3)
 
     def updateEndpoint(self):
-        
+        self.startPoint.inputOutput
+
 
 
 
