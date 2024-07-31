@@ -199,8 +199,8 @@ def main():
             for point in next_point[shape.idx]:
                 from_point_number[point] -= 1
                 if from_point_number[point] == 0:
-                    for shape in createdRectangles:
-                        if shape.idx == point:
+                    for tem_shape in createdRectangles:
+                        if tem_shape.idx == point:
                             temper.append(point)
     #initializeGame
 
@@ -378,7 +378,7 @@ def main():
                     for wire in createdWires:
                         if wire.startPoint ==  node and wire.startPoint.inputOutput == 'o':
                             wire.updateGates()
-                        if wire.endPoint == node and wire.endpoint.inputOutput =='o':
+                        elif wire.endPoint == node and wire.endpoint.inputOutput =='o':
                             wire.updateGates()
 
         for shape in createdWires:
