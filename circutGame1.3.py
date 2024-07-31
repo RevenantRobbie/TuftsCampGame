@@ -400,7 +400,7 @@ def main():
             bg.blit(font.render(shape.type, 1, "black"), (shape.shape[0], shape.shape[1]))
             # if dragging == True:
             shape.doLogic()
-            print("gate", shape.type, "outputting",  shape.processingInfo)
+            #print("gate", shape.type, "outputting",  shape.processingInfo)
             #print(shape.processingInfo[2])
             if manipulation_gate == True:
                 if shape.pickedUp == True:
