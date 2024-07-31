@@ -362,8 +362,11 @@ def main():
                             createdRectangles.remove(shape)
 #---Wires process connections---
         for wire in createdWires:
+            if wire.endPoint[0] == "o":
+                wire.startPoint.
+
             if wire.startPoint[0] == "o":
-                wire.endPoint.parent.linkedGates[int(wire.endPoint[-1])-1] = 
+                wire.endPoint.parent.linkedGates[int(wire.endPoint[-1])-1] = wire.startPoint.parent
             elif wire.startPoint[0] == "i":
                 wire.startPoint.linkedGates[]
 
