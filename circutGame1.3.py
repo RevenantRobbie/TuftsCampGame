@@ -383,9 +383,13 @@ def main():
 
         output_order = []
         Topological_Sort()
+        print(output_order)
         for shape in output_order:
+            print("shapes")
             for node in createdNodes:
+                print("nodes")
                 if node.inputOutput[0] == 'i' and node.parent == shape:
+                    print("if statement")
                     for wire in createdWires:
                         if wire.startPoint ==  node and wire.startPoint.inputOutput == 'o':
                             wire.updateGates()
