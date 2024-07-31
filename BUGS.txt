@@ -1,4 +1,6 @@
 BUGS
+
+connected input to output of single gate. resulted in error
 aeiou
 [True, True, True]
 Traceback (most recent call last):
@@ -10,3 +12,7 @@ Traceback (most recent call last):
     self.startPoint.inputOutput[int(self.startPoint.inputOutput[-1]) -1] = self.endPoint.parent.processingInfo[2]
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: 'str' object does not support item assignment
+
+
+logic error
+when 2 gates get stacked on top of each other, the game gets confused and won't allow you to pick up either
