@@ -179,7 +179,7 @@ class wires:
             return
 
 class output:
-    def __init__(self, shape, processingInfo, color):
+    def __init__(self, shape, processingInfo, color, indegree):
         self.shape = shape
         self.processingInfo = processingInfo
         self.color = color
@@ -229,7 +229,7 @@ def main():
 
     #initializeGame
 
-    outputRect = output(standardOutputRect, [False], "red")
+    outputRect = output(standardOutputRect, [False], "red", 0)
     newInput = connectorNode(defaultNodeShape, outputRect, "input1", False)
     createdNodes.append(newInput)
 
@@ -367,6 +367,8 @@ def main():
                 wire.endPoint.parent.indegree += 1
             elif wire.endPoint[0] == "o":
                 wire.startPoint.parent.indegree += 1
+        #findLowestIndegree
+        
 
 
 #---create or recreate all shapes---
