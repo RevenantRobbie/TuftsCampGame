@@ -12,7 +12,7 @@ bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # create
 
 
 def andGate(input1, input2):
-    #print("AND:", input1, input2)
+    print("NOT:", input1, input2)
     return input1 and input2
 
 def orGate(input1, input2):
