@@ -180,10 +180,10 @@ def main():
         next_point = [None for i in range(65535)]
         from_point_number= [None for i in range(65535)]
         for shape in createdWires:
-            if shape.startPoint.inputOutput[0] == 'o' and type(shape.startPoint) != list:
+            if shape.startPoint.inputOutput[0] == 'o' and type(shape.startPoint) == logicGate:
                 in_point = shape.endPoint.parent.idx
                 out_point = shape.startPoint.parent.idx
-            elif shape.endPoint.inputOutput[0] == 'i' and type(shape.startPoint) != list:
+            elif shape.endPoint.inputOutput[0] == 'i' and type(shape.endPoint) == logicGate:
                 in_point = shape.startPoint.parent.idx
                 out_point = shape.endPoint.parent.idx
 
