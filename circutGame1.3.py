@@ -12,7 +12,7 @@ bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # create
 
 
 def andGate(input1, input2):
-    print("AND:", input1, input2)
+    #print("AND:", input1, input2)
     return input1 and input2
 
 def orGate(input1, input2):
@@ -43,12 +43,11 @@ def xnorGate(input1, input2):
 
 #objects declared
 class logicGate:
-    def __init__ (self, type, shape, pickedUp, processingInfo, idx):
+    def __init__ (self, type, shape, pickedUp, processingInfo):
         self.shape = shape
         self.type = type
         self.pickedUp = pickedUp
         self.processingInfo = processingInfo
-        self.idx= idx
 
         #detects if gate only has one input and deletes one of the two input if so
     def doLogic(self):
@@ -166,8 +165,7 @@ def main():
 
     def createGate(a):
         print("clicked on button")
-        newShape = logicGate(a, defaultGateShape, False, standardProcessingInfo, currentIndex + 1)
-        currentIndex += 1
+        newShape = logicGate(a, defaultGateShape, False, standardProcessingInfo)
         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
         newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
@@ -233,6 +231,7 @@ def main():
                     #TODO drop logic on m1 click on anything. This can probably be done by changing pickedUp/inUse whenever a m1 event takes place.
                     for shape in createdNodes:
                         if shape.shape.collidepoint(event.pos):
+                            print("node clicked")
                             clickedOnNothing = False
                             if shape.inUse == False and draggedWire == None: #create wire
                                 newWire = wires(shape, [0,0], True, shape.inputOutput)
