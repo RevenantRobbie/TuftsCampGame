@@ -191,9 +191,10 @@ class output:
 def main():
 
     #variables declared
-    defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
+    defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,75,50)
     defaultNodeShape = pygame.Rect(0, 0, 15, 15)
     ANDButton = pygame.Rect(screen.get_width()-100, screen.get_height()-200,100,100)
+    ORButton = pygame.Rect(screen.get_width()-200, screen.get_height()-300,100,100)
     standardOutputRect = pygame.Rect(screen.get_width()/2, 25, 50, 50)
 
     createdRectangles = []
