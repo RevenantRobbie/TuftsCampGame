@@ -157,6 +157,7 @@ def main():
     createdRectangles = []
     createdNodes = []
     createdWires = []
+    output_order = []
 
 
     manipulation_gate = False
