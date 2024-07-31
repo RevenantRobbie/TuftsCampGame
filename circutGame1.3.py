@@ -177,17 +177,24 @@ def main():
 
     def Topological_Sort():
         global currentIndex
-        next_point = [None for i in range(100)]
-        from_point_number= [None for i in range(100)]
+        next_point = [None for i in range(65535)]
+        from_point_number= [None for i in range(65535)]
         for shape in createdWires:
-            if shape.startPoint.inputOutput[0] == 'o':
+            if shape.startPoint.inputOutput[0] == 'o' and type(shape.startPoint) != list:
                 in_point = shape.endPoint.parent.idx
                 out_point = shape.startPoint.parent.idx
-            elif shape.endPoint.inputOutput[0] == 'i':
+            elif shape.endPoint.inputOutput[0] == 'i' and type(shape.startPoint) != list:
                 in_point = shape.startPoint.parent.idx
                 out_point = shape.endPoint.parent.idx
-            next_point[in_point].append(out_point)
-            from_point_number[out_point] += 1
+
+            if next_point[in_point] == None:
+                next_point[in_point]=[out_point]
+            else: next_point[in_point].append(out_point)
+
+            if from_point_number[out_point] == None:
+                from_point_number[out_point] =1
+            else:
+                from_point_number[out_point] += 1
 
         temper = []
         for shape in createdRectangles:
