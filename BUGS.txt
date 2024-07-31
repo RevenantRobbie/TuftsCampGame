@@ -19,7 +19,7 @@ when 2 gates get stacked on top of each other, the game gets confused and won't 
 
 #####################################################################################################################
 
-connected
+connectedred box to gate output (dragged wire from red box input to gate output)
 
 aeiou
 Traceback (most recent call last):

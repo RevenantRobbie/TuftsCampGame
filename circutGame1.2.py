@@ -347,7 +347,7 @@ def main():
         #draw buttons to spawn in gates
         pygame.draw.rect(bg, "purple", ANDButton)
         pygame.draw.rect(bg, "blue", ORButton)
-        
+        pygame.draw.rect(bg, "green", NOTButton)
 
         #draw input and output box
 
