@@ -177,11 +177,8 @@ def main():
 
     def Topological_Sort():
         global currentIndex
-        next_point = []
-        from_point_number= []
-        for i in range(currentIndex):
-            from_point_number.append(0)
-            next_point.append(0)
+        next_point = [None for i in range(100)]
+        from_point_number= [None for i in range(100)]
         for shape in createdWires:
             if shape.startPoint.inputOutput[0] == 'o':
                 in_point = shape.endPoint.parent.idx
