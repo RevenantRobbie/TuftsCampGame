@@ -113,6 +113,7 @@ class wires:
             pygame.draw.line(bg, "orange", (self.startPoint.shape[0], self.startPoint.shape[1]), (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1]),3)
 
     def updateGates(self):
+        print("updating")
         if isinstance(self.endPoint, connectorNode) and isinstance(self.startPoint, connectorNode):
             if self.startPoint.inputOutput[0] == "o":
                 #print(self.startPoint.parent.processingInfo)
@@ -135,7 +136,7 @@ class output:
         elif self.processingInfo[0] == False:
             self.color = "red"
 
-currentIndex = 0
+currentIndex = 1
 
 def main():
 
