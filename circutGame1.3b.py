@@ -158,7 +158,6 @@ class connectorNode:
         self.shape = shape #idk if this is nessecary
         self.inputOutput = inputOutput
         self.inUse = inUse
-        self.indegree = indegree
 
     def redrawSelf(self):
         #TODO certain shapes may only have 1 input, scan self.parent to see how many inputs/outputs it has and adjust positions accordingly
