@@ -105,6 +105,7 @@ class logicGate:
 
         #detects if gate only has one input and deletes one of the two input if so
     def doLogic(self):
+        print("doingLogic")
         if self.type == "AND":
             self.processingInfo[2] = andGate(self.processingInfo[0], self.processingInfo[1])
         elif self.type == "OR":
@@ -119,6 +120,8 @@ class logicGate:
             self.processingInfo[2] = xorGate(self.processingInfo[0], self.processingInfo[1])
         elif self.type == "XNOR":
             self.processingInfo[2] = xnorGate(self.processingInfo[0], self.processingInfo[1])
+        else:
+            print("no logic done")
 
 
 
@@ -163,7 +166,7 @@ class wires:
     def updateGates(self):
         if isinstance(self.endPoint, connectorNode) and isinstance(self.startPoint, connectorNode):
             if self.startPoint.inputOutput[0] == "o":
-                print(int(self.endPoint.inputOutput[-1])-1)
+                print(self.startPoint.parent.processingInfo)
                 self.endPoint.parent.processingInfo[int(self.endPoint.inputOutput[-1])-1] = self.startPoint.parent.processingInfo[2]
             else:
                 self.startPoint.inputOutput[int(self.startPoint.inputOutput[-1]) -1] = self.endPoint.parent.processingInfo[2]
@@ -272,7 +275,7 @@ def main():
                     if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
                         clickedOnNothing = False
                         print("clicked on button")
-                        newShape = logicGate("AND ",defaultGateShape, False, standardProcessingInfo)
+                        newShape = logicGate("AND",defaultGateShape, False, standardProcessingInfo)
                         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
                         newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
                         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
