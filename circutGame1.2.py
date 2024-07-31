@@ -193,8 +193,15 @@ def main():
     #variables declared
     defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,75,50)
     defaultNodeShape = pygame.Rect(0, 0, 15, 15)
+
+
     ANDButton = pygame.Rect(screen.get_width()-100, screen.get_height()-200,100,100)
-    ORButton = pygame.Rect(screen.get_width()-200, screen.get_height()-300,100,100)
+    ORButton = pygame.Rect(screen.get_width()-100, screen.get_height()-300,100,100)
+    NOTButton = pygame.Rect(screen.get_width()-100, screen.get_height()-400,100,100)
+    NORButton = pygame.Rect(screen.get_width()-100, screen.get_height()-500,100,100)
+    NANDButton = pygame.Rect(screen.get_width()-100, screen.get_height()-600,100,100)
+    XORButton = pygame.Rect(screen.get_width()-100, screen.get_height()-700,100,100)
+    XNORButton = pygame.Rect(screen.get_width()-100, screen.get_height()-800,100,100)
     standardOutputRect = pygame.Rect(screen.get_width()/2, 25, 50, 50)
 
     createdRectangles = []
@@ -339,6 +346,8 @@ def main():
         bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
         #draw buttons to spawn in gates
         pygame.draw.rect(bg, "purple", ANDButton)
+        pygame.draw.rect(bg, "blue", ORButton)
+        
 
         #draw input and output box
 

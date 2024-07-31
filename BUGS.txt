@@ -16,3 +16,18 @@ TypeError: 'str' object does not support item assignment
 
 logic error
 when 2 gates get stacked on top of each other, the game gets confused and won't allow you to pick up either
+
+#####################################################################################################################
+
+connected
+
+aeiou
+Traceback (most recent call last):
+  File "/Users/jamietessier/Downloads/TuftsCampGame-main/circutGame1.2.py", line 379, in <module>
+    main()
+  File "/Users/jamietessier/Downloads/TuftsCampGame-main/circutGame1.2.py", line 356, in main
+    shape.updateGates()
+  File "/Users/jamietessier/Downloads/TuftsCampGame-main/circutGame1.2.py", line 172, in updateGates
+    self.startPoint.inputOutput[int(self.startPoint.inputOutput[-1]) -1] = self.endPoint.parent.processingInfo[2]
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'str' object does not support item assignment
