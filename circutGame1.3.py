@@ -135,7 +135,7 @@ class output:
         elif self.processingInfo[0] == False:
             self.color = "red"
 
-
+currentIndex = 0
 
 def main():
 
@@ -162,7 +162,6 @@ def main():
     draggedWire = None
     standardProcessingInfo = [False, False, None]
 
-    global currentIndex = 0
     def createGate(a):
         global currentIndex
         print("clicked on button")
