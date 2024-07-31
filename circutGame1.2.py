@@ -349,6 +349,8 @@ def main():
                                             wire.endPoint.parent.processingInfo[int(wire.endPoint.inputOutput[-1])-1] = False
                                         elif wire.startPoint.inputOutput[0] == "i":
                                             wire.startPoint.parent.processingInfo[int(wire.startPoint.inputOutput[-1])-1] = False
+                                        wire.endPoint.inUse = False
+                                        wire.startPoint.inUse = False
                                 if Node.parent != shape:
                                     createdNodes.append(Node)
 
