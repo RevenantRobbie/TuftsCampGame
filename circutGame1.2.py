@@ -105,7 +105,7 @@ class logicGate:
 
         #detects if gate only has one input and deletes one of the two input if so
     def doLogic(self):
-        print("doingLogic")
+        #print("doingLogic")
         if self.type == "AND":
             self.processingInfo[2] = andGate(self.processingInfo[0], self.processingInfo[1])
         elif self.type == "OR":
@@ -180,10 +180,11 @@ class output:
         self.color = color
 
     def changeColor(self):
-        print(self.processingInfo)
+        #print(self.processingInfo)
         if self.processingInfo[0] == True:
             self.color = "green"
         elif self.processingInfo[0] == False:
+            print("eeeee")
             self.color == "red"
 
 
