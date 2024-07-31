@@ -213,6 +213,7 @@ def main():
                     for tem_shape in createdRectangles:
                         if tem_shape.idx == point:
                             temper.append(point)
+        print(output_order)
     #initializeGame
 
     outputRect = output(standardOutputRect, [False], "red")
@@ -383,7 +384,6 @@ def main():
 
         output_order = []
         Topological_Sort()
-        print(output_order)
         for shape in output_order:
             print("shapes")
             for node in createdNodes:
