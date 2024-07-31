@@ -371,7 +371,9 @@ def main():
 #---Wires process connections---
         for wire in createdWires:
             if wire.endPoint[0] == "o":
-                wire.startPoint.inputOutput[-1]
+                wire.startPoint.parent.linkedGates[int(wire.startPoint.inputOutput[-1])-1] = wire.endPoint.parent
+            elif wire.endPoint[0] == "i"
+
 
             if wire.startPoint[0] == "o":
                 wire.endPoint.parent.linkedGates[int(wire.endPoint[-1])-1] = wire.startPoint.parent
