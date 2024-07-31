@@ -82,7 +82,7 @@ def notGate(input1, input2):
         return True
 
 def norGate(input1, input2):
-    return notGate(orGate(input1, input2), 1)
+    return notGate(orGate(input1, input2), 0)
 
 def nandGate(input1,input2):
     return notGate(andGate(input1, input2))
