@@ -392,7 +392,7 @@ def main():
 
         for shape in createdWires:
             shape.drawLine()
-            #shape.updateGates()
+
 
         for shape in createdRectangles:
             bg.blit(font.render(shape.type, 1, "black"), (shape.shape[0], shape.shape[1]))
