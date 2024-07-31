@@ -194,6 +194,8 @@ def main():
     defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,75,50)
     defaultNodeShape = pygame.Rect(0, 0, 15, 15)
 
+    standardText = font.render("", 1, (0,0,0))
+
 
     ANDButton = pygame.Rect(screen.get_width()-100, screen.get_height()-125,100,100)
     ORButton = pygame.Rect(screen.get_width()-100, screen.get_height()-225,100,100)
@@ -372,6 +374,7 @@ def main():
             shape.updateGates()
 
         for shape in createdRectangles:
+            
             # if dragging == True:
             shape.doLogic()
             #print(shape.processingInfo[2])
