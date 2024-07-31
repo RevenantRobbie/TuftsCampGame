@@ -317,6 +317,11 @@ def main():
                                     wire = createdWires.pop(0)
                                     if wire.startPoint != Node and wire.endPoint != Node:
                                         createdWires.append(wire)
+                                    else:
+                                        if wire.endPoint.inputOutput[0] == "i":
+                                            wire.endPoint.parent.processingInfo[int(wire.endPoint.inputOutput[-1])-1] = False
+                                        elif wire.startPoint.inputOutput[o] == "i":
+                                            wire.startPoint.parent.processingInfo[int(wire.startPoint.inputOutput[-1])-1] = False
                                 if Node.parent != shape:
                                     createdNodes.append(Node)
 
