@@ -194,7 +194,7 @@ def main():
 
         temper = []
         for shape in createdRectangles:
-            if len(from_point_number)>= shape.idx and from_point_number[shape.idx] == 0:
+            if from_point_number[shape.idx] == 0:
                 temper.append(shape)
 
         while len(temper) != 0:
