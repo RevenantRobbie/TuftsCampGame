@@ -169,7 +169,7 @@ class wires:
                 print(self.startPoint.parent.processingInfo)
                 self.endPoint.parent.processingInfo[int(self.endPoint.inputOutput[-1])-1] = self.startPoint.parent.processingInfo[2]
             else:
-                self.startPoint.processingInfo[int(self.startPoint.inputOutput[-1]) -1] = self.endPoint.parent.processingInfo[2]
+                self.startPoint.parent.processingInfo[int(self.startPoint.inputOutput[-1]) -1] = self.endPoint.parent.processingInfo[2]
         else:
             return
 
