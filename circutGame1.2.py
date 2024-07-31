@@ -137,6 +137,7 @@ def main():
     defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
     defaultNodeShape = pygame.Rect(0, 0, 15, 15)
     testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
+    defaultInputRect = pygame.rect(screen.get_width()/2, screen.get_height(), 50, 50)
 
     createdRectangles = []
     createdNodes = []
@@ -146,7 +147,12 @@ def main():
     draggedWire = None
     standardProcessingInfo = [False, False, None]
 
-    
+    #initializeGame
+     if gameInitialized == False:
+            p
+            gameInitialized = True
+
+
 
     pygame.init() # creates game window
     clock = pygame.time.Clock() # creates needed clock object
@@ -269,8 +275,10 @@ def main():
         bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
         #draw buttons to spawn in gates
         pygame.draw.rect(bg, "purple", testingRect)
+        pygame.draw.rect(bg, "red", defaultInputRect)
 
         #draw input and output box
+
 
 
         for shape in createdNodes:
