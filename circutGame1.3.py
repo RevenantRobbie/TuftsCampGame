@@ -368,7 +368,15 @@ def main():
             #TODO make circles a seperate class where you can click on them and drag a line to other circles
 
         output_order = []
-        for shape in output_order
+        for shape in output_order:
+            for node in createdNodes:
+                if node.inputOutput[0] == 'i' and node.parent == shape:
+                    for wire in createdWires:
+                        if wire.startPoint ==  node and wire.startPoint.inputOutput == 'o':
+                            wire.updateGates()
+                        if wire.endPoint == node and wire.endpoint.inputOutput =='o':
+                            wire.updateGates()
+
         # for shape in createdWires:
         #     shape.drawLine()
         #     shape.updateGates()
