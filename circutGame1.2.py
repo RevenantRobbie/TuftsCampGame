@@ -67,6 +67,7 @@ bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # create
 
 
 def andGate(input1, input2):
+    print("AND:", input1, input2)
     return input1 and input2
 
 def orGate(input1, input2):
@@ -168,7 +169,7 @@ class wires:
     def updateGates(self):
         if isinstance(self.endPoint, connectorNode) and isinstance(self.startPoint, connectorNode):
             if self.startPoint.inputOutput[0] == "o":
-                print(self.startPoint.parent.processingInfo)
+                #print(self.startPoint.parent.processingInfo)
                 self.endPoint.parent.processingInfo[int(self.endPoint.inputOutput[-1])-1] = self.startPoint.parent.processingInfo[2]
             else:
                 self.startPoint.parent.processingInfo[int(self.startPoint.inputOutput[-1]) -1] = self.endPoint.parent.processingInfo[2]
