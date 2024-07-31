@@ -291,6 +291,8 @@ def main():
                         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
                         newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
                         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
+                    elif ORButton.collidepoint(event.pos):
+
 
 
                         createdRectangles.append(newShape)
