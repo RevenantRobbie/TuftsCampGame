@@ -189,7 +189,8 @@ def main():
             next_point[in_point].append(out_point)
             from_point_number[out_point]+=1
 
-
+        for shape in createdRectangles:
+            if shape.idx == 0 and
 
     #initializeGame
 
