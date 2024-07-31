@@ -166,7 +166,7 @@ def main():
 
     def createGate(a):
         print("clicked on button")
-        newShape = logicGate(a, defaultGateShape, False, standardProcessingInfo)
+        newShape = logicGate(a, defaultGateShape, False, standardProcessingInfo, currentIndex += 1)
         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
         newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
@@ -180,26 +180,28 @@ def main():
         from_point_number= []
         for shape in createdWires:
             if shape.startPoint.inputOutput[0] == 'o':
-                in_point = shape.endPoint.parent
-                out_point = shape.startPoint.parent
+                in_point = shape.endPoint.parent.idx
+                out_point = shape.startPoint.parent.idx
             elif shape.endPoint.inputOutput[0] == 'i':
-                in_point = shape.startPoint.parent
-                out_point = shape.endPoint.parent
+                in_point = shape.startPoint.parent.idx
+                out_point = shape.endPoint.parent.idx
             next_point[in_point].append(out_point)
             from_point_number[out_point] += 1
 
         temper = []
         for shape in createdRectangles:
-            if from_point_number[shape] == 0:
+            if from_point_number[shape.idx] == 0:
                 temper.append(shape)
 
         while len(temper) != 0:
             shape =temper.pop()
             output_order.append(shape)
-            for point in next_point[shape]:
+            for point in next_point[shape.idx]:
                 from_point_number[point] -= 1
                 if from_point_number[point] == 0:
-                    temper.append(point)
+                    for shape in createdRectangles:
+                        if shape.idx == point:
+                            temper.append(point)
     #initializeGame
 
     outputRect = output(standardOutputRect, [False], "red")
