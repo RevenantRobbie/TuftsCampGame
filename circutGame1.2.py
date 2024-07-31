@@ -184,8 +184,7 @@ class output:
         if self.processingInfo[0] == True:
             self.color = "green"
         elif self.processingInfo[0] == False:
-            self.color == "red"
-            print(self.color)
+            self.color = "red"
 
 
 
@@ -203,7 +202,7 @@ def main():
 
     manipulation_gate = False
     draggedWire = None
-    standardProcessingInfo = [True, True, None]
+    standardProcessingInfo = [False, False, None]
     gameInitialized = False
 
     #initializeGame
