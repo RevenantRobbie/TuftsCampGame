@@ -65,21 +65,18 @@ SCREEN_H = screen.get_height()  # width of screen
 bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # creates specific sized screen. bg stands for background in this case
 #objects declared
 class logicGate:
-    def __init__ (self, type, shape, pickedUp, connections):
+    def __init__ (self, type, shape, pickedUp, connections, input1, input2):
         self.shape = shape
         self.type = type
         self.pickedUp = pickedUp
         self.connections = connections
+        self.input1 = input1
+        self.input2 = input2
+
         #detects if gate only has one input and deletes one of the two input if so
-        """
-        {
-        input1: uhieoiwhgruetoi
-        input2: blaheiohrweipwhgoet
-        output: blah
-        }
+    def doLogic(self):
+        return input1 and input2
 
-
-        """
 
 
 #TODO create differentiation between input to output in use
