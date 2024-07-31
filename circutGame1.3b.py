@@ -56,6 +56,7 @@ Adultery
 '''
 
 import pygame
+from collections import deque
 
 
 screen = pygame.display.set_mode((1280,720))
