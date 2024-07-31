@@ -368,6 +368,7 @@ def main():
             #TODO make circles a seperate class where you can click on them and drag a line to other circles
 
         output_order = []
+        Topological_Sort()
         for shape in output_order:
             for node in createdNodes:
                 if node.inputOutput[0] == 'i' and node.parent == shape:
