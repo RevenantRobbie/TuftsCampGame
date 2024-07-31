@@ -12,7 +12,7 @@ bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # create
 
 
 def andGate(input1, input2):
-    print("AND:", input1, input2)
+    #print("AND:", input1, input2)
     return input1 and input2
 
 def orGate(input1, input2):
@@ -398,6 +398,7 @@ def main():
             bg.blit(font.render(shape.type, 1, "black"), (shape.shape[0], shape.shape[1]))
             # if dragging == True:
             shape.doLogic()
+            print("gate", shape.type, "outputting",  shape.processingInfo)
             #print(shape.processingInfo[2])
             if manipulation_gate == True:
                 if shape.pickedUp == True:
