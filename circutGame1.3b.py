@@ -98,6 +98,14 @@ def xnorGate(input1, input2):
 
 
 #objects declared
+
+#linked gates arrayed as such
+"""
+1. which gate is linked through input 1
+2. which gate is linked through input 2
+3. which gates am I outputting to
+
+"""
 class logicGate:
     def __init__ (self, type, shape, pickedUp, processingInfo, linkedGates):
         self.shape = shape
