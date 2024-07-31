@@ -193,8 +193,7 @@ def main():
     #variables declared
     defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
     defaultNodeShape = pygame.Rect(0, 0, 15, 15)
-    testingRect = pygame.Rect(screen.get_width(), 100,100,100)
-
+    testingRect = pygame.Rect(screen.get_width()-100, screen.get_height()-200,100,100)
     standardOutputRect = pygame.Rect(screen.get_width()/2, 25, 50, 50)
 
     createdRectangles = []
@@ -319,7 +318,7 @@ def main():
                                     else:
                                         if wire.endPoint.inputOutput[0] == "i":
                                             wire.endPoint.parent.processingInfo[int(wire.endPoint.inputOutput[-1])-1] = False
-                                        elif wire.startPoint.inputOutput[0] == "i":
+                                        elif wire.startPoint.inputOutput[o] == "i":
                                             wire.startPoint.parent.processingInfo[int(wire.startPoint.inputOutput[-1])-1] = False
                                 if Node.parent != shape:
                                     createdNodes.append(Node)
