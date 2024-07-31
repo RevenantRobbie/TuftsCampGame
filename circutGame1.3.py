@@ -177,6 +177,7 @@ def main():
 
     def Topological_Sort():
         global currentIndex
+        global output_order
         next_point = [None for i in range(65535)]
         from_point_number= [None for i in range(65535)]
         for shape in createdWires:
