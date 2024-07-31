@@ -190,7 +190,7 @@ def main():
             from_point_number[out_point]+=1
 
         for shape in createdRectangles:
-            if shape.idx == 0 and
+            if shape.idx == 0 and shape is not in output_order:
 
     #initializeGame
 
