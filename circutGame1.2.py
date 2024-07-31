@@ -137,7 +137,7 @@ def main():
     defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
     defaultNodeShape = pygame.Rect(0, 0, 15, 15)
     testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
-    defaultInputRect = pygame.rect(screen.get_width()/2, screen.get_height(), 50, 50)
+    inputRect = pygame.rect(screen.get_width()/2, screen.get_height(), 50, 50)
 
     createdRectangles = []
     createdNodes = []
@@ -149,7 +149,7 @@ def main():
 
     #initializeGame
      if gameInitialized == False:
-            p
+            newNode1 = connectorNode(defaultNodeShape, inputRect)
             gameInitialized = True
 
 
@@ -275,7 +275,7 @@ def main():
         bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
         #draw buttons to spawn in gates
         pygame.draw.rect(bg, "purple", testingRect)
-        pygame.draw.rect(bg, "red", defaultInputRect)
+        pygame.draw.rect(bg, "red", inputRect)
 
         #draw input and output box
 
