@@ -163,7 +163,7 @@ def main():
     standardProcessingInfo = [False, False, None]
 
     currentIndex = 0
-    def createGate(a, index):
+    def createGate(a):
         global currentIndex
         print("clicked on button")
         newShape = logicGate(a, defaultGateShape, False, standardProcessingInfo, currentIndex + 1)
@@ -279,25 +279,25 @@ def main():
 
                     if ANDButton.collidepoint(event.pos): #check if spawning rectangle is clicked on
                         clickedOnNothing = False
-                        createGate("AND", currentIndex)
+                        createGate("AND")
                     elif ORButton.collidepoint(event.pos):
                         clickedOnNothing = False
-                        createGate("OR", currentIndex)
+                        createGate("OR")
                     elif NORButton.collidepoint(event.pos):
                         clickedOnNothing = False
-                        createGate("NOR", currentIndex)
+                        createGate("NOR")
                     elif NANDButton.collidepoint(event.pos):
                         clickedOnNothing = False
-                        createGate("NAND", currentIndex)
+                        createGate("NAND")
                     elif XORButton.collidepoint(event.pos):
                         clickedOnNothing = False
-                        createGate("XOR", currentIndex)
+                        createGate("XOR")
                     elif XNORButton.collidepoint(event.pos):
                         clickedOnNothing = False
-                        createGate("XNOR", currentIndex)
+                        createGate("XNOR")
                     elif NOTButton.collidepoint(event.pos):
                         clickedOnNothing = False
-                        createGate("NOT", currentIndex)
+                        createGate("NOT")
                     else: #check if nothing was clicked on
                         if manipulation_gate == False and clickedOnNothing == True:
                             print("clicked on nothing")
