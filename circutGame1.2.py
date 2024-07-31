@@ -128,9 +128,9 @@ class wires:
 
     def updateGates(self):
         if self.startPoint.inputOutput[0] == "o":
-            self.endpoint.parent.processingInfo[int(self.endPoint.inputOutput[-1])-1] = self.startPoint.parent.processingInfo[2]
+            self.endPoint.parent.processingInfo[int(self.endPoint.inputOutput[-1])-1] = self.startPoint.parent.processingInfo[2]
         else:
-            self.startPoint.inputOutput[int(self.startPoint.inputOutput[-1]) -1] = self.endpoint.parent.processingInfo[2]
+            self.startPoint.inputOutput[int(self.startPoint.inputOutput[-1]) -1] = self.endPoint.parent.processingInfo[2]
 
 
 
