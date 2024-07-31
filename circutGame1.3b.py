@@ -381,6 +381,7 @@ def main():
                 shape = q.popleft()
                 topoSort.append(shape)
             iteration += 1
+        
 
 
 
