@@ -360,6 +360,9 @@ def main():
 
                             #nodes need to be deleted
                             createdRectangles.remove(shape)
+#---Wires process connections---
+        for wire in createdWires:
+            wire.
 
 #---process logic---
         #calculate indegree
