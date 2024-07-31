@@ -65,17 +65,15 @@ SCREEN_H = screen.get_height()  # width of screen
 bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # creates specific sized screen. bg stands for background in this case
 #objects declared
 class logicGate:
-    def __init__ (self, type, shape, pickedUp, connections, input1, input2):
+    def __init__ (self, type, shape, pickedUp, processingInfo):
         self.shape = shape
         self.type = type
         self.pickedUp = pickedUp
-        self.connections = connections
-        self.input1 = input1
-        self.input2 = input2
+        self.processingInfo = processingInfo
 
         #detects if gate only has one input and deletes one of the two input if so
     def doLogic(self):
-        return input1 and input2
+        processingInfo[2] = input1 and input2
 
 
 
@@ -191,7 +189,7 @@ def main():
                     if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
                         clickedOnNothing = False
                         print("clicked on button")
-                        newShape = logicGate("AND ",defaultGateShape, False, None)
+                        newShape = logicGate("AND ",defaultGateShape, False, [])
                         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
                         newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
                         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
