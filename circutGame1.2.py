@@ -190,7 +190,7 @@ def main():
     defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
     defaultNodeShape = pygame.Rect(0, 0, 15, 15)
     testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
-    standardOutputRect = pygame.Rect(screen.get_width()/2, 0, 50, 50)
+    standardOutputRect = pygame.Rect(screen.get_width()/2, 25, 50, 50)
 
     createdRectangles = []
     createdNodes = []
