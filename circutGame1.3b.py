@@ -391,14 +391,14 @@ def main():
                         wire.endPoint.parent.linkedGates.append(wire.startPoint.parent)
                     else:
                         wire.endPoint.parent.linkedGates[2] = wire.startPoint.parent
-                    wire.startPoint.parent.indegrees +=1
+                    wire.startPoint.parent.indegree +=1
                 elif wire.endPoint.inputOutput[0] == "i":
                     if wire.startPoint.parent.linkedGates[2] != None:
                         wire.startPoint.parent.linkedGates.append(wire.endPoint.parent)
                     else:
                         wire.startPoint.parent.linkedGates[2] = wire.endPoint.parent
                     wire.endPoint.parent.linkedGates[int(wire.endPoint.inputOutput[-1])-1] = wire.startPoint.parent
-                    wire.endPoint.parent.indegrees += 1
+                    wire.endPoint.parent.indegree += 1
 
 
 
