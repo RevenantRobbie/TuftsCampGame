@@ -85,7 +85,7 @@ class logicGate:
 
         #detects if gate only has one input and deletes one of the two input if so
     def doLogic(self):
-        processingInfo[2] = input1 and input2
+        self.processingInfo[2] = self.processingInfo[0] and self.processingInfo[1]
 
 
 
@@ -129,7 +129,7 @@ class wires:
     def updateGates(self):
         if self.startPoint.inputOutput[0] == "o":
             self.endpoint.parent.processingInfo[int(self.endPoint.inputOutput[-1])-1] = self.startPoint.parent.processingInfo[2]
-        else
+        else:
             self.startPoint.inputOutput[int(self.startPoint.inputOutput[-1]) -1] = self.endpoint.parent.processingInfo[2]
 
 
@@ -278,13 +278,14 @@ def main():
             pygame.draw.rect(bg, "white", shape.shape)
             #TODO make circles a seperate class where you can click on them and drag a line to other circles
 
-         for shape in createdWires:
+        for shape in createdWires:
             shape.updateGates()
             shape.drawLine()
 
         for shape in createdRectangles:
             # if dragging == True:
             shape.doLogic()
+            print(shape.processingInfo[2])
             if manipulation_gate == True:
                 if shape.pickedUp == True:
                     shape.shape = pygame.Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
