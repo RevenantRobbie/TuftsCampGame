@@ -370,16 +370,17 @@ def main():
         #findLowestIndegree and store all in q
         q = deque() #q acts as an "advanced list"
         topoSort = []
-        lowestNum = None
-        for shape in createdRectangles:
-            if lowestNum == None or shape.indegree < lowestNum:
-                q.clear()
-                lowestNum = shape.indegree
-                q.append(shape)
+        iteration = 0
+        currentNum = 0
+        while len(topoSort) < len(createdRectangles):
+            for shape in createdRectangles:
+                if currentNum == shape.indegree:
+                    q.append(shape)
 
-        while q:
-            shape = q.popleft()
-            topoSort.append(shape)
+            while q:
+                shape = q.popleft()
+                topoSort.append(shape)
+            iteration += 1
 
 
 
