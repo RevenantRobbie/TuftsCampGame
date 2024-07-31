@@ -132,20 +132,22 @@ class wires:
 
 
 def main():
+
     #variables declared
     defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
     defaultNodeShape = pygame.Rect(0, 0, 15, 15)
     testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
+
     createdRectangles = []
     createdNodes = []
     createdWires = []
-    #inUse = False #checks if the mouse is doing something so it can't do 2 things at once
+
     manipulation_gate = False
     draggedWire = None
-
     standardProcessingInfo = [False, False, None]
 
-    # dragging = False
+    
+
     pygame.init() # creates game window
     clock = pygame.time.Clock() # creates needed clock object
 
@@ -269,7 +271,7 @@ def main():
         pygame.draw.rect(bg, "purple", testingRect)
 
         #draw input and output box
-        
+
 
         for shape in createdNodes:
             shape.redrawSelf()
