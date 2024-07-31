@@ -239,6 +239,7 @@ def main():
                                 draggedWire = newWire
                                 if shape.inputOutput != "output":
                                     shape.inUse = True
+                                print("wire created")
                             elif shape.inUse == False and draggedWire != None:
                                 if shape.inputOutput[0] != draggedWire.startConnectionType[0]:
                                     print("aeiou")
