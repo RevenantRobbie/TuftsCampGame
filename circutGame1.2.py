@@ -65,17 +65,7 @@ SCREEN_H = screen.get_height()  # width of screen
 bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # creates specific sized screen. bg stands for background in this case
 #objects declared
 
-'''
-processing info is an array laid out like so
-[
-input1Value
-input2Value
-outputVale
 
-note, input1 and 2 start as False but output always initializes as None. It's vale will be processed at the end of the script
-]
-
-'''
 class logicGate:
     def __init__ (self, type, shape, pickedUp, processingInfo):
         self.shape = shape
