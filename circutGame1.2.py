@@ -184,8 +184,8 @@ class output:
         if self.processingInfo[0] == True:
             self.color = "green"
         elif self.processingInfo[0] == False:
-            print("eeeee")
             self.color == "red"
+            print(self.color)
 
 
 
@@ -319,7 +319,7 @@ def main():
                                     else:
                                         if wire.endPoint.inputOutput[0] == "i":
                                             wire.endPoint.parent.processingInfo[int(wire.endPoint.inputOutput[-1])-1] = False
-                                        elif wire.startPoint.inputOutput[o] == "i":
+                                        elif wire.startPoint.inputOutput[0] == "i":
                                             wire.startPoint.parent.processingInfo[int(wire.startPoint.inputOutput[-1])-1] = False
                                 if Node.parent != shape:
                                     createdNodes.append(Node)
