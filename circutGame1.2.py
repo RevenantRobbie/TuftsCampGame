@@ -292,7 +292,13 @@ def main():
                         newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
                         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
                     elif ORButton.collidepoint(event.pos):
-
+                        clickedOnNothing = False
+                        print("clicked on button")
+                        newShape = logicGate("OR",defaultGateShape, False, standardProcessingInfo)
+                        newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
+                        newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
+                        newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
+                    elif
 
 
                         createdRectangles.append(newShape)
