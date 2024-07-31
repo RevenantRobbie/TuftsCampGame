@@ -43,11 +43,12 @@ def xnorGate(input1, input2):
 
 #objects declared
 class logicGate:
-    def __init__ (self, type, shape, pickedUp, processingInfo):
+    def __init__ (self, type, shape, pickedUp, processingInfo, idx):
         self.shape = shape
         self.type = type
         self.pickedUp = pickedUp
         self.processingInfo = processingInfo
+        self.idx = idx
 
         #detects if gate only has one input and deletes one of the two input if so
     def doLogic(self):
