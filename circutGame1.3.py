@@ -183,11 +183,11 @@ def main():
             if shape.startPoint.inputOutput[0] == 'o':
                 in_point = shape.endPoint.parent
                 out_point = shape.startPoint.parent
-            elif shape.endPoint.inputOutpue[0] == 'i':
+            elif shape.endPoint.inputOutput[0] == 'i':
                 in_point = shape.startPoint.parent
                 out_point = shape.endPoint.parent
             next_point[in_point].append(out_point)
-            from_point_number[out_point]+=1
+            from_point_number[out_point] += 1
 
         temper = []
         for shape in createdRectangles:
@@ -197,8 +197,8 @@ def main():
         while len(temper) != 0:
             shape =temper.pop()
             output_order.append(shape)
-            for point in next_point[shape.idx]:
-                from_point_number[point]-=1
+            for point in next_point[shape]:
+                from_point_number[point] -= 1
                 if from_point_number[point] == 0:
                     temper.append(point)
     #initializeGame
@@ -367,6 +367,8 @@ def main():
             pygame.draw.rect(bg, "white", shape.shape)
             #TODO make circles a seperate class where you can click on them and drag a line to other circles
 
+        output_order = []
+        for shape in output_order
         # for shape in createdWires:
         #     shape.drawLine()
         #     shape.updateGates()
