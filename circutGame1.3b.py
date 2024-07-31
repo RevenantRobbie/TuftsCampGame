@@ -367,8 +367,15 @@ def main():
                 wire.endPoint.parent.indegree += 1
             elif wire.endPoint[0] == "o":
                 wire.startPoint.parent.indegree += 1
-        #findLowestIndegree
-        
+        #findLowestIndegree and store all in q
+        q = deque() #q acts as an "advanced list"
+        lowestNum = None
+        for shape in createdRectangles:
+            if lowestNum == None or shape.indegree < lowestNum:
+                lowestNum = shape.indegree
+
+
+
 
 
 #---create or recreate all shapes---
