@@ -194,7 +194,7 @@ def main():
     defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,75,50)
     defaultNodeShape = pygame.Rect(0, 0, 15, 15)
 
-    font = pygame.font.Font(None, 36)
+
 
 
     ANDButton = pygame.Rect(screen.get_width()-100, screen.get_height()-125,100,100)
@@ -232,6 +232,8 @@ def main():
 
     while True: # game runs until user decides to end it
         clock.tick(30)  # set FPS
+
+        font = pygame.font.Font(None, 36)
 
 #---events---
         for event in pygame.event.get(): # check for input
