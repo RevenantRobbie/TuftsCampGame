@@ -91,7 +91,7 @@ def xorGate(input1, input2):
     return (input1 or input2) and not (input1 == input2)
 
 def xnorGate(input1, input2):
-    return notGate(xorGate(input1, input2))
+    return notGate(xorGate(input1, input2),0)
 #
 
 
