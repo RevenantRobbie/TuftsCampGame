@@ -123,16 +123,7 @@ class logicGate:
         else:
             print("no logic done")
 
-def createGate(a):
-    print("clicked on button")
-    newShape = logicGate(a,defaultGateShape, False, standardProcessingInfo)
-    newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
-    newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
-    newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
-    createdRectangles.append(newShape)
-    createdNodes.append(newInput1)
-    createdNodes.append(newInput2)
-    createdNodes.append(newOutput)
+
 
 
 
@@ -221,7 +212,17 @@ def main():
     manipulation_gate = False
     draggedWire = None
     standardProcessingInfo = [False, False, None]
-    gameInitialized = False
+
+    def createGate(a):
+        print("clicked on button")
+        newShape = logicGate(a,defaultGateShape, False, standardProcessingInfo)
+        newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
+        newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
+        newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
+        createdRectangles.append(newShape)
+        createdNodes.append(newInput1)
+        createdNodes.append(newInput2)
+        createdNodes.append(newOutput)
 
     #initializeGame
 
@@ -310,6 +311,9 @@ def main():
                     elif XNORButton.collidepoint(event.pos):
                         clickedOnNothing = False
                         createGate("XNOR")
+                    elif NOTButton.collidepoint(event.pos):
+                        clickedOnNothing = False
+                        createGate("NOT")
                     else: #check if nothing was clicked on
                         if manipulation_gate == False and clickedOnNothing == True:
                             print("clicked on nothing")
