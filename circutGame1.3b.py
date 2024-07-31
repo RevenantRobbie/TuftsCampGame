@@ -383,7 +383,9 @@ def main():
 #---Wires process connections and calculate indegrees---
         for wire in createdWires:
             if type(wire.endPoint) == connectorNode:
-                if wire.endPoint.inputOutput[0] == "o":
+                if type(wire.endPoint.parent) == output:
+                    outputRect.processingInfo[0] = wire.startPoint.parent.processingInfo[2]
+                elif wire.endPoint.inputOutput[0] == "o":
                     wire.startPoint.parent.linkedGates[int(wire.startPoint.inputOutput[-1])-1] = wire.endPoint.parent
                     if wire.endPoint.parent.linkedGates[2] != None:
                         wire.endPoint.parent.linkedGates.append(wire.startPoint.parent)
@@ -397,8 +399,6 @@ def main():
                         wire.startPoint.parent.linkedGates[2] = wire.endPoint.parent
                     wire.endPoint.parent.linkedGates[int(wire.endPoint.inputOutput[-1])-1] = wire.startPoint.parent
                     wire.endPoint.parent.indegrees += 1
-                elif type(wire.endPoint.parent) == output:
-                    outputRect.processingInfo[0] = wire.startpoint.parent.processingInfo[2]
 
 
 
