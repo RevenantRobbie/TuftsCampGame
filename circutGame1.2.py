@@ -147,6 +147,8 @@ def main():
     manipulation_gate = False
     draggedWire = None
 
+    standardProcessingInfo = [False, False, None]
+
     # dragging = False
     pygame.init() # creates game window
     clock = pygame.time.Clock() # creates needed clock object
@@ -209,7 +211,7 @@ def main():
                     if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
                         clickedOnNothing = False
                         print("clicked on button")
-                        newShape = logicGate("AND ",defaultGateShape, False, [])
+                        newShape = logicGate("AND ",defaultGateShape, False, standardProcessingInfo)
                         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
                         newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
                         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
