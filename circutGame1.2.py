@@ -193,7 +193,7 @@ def main():
     #variables declared
     defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
     defaultNodeShape = pygame.Rect(0, 0, 15, 15)
-    testingRect = pygame.Rect(screen.get_width()-100, screen.get_height()-200,100,100)
+    ANDButton = pygame.Rect(screen.get_width()-100, screen.get_height()-200,100,100)
     standardOutputRect = pygame.Rect(screen.get_width()/2, 25, 50, 50)
 
     createdRectangles = []
@@ -272,7 +272,7 @@ def main():
                                 manipulation_gate = True
                                 shape.pickedUp = True
 
-                    if testingRect.collidepoint(event.pos): #check if spawning rectangle is clicked on
+                    if ANDButton.collidepoint(event.pos): #check if spawning rectangle is clicked on
                         clickedOnNothing = False
                         print("clicked on button")
                         newShape = logicGate("AND",defaultGateShape, False, standardProcessingInfo)
@@ -337,7 +337,7 @@ def main():
 
         bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
         #draw buttons to spawn in gates
-        pygame.draw.rect(bg, "purple", testingRect)
+        pygame.draw.rect(bg, "purple", ANDButton)
 
         #draw input and output box
 
