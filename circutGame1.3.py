@@ -165,7 +165,8 @@ def main():
 
     def createGate(a):
         print("clicked on button")
-        newShape = logicGate(a,defaultGateShape, False, standardProcessingInfo, currentIndex += 1)
+        newShape = logicGate(a, defaultGateShape, False, standardProcessingInfo, currentIndex + 1)
+        currentIndex += 1
         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
         newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
@@ -173,6 +174,12 @@ def main():
         createdNodes.append(newInput1)
         createdNodes.append(newInput2)
         createdNodes.append(newOutput)
+
+    def Topological_Sort():
+        for shape in createdWires:
+            if shape.startPoint.inputOutput[0] == 'o'
+                in_point = shape.startPoint.parent.idx
+                out_point = shape.
 
     #initializeGame
 
@@ -340,9 +347,9 @@ def main():
             pygame.draw.rect(bg, "white", shape.shape)
             #TODO make circles a seperate class where you can click on them and drag a line to other circles
 
-        for shape in createdWires:
-            shape.drawLine()
-            shape.updateGates()
+        # for shape in createdWires:
+        #     shape.drawLine()
+        #     shape.updateGates()
 
         for shape in createdRectangles:
             bg.blit(font.render(shape.type, 1, "black"), (shape.shape[0], shape.shape[1]))
