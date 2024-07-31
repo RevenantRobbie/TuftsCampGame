@@ -89,6 +89,7 @@ class logicGate:
 
 
 
+
 #TODO create differentiation between input to output in use
 class connectorNode:
     def __init__ (self, shape ,parent, inputOutput, inUse): #NOTE only circleLoc is a var here since the circle radius, color, and background remain consistent
