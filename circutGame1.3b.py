@@ -372,7 +372,10 @@ def main():
         lowestNum = None
         for shape in createdRectangles:
             if lowestNum == None or shape.indegree < lowestNum:
+                q.clear()
                 lowestNum = shape.indegree
+                q.append(shape)
+
 
 
 
