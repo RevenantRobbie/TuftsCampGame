@@ -126,7 +126,7 @@ class wires:
         elif self.pickedUp == True:
             pygame.draw.line(bg, "orange", (self.startPoint.shape[0], self.startPoint.shape[1]), (pygame.mouse.get_pos()[0], pygame.mouse.get_pos()[1]),3)
 
-    def updateEndpoint(self):
+    def updateGates(self):
         if self.startPoint.inputOutput[0] == "o":
             self.endpoint.parent.processingInfo[int(self.endPoint.inputOutput[-1])-1] = self.startPoint.parent.processingInfo[2]
         else
@@ -278,6 +278,10 @@ def main():
             pygame.draw.rect(bg, "white", shape.shape)
             #TODO make circles a seperate class where you can click on them and drag a line to other circles
 
+         for shape in createdWires:
+            shape.updateGates()
+            shape.drawLine()
+
         for shape in createdRectangles:
             # if dragging == True:
             shape.doLogic()
@@ -285,8 +289,6 @@ def main():
                 if shape.pickedUp == True:
                     shape.shape = pygame.Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
 
-        for shape in createdWires:
-            shape.drawLine()
 
 
         pygame.display.update()  # update screen
