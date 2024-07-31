@@ -350,7 +350,7 @@ def main():
         for shape in createdRectangles:
             # if dragging == True:
             shape.doLogic()
-
+            #print(shape.processingInfo[2])
             if manipulation_gate == True:
                 if shape.pickedUp == True:
                     shape.shape = pygame.Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
