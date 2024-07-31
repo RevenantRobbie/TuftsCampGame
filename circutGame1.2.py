@@ -177,6 +177,7 @@ class output:
         self.color = color
 
     def changeColor(self):
+        print(self.processingInfo)
         if self.processingInfo[0] == True:
             self.color = "green"
         else:
@@ -358,7 +359,6 @@ def main():
 
         outputRect.changeColor()
         pygame.draw.rect(bg, outputRect.color, outputRect.shape)
-        print(outputRect.color)
 
 
 
