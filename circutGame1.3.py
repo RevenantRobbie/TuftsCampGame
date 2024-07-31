@@ -163,10 +163,10 @@ def main():
     standardProcessingInfo = [False, False, None]
 
     currentIndex = 0
-    def createGate(a):
+    def createGate(a, index):
         print("clicked on button")
-        newShape = logicGate(a, defaultGateShape, False, standardProcessingInfo, currentIndex + 1)
-        currentIndex += 1
+        newShape = logicGate(a, defaultGateShape, False, standardProcessingInfo, index + 1)
+        index += 1
         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
         newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
@@ -275,25 +275,25 @@ def main():
 
                     if ANDButton.collidepoint(event.pos): #check if spawning rectangle is clicked on
                         clickedOnNothing = False
-                        createGate("AND")
+                        createGate("AND", currentIndex)
                     elif ORButton.collidepoint(event.pos):
                         clickedOnNothing = False
-                        createGate("OR")
+                        createGate("OR", currentIndex)
                     elif NORButton.collidepoint(event.pos):
                         clickedOnNothing = False
-                        createGate("NOR")
+                        createGate("NOR", currentIndex)
                     elif NANDButton.collidepoint(event.pos):
                         clickedOnNothing = False
-                        createGate("NAND")
+                        createGate("NAND", currentIndex)
                     elif XORButton.collidepoint(event.pos):
                         clickedOnNothing = False
-                        createGate("XOR")
+                        createGate("XOR", currentIndex)
                     elif XNORButton.collidepoint(event.pos):
                         clickedOnNothing = False
-                        createGate("XNOR")
+                        createGate("XNOR", currentIndex)
                     elif NOTButton.collidepoint(event.pos):
                         clickedOnNothing = False
-                        createGate("NOT")
+                        createGate("NOT", currentIndex)
                     else: #check if nothing was clicked on
                         if manipulation_gate == False and clickedOnNothing == True:
                             print("clicked on nothing")
