@@ -176,7 +176,7 @@ class output:
         self.processingInfo = processingInfo
         self.color = color
 
-    def changeColor():
+    def changeColor(self):
         if self.processingInfo[0] == True:
             self.color = "green"
         else:
@@ -190,7 +190,7 @@ def main():
     defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
     defaultNodeShape = pygame.Rect(0, 0, 15, 15)
     testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
-    standardOtputRect = pygame.rect(screen.get_width()/2, 0, 50, 50)
+    standardOutputRect = pygame.rect(screen.get_width()/2, 0, 50, 50)
 
     createdRectangles = []
     createdNodes = []
@@ -335,6 +335,7 @@ def main():
 
 
 
+
         for shape in createdNodes:
             shape.redrawSelf()
 
@@ -353,6 +354,10 @@ def main():
             if manipulation_gate == True:
                 if shape.pickedUp == True:
                     shape.shape = pygame.Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], 250,100)
+
+        outputRect:changeColor()
+        pygame.draw.rect(bg, outputRect.color, outputRect.shape)
+
 
 
 
