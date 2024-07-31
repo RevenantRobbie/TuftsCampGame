@@ -162,7 +162,7 @@ def main():
     draggedWire = None
     standardProcessingInfo = [False, False, None]
 
-    currentIndex = 0
+    global currentIndex = 0
     def createGate(a):
         global currentIndex
         print("clicked on button")
