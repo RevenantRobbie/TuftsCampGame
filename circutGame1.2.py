@@ -63,9 +63,39 @@ screen = pygame.display.set_mode((1280,720))
 SCREEN_W = screen.get_width()  # height of screen
 SCREEN_H = screen.get_height()  # width of screen
 bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # creates specific sized screen. bg stands for background in this case
+
+
+
+def andGate(input1, input2):
+    return input1 and input2
+
+def orGate(input1, input2):
+    if input1 or input2:
+        return True
+    else:
+        return False
+
+def notGate(input1, input2):
+    if input1 or input2:
+        return False
+    else:
+        return True
+
+def norGate(input1, input2):
+    return notGate(orGate(input1, input2))
+
+def nandGate(input1,input2):
+    return notGate(andGate(input1, input2))
+
+def xorGate(input1, input2):
+    return (input1 or input2) and not (input1 == input2)
+
+def xnorGate(input1, input2):
+    return notGate(xorGate(input1, input2))
+#
+
+
 #objects declared
-
-
 class logicGate:
     def __init__ (self, type, shape, pickedUp, processingInfo):
         self.shape = shape
@@ -75,7 +105,20 @@ class logicGate:
 
         #detects if gate only has one input and deletes one of the two input if so
     def doLogic(self):
-        self.processingInfo[2] = self.processingInfo[0] and self.processingInfo[1]
+        if self.type == "AND":
+            self.processingInfo[2] = andGate(self.processingInfo[0], self.processingInfo[1])
+        elif self.type == "OR":
+            self.processingInfo[2] = orGate(self.processingInfo[0], self.processingInfo[1])
+        elif self.type == "NOT":
+            self.processingInfo[2] = notGate(self.processingInfo[0], self.processingInfo[1])
+        elif self.type == "NOR":
+            self.processingInfo[2] = norGate(self.processingInfo[0], self.processingInfo[1])
+        elif self.type == "NAND":
+            self.processingInfo[2] = nandGate(self.processingInfo[0], self.processingInfo[1])
+        elif self.type == "XOR":
+            self.processingInfo[2] = xorGate(self.processingInfo[0], self.processingInfo[1])
+        elif self.type == "XNOR":
+            self.processingInfo[2] = xnorGate(self.processingInfo[0], self.processingInfo[1])
 
 
 
@@ -127,7 +170,17 @@ class wires:
         else:
             return
 
+class output:
+    def __init__(self, shape, processingInfo, color):
+        self.shape = shape
+        self.processingInfo = processingInfo
+        self.color = color
 
+    def changeColor():
+        if self.processingInfo[0] == True:
+            self.color = "green"
+        else:
+            self.color == "red"
 
 
 
@@ -137,7 +190,7 @@ def main():
     defaultGateShape = pygame.Rect(screen.get_width()/2, screen.get_height()/2,250,100)
     defaultNodeShape = pygame.Rect(0, 0, 15, 15)
     testingRect = pygame.Rect(screen.get_width()/4, screen.get_height()/4,100,100)
-    inputRect = pygame.rect(screen.get_width()/2, screen.get_height(), 50, 50)
+    standardOtputRect = pygame.rect(screen.get_width()/2, 0, 50, 50)
 
     createdRectangles = []
     createdNodes = []
@@ -146,11 +199,13 @@ def main():
     manipulation_gate = False
     draggedWire = None
     standardProcessingInfo = [False, False, None]
+    gameInitialized = False
 
     #initializeGame
-     if gameInitialized == False:
-            newNode1 = connectorNode(defaultNodeShape, inputRect)
-            gameInitialized = True
+
+    outputRect = output(standardOutputRect, [False], "red")
+    newInput = connectorNode(defaultNodeShape, outputRect, "input1", False)
+
 
 
 
@@ -275,7 +330,6 @@ def main():
         bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
         #draw buttons to spawn in gates
         pygame.draw.rect(bg, "purple", testingRect)
-        pygame.draw.rect(bg, "red",nputRect)
 
         #draw input and output box
 
