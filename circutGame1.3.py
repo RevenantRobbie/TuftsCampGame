@@ -164,9 +164,10 @@ def main():
 
     currentIndex = 0
     def createGate(a, index):
+        global currentIndex
         print("clicked on button")
-        newShape = logicGate(a, defaultGateShape, False, standardProcessingInfo, index + 1)
-        index += 1
+        newShape = logicGate(a, defaultGateShape, False, standardProcessingInfo, currentIndex + 1)
+        currentIndex += 1
         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
         newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
@@ -176,6 +177,7 @@ def main():
         createdNodes.append(newOutput)
 
     def Topological_Sort():
+        global currentIndex
         next_point = []
         from_point_number= []
         for i in range(currentIndex):
