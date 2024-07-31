@@ -275,7 +275,7 @@ def main():
         bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
         #draw buttons to spawn in gates
         pygame.draw.rect(bg, "purple", testingRect)
-        pygame.draw.rect(bg, "red", inputRect)
+        pygame.draw.rect(bg, "red",nputRect)
 
         #draw input and output box
 
