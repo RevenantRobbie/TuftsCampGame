@@ -129,7 +129,7 @@ class wires:
     def updateGates(self):
         if type(self.startPoint) != 'list' and type(self.endPoint) != 'list':
             if self.startPoint.inputOutput[0] == "o":
-                print(self.endPoint)
+                print(type(self.endPoint))
                 self.endPoint.parent.processingInfo[int(self.endPoint.inputOutput[-1])-1] = self.startPoint.parent.processingInfo[2]
             else:
                 self.startPoint.inputOutput[int(self.startPoint.inputOutput[-1]) -1] = self.endPoint.parent.processingInfo[2]
