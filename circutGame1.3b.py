@@ -116,6 +116,7 @@ class logicGate:
 
         #detects if gate only has one input and deletes one of the two input if so
     def doLogic(self):
+        print(self.linkedGates)
         if self.linkedGates[0] != None:
             self.processingInfo[0] = self.linkedGates[0].processingInfo[2]
         else:
@@ -373,8 +374,6 @@ def main():
                 elif event.button == 3: #deletes shapes
                     print("m2 clicked")
 
-                    for v in createdNodes:
-                            print (v.parent)
 
                     for  shape in createdRectangles: #check if rectangles are clicked on
                         if shape.shape.collidepoint(event.pos):
@@ -460,7 +459,6 @@ def main():
         iteration = 0
 
         while len(topoSort)-1 != len(createdRectangles) and len(createdRectangles) != 0:
-            print(len(topoSort))
             #print(len(createdRectangles))
             for shape in createdRectangles:
                 if shape.indegree == 0:
@@ -483,7 +481,7 @@ def main():
             iteration += 1
 
 
-        print(topoSort)
+
         for node in topoSort:
             if type(node) == logicGate:
                 node.doLogic()
