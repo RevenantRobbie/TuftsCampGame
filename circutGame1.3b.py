@@ -450,7 +450,7 @@ def main():
             while q:
                 e = q.popleft()
                 topoSort.append(e)
-                print("topoSort:",topoSort)
+                #print("topoSort:",topoSort)
             for v in markedShapes:
                 if v != None:
                     v.indegree -= 1
