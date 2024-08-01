@@ -318,16 +318,10 @@ def main():
                                     draggedWire = None
 
 
-
-
-
-
-
-
-
                     for shape in createdRectangles: #check if rectangles are clicked on
                         if shape.shape.collidepoint(event.pos):
                             clickedOnNothing = False
+                            shape.movedAtSomePoint = True
                             print("clicked on gate")
                             if manipulation_gate == True:
                                 manipulation_gate = False
