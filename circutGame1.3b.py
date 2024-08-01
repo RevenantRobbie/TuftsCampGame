@@ -463,7 +463,6 @@ def main():
         print(topoSort)
         for node in topoSort:
             if type(node) == logicGate:
-                print(node.linkedGates)
                 node.doLogic()
         topoSort.clear()
 
