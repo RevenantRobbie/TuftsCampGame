@@ -420,6 +420,9 @@ def main():
                         outputRect.processingInfo[0] = wire.startPoint.parent.processingInfo[2]
                     elif type(wire.startPoint.parent) == output:
                         outputRect.processingInfo[0] - wire.endPoint.parent.processingInfo[2]
+                elif type(wire.endPoint.parent) == input and type(wire.startPoint.parent) == input:
+                    if type(wire.endPoint.parent) == input:
+                        wire.startPoint.parent.processingInfo[]= inputRect.processingInfo[3]
 
 
 
