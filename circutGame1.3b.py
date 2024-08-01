@@ -400,25 +400,23 @@ def main():
 #---Wires process connections and calculate indegrees---
         for wire in createdWires:
             if type(wire.endPoint) == connectorNode:
-                if type(wire.endPoint.parent) == logicGate and type(wire.startPoint.parent) == logicGate:
-                    if wire.endPoint.inputOutput[0] == "o":
-                        wire.startPoint.parent.linkedGates[int(wire.startPoint.inputOutput[-1])-1] = wire.endPoint.parent
-                        if wire.endPoint.parent.linkedGates[2] != None:
-                            wire.endPoint.parent.linkedGates.append(wire.startPoint.parent)
-                        else:
-                            wire.endPoint.parent.linkedGates[2] = wire.startPoint.parent
-                        wire.startPoint.parent.indegree +=1
-                    elif wire.endPoint.inputOutput[0] == "i":
-                        if wire.startPoint.parent.linkedGates[2] != None:
-                            wire.startPoint.parent.linkedGates.append(wire.endPoint.parent)
-                        else:
-                            wire.startPoint.parent.linkedGates[2] = wire.endPoint.parent
-                        wire.endPoint.parent.linkedGates[int(wire.endPoint.inputOutput[-1])-1] = wire.startPoint.parent
-                        wire.endPoint.parent.indegree += 1
-                elif type(wire.startPoint.parent) == output:
-                    outputRect.linkedGates[0] = wire.endPoint.parent
-                elif type(wire.startPoint.parent) == input:
-                    print("placeholder")
+                if type(wire.endPoint.parent) == output:
+                    outputRect.processingInfo[0] = wire.startPoint.parent.processingInfo[2]
+                elif wire.endPoint.inputOutput[0] == "o":
+                    wire.startPoint.parent.linkedGates[int(wire.startPoint.inputOutput[-1])-1] = wire.endPoint.parent
+                    if wire.endPoint.parent.linkedGates[2] != None:
+                        wire.endPoint.parent.linkedGates.append(wire.startPoint.parent)
+                    else:
+                        wire.endPoint.parent.linkedGates[2] = wire.startPoint.parent
+                    wire.startPoint.parent.indegree +=1
+                elif wire.endPoint.inputOutput[0] == "i":
+                    if wire.startPoint.parent.linkedGates[2] != None:
+                        wire.startPoint.parent.linkedGates.append(wire.endPoint.parent)
+                    else:
+                        wire.startPoint.parent.linkedGates[2] = wire.endPoint.parent
+                    wire.endPoint.parent.linkedGates[int(wire.endPoint.inputOutput[-1])-1] = wire.startPoint.parent
+                    wire.endPoint.parent.indegree += 1
+
 
 
 #---process logic---
