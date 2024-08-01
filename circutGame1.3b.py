@@ -443,13 +443,16 @@ def main():
                     q.append(shape)
                 if iteration == 0:
                     q.append(inputRect)
+
             while q:
                 shape = q.popleft()
                 topoSort.append(shape)
+            print("end while 2")
             for v in markedShapes:
                 if v != None:
                     v.indegree -= 1
             iteration += 1
+        print("end while 1")
 
         #print(topoSort)
         for node in topoSort:
