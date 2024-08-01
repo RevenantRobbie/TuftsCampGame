@@ -199,7 +199,7 @@ class wires:
             return
 
 class output:
-    def __init__(self, shape, processingInfo, color, indegree):
+    def __init__(self, shape, processingInfo, color, indegree, linkedGates):
         self.shape = shape
         self.processingInfo = processingInfo
         self.color = color
@@ -212,7 +212,7 @@ class output:
         elif self.processingInfo[0] == False:
             self.color = "red"
 class input:
-    def __init__(self, shape, processingInfo, color, indegree):
+    def __init__(self, shape, processingInfo, color, indegree, linkedGates):
         self.shape = shape
         self.processingInfo = processingInfo
         self.color = color
