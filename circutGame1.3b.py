@@ -438,6 +438,7 @@ def main():
             for shape in unsortedShapes:
                 if shape.indegree == 0:
                     for i,v in enumerate(shape.linkedGates):
+                        print(shape.linkedGates)
                         if i > 1:
                             markedShapes.append(v)
                     q.append(shape)
@@ -456,7 +457,7 @@ def main():
         for node in topoSort:
             if type(node) == logicGate:
                 node.doLogic()
-                print(node.processingInfo)
+                #print(node.processingInfo)
 
 
 
