@@ -381,29 +381,12 @@ def main():
 
                             print("deleting something")
                             len_Node = len(createdNodes) #logic error here, we don't want to iterate through all nodes, only connectedNodes
-                            for i,v in enumerate(createdNodes):
-                                wire = createdWires.pop(0)
-                                if wire.startPoint.parent != shape and wire.endPoint.parent != shape:
-                                    createdWires.append(wire)
-                                else:
-                                    if wire.endPoint.inputOutput[0] == "i":
-                                        wire.endPoint.parent.processingInfo[int(wire.endPoint.inputOutput[-1])-1] = False
-                                    elif wire.startPoint.inputOutput[0] == "i":
-                                        wire.startPoint.parent.processingInfo[int(wire.startPoint.inputOutput[-1])-1] = False
-                                    wire.endPoint.inUse = False
-                                    wire.startPoint.inUse = False
-                                if Node.parent != shape:
-                                    createdNodes.append(Node)
-
-
 
                             for i in range(len_Node):
-
                                 Node =createdNodes.pop(0)
-                                for i in range(len(createdWires)):
-                                    breakpoint()
+                                for v in enumerate(createdNodes):
                                     wire = createdWires.pop(0)
-                                    if wire.startPoint != Node and wire.endPoint != Node:
+                                    if wire.startPoint.parent != shape and wire.endPoint.parent != shape:
                                         createdWires.append(wire)
                                     else:
                                         if wire.endPoint.inputOutput[0] == "i":
