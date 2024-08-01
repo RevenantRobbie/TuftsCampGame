@@ -435,9 +435,7 @@ def main():
         iteration = 0
 
         while len(topoSort) < len(unsortedShapes):
-
             for shape in unsortedShapes:
-                print(topoSort)
                 if shape.indegree == 0:
                     for i,v in enumerate(shape.linkedGates):
                         if i > 1:
@@ -452,6 +450,8 @@ def main():
                 if v != None:
                     v.indegree -= 1
             iteration += 1
+            #print(topoSort)
+            print(unsortedShapes)
 
         for node in topoSort:
             if type(node) == logicGate:
