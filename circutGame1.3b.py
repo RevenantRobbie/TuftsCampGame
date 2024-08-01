@@ -438,7 +438,7 @@ def main():
         topoSort = []
         markedShapes = []
         unsortedShapes = createdRectangles[:]
-        unsortedShapes.append(outputRect)
+        unsortedShapes.append(inputRect)
         iteration = 0
 
 
