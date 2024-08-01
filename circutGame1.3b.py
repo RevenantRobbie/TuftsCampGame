@@ -332,6 +332,8 @@ def main():
                     if standardInputRect.collidepoint(event.pos):
                         inputRect.processingInfo[2] = not inputRect.processingInfo[2]
 
+                    
+
                     if ANDButton.collidepoint(event.pos): #check if spawning rectangle is clicked on
                         clickedOnNothing = False
                         createGate("AND")
