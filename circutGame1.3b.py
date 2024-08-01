@@ -449,10 +449,12 @@ def main():
 
         while len(topoSort) != len(createdRectangles)+1: #still error prone
             count += 1
-            print(count)
+            #print(count)
+            print(len(topoSort))
             if count > 1000:
-                
-                breakpoint()
+
+                break
+                #breakpoint()
 
             for shape in unsortedShapes:
                 if shape.indegree == 0:
