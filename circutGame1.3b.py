@@ -405,13 +405,16 @@ def main():
 
         for shape in createdRectangles:
             shape.indegree = 0
+        #objectives, assign indegree values and assign processingInfo values
+        for wire in createdWires:
+
 
         for wire in createdWires:
             if type(wire.endPoint) == connectorNode:
                 if type(wire.endPoint.parent) == output:
                     outputRect.processingInfo[0] = wire.startPoint.parent.processingInfo[2]
                 elif type(wire.endPoint.parent) == input:
-                    
+
                 elif wire.endPoint.inputOutput[0] == "o":
                     wire.startPoint.parent.linkedGates[int(wire.startPoint.inputOutput[-1])-1] = wire.endPoint.parent
                     if wire.endPoint.parent.linkedGates[2] != None:
