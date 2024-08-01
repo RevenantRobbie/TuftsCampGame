@@ -443,7 +443,7 @@ def main():
 
 
         while len(topoSort) < len(createdRectangles):
-            
+
             for shape in unsortedShapes:
                 if shape.indegree == 0:
 
@@ -454,6 +454,8 @@ def main():
                             print("appended")
                             print(markedShapes)
                     q.append(shape)
+                else:
+                    breakpoint()
             while q:
                 e = q.popleft()
                 topoSort.append(e)
