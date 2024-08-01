@@ -458,8 +458,8 @@ def main():
                 else:
                     breakpoint()
             while q:
-                unsortedShapes.
                 e = q.popleft()
+                unsortedShapes.remove(e)
                 topoSort.append(e)
                 #print("topoSort:",topoSort)
             for v in markedShapes:
