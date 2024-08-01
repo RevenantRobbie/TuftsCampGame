@@ -409,7 +409,9 @@ def main():
         for wire in createdWires:
             #endpoints
             if wire.endPoint == connectorNode:
-                
+                if wire.endPoint.parent.inputOutput[0] == i:
+                    wire.endPoin.parent.indegree += 1
+                    wire.startPoint.linkedGates[int(wire.endPoint.parent.inputOutput[-1])-1]
 
             #startpoints
 
