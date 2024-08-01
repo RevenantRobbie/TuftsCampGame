@@ -443,7 +443,7 @@ def main():
                             markedShapes.append(v)
                     q.append(shape)
                 if iteration == 0:
-                    q.append(outputRect)
+                    q.append(inputRect)
             while q:
                 shape = q.popleft()
                 topoSort.append(shape)
