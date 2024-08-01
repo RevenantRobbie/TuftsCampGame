@@ -404,6 +404,10 @@ def main():
         for shape in createdRectangles:
             shape.indegree = 0
         for wire in createdWires:
+            wire.startPoint.parent.linkedGates.clear()
+            wire.endPoint.parent.linkedGates.clear()
+
+        for wire in createdWires:
             if type(wire.endPoint) == connectorNode:
                 if type(wire.endPoint.parent) == output:
                     outputRect.processingInfo[0] = wire.startPoint.parent.processingInfo[2]
