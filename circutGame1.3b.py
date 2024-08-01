@@ -454,6 +454,7 @@ def main():
             #print(topoSort)
             #print(unsortedShapes)
 
+        print("free")
         for node in topoSort:
             if type(node) == logicGate:
                 node.doLogic()
