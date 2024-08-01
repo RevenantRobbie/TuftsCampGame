@@ -288,6 +288,7 @@ def main():
         clock.tick(30)  # set FPS
 
         font = pygame.font.Font(None, 36)
+        font_inputOutput = pygame.font.Font(None, 18)
 
 #---events---
         for event in pygame.event.get(): # check for input
@@ -532,10 +533,10 @@ def main():
 
         outputRect.changeColor()
         pygame.draw.rect(bg, outputRect.color, outputRect.shape)
-        bg.blit(font.render("OUTPUT", 1, "black"), outputRect.shape)
+        bg.blit(font_inputOutput.render("OUTPUT", 1, "black"), outputRect.shape)
         inputRect.changeColor()
         pygame.draw.rect(bg, inputRect.color, inputRect.shape)
-        bg.blit(font.render("INPUT", 1, "black"), inputRect.shape)
+        bg.blit(font_inputOutput.render("INPUT", 1, "black"), inputRect.shape)
 
 
 
