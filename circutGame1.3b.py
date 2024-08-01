@@ -451,7 +451,7 @@ def main():
                     v.indegree -= 1
             iteration += 1
             #print(topoSort)
-            print(unsortedShapes)
+            #print(unsortedShapes)
 
         for node in topoSort:
             if type(node) == logicGate:
