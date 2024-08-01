@@ -410,7 +410,7 @@ def main():
 
         for wire in createdWires:
             if type(wire.endPoint) == connectorNode:
-                breakpoint()
+                #breakpoint()
                 if type(wire.endPoint.parent) == output:
                     outputRect.processingInfo[0] = wire.startPoint.parent.processingInfo[2]
                     wire.startPoint.parent.linkedGates[2] = outputRect
@@ -443,7 +443,7 @@ def main():
         iteration = 0
 
 
-        while len(topoSort) < len(createdRectangles):
+        while len(topoSort) != len(createdRectangles)+1:
 
             for shape in unsortedShapes:
                 if shape.indegree == 0:
@@ -456,7 +456,7 @@ def main():
                             #print(markedShapes)
                     q.append(shape)
                 else:
-                    breakpoint()
+                    #kpoint()
             while q:
                 e = q.popleft()
                 topoSort.append(e)
