@@ -427,7 +427,6 @@ def main():
                         wire.startPoint.parent.linkedGates[2] = wire.endPoint.parent
                     wire.endPoint.parent.linkedGates[int(wire.endPoint.inputOutput[-1])-1] = wire.startPoint.parent
                     wire.endPoint.parent.indegree += 1
-                    print(wire.startPoint.parent.linkedGates)
 
 
 
