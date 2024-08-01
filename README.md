@@ -27,5 +27,10 @@ TroubbleShooting:
 if you are unable to spawn in another logic gate, please check that you have moved all logic gates at least once.
 the code will physically block you from spawning one logic gate on top of another one at the spawn location to prevent a more serious error
 
-If the output you are getting isn't what you expected, please ensure that none of your logic gates create a loop as it messes with the logic gate
+If the output you are getting isn't what you expected, please ensure that none of your logic gates create a loop as it messes with logic gate sorting
+
+Finally, if your game ever ends up freezing, please email revenantRobbie100@gmail.com in an emain labled BugReport. In that email, please describe the actions that led up
+to that error to the best of your ability
+
+
 
