@@ -445,7 +445,7 @@ def main():
         unsortedShapes = createdRectangles[:]
         unsortedShapes.append(inputRect)
 
-        while len(topoSort) != len(createdRectangles)+1:
+        while len(topoSort) != len(createdRectangles)+1: #still error prone
 
             for shape in unsortedShapes:
                 if shape.indegree == 0:
