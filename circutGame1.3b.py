@@ -326,12 +326,13 @@ def main():
                             clickedOnNothing = False
                             shape.movedAtSomePoint = True
                             print("clicked on gate")
-                            if manipulation_gate == True:
+                            if manipulation_gate == True and shape.pickedUp == True:
                                 manipulation_gate = False
                                 shape.pickedUp = False
                             elif manipulation_gate == False:
                                 manipulation_gate = True
                                 shape.pickedUp = True
+                        print(manipulation_gate)
                         if shape.movedAtSomePoint == False:
                             ableToSpawnRects = False
                     if standardInputRect.collidepoint(event.pos):
