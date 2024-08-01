@@ -455,8 +455,8 @@ def main():
                             #print("appended")
                             #print(markedShapes)
                     q.append(shape)
-                else:
-                    breakpoint()
+                #else:
+                    #breakpoint()
             while q:
                 e = q.popleft()
                 unsortedShapes.remove(e)
