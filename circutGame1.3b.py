@@ -417,12 +417,13 @@ def main():
                         wire.endPoint.parent.indegree += 1
                 elif type(wire.endPoint.parent) == output and type(wire.startPoint.parent) == output:
                     if type(wire.endPoint.parent) == output:
-                        outputRect.processingInfo[0] = wire.startPoint.parent.processingInfo[2]
+                        wire
                     elif type(wire.startPoint.parent) == output:
-                        outputRect.processingInfo[0] - wire.endPoint.parent.processingInfo[2]
+
                 elif type(wire.endPoint.parent) == input and type(wire.startPoint.parent) == input:
                     if type(wire.endPoint.parent) == input:
-                        wire.startPoint.parent.processingInfo[]= inputRect.processingInfo[3]
+
+                    elif type(wire.startPoint.parent) == input:
 
 
 
