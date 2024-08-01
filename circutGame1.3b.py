@@ -431,6 +431,7 @@ def main():
             for shape in createdRectangles:
                 if shape.indegree == 0:
                     for i,v in enumerate(shape.linkedGates):
+                        print(v)
                         if i > 1:
                             markedShapes.append(v)
                     q.append(shape)
