@@ -380,7 +380,7 @@ def main():
 
 
                             print("deleting something")
-                            len_Node = len(createdNodes)
+                            len_Node = len(createdNodes) #logic error here, we don't want to iterate through all nodes, only connectedNodes
                             for i in range(len_Node):
 
                                 Node =createdNodes.pop(0)
