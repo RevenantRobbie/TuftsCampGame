@@ -402,22 +402,22 @@ def main():
                             createdRectangles.remove(shape)
 #---Wires process connections and calculate indegrees---
 
-        for shape in createdRectangles:
-            shape.indegree = 0
-        #objectives, assign indegree values and linkedGates
-        for wire in createdWires:
-            #endpoints
-            if wire.endPoint == connectorNode:
-                print("determining")
-                if wire.endPoint.parent.inputOutput[0] == "i":
-                    wire.endPoint.parent.indegree += 1
-                    wire.startPoint.linkedGates[int(wire.endPoint.parent.inputOutput[-1])-1] = wire.endPoint.parent
-                elif wire.endPoint.parent.inputOutput[0] == "o":
-                    if wire.endPoint.parent.linkedGates[2] != None:
-                        wire.startPoint.parent.linkedGates[2] == wire.endPoint.parent
-                    else:
-                        wire.startPoint.parent.linkedGates.append(wire.endPoint.parent)
-                    wire.startPoint.parent.indegree += 1
+    for shape in createdRectangles:
+        shape.indegree = 0
+    #objectives, assign indegree values and linkedGates
+    for wire in createdWires:
+        print("determining")
+        #endpoints
+        if wire.endPoint == connectorNode:
+            if wire.endPoint.parent.inputOutput[0] == "i":
+                wire.endPoint.parent.indegree += 1
+                wire.startPoint.linkedGates[int(wire.endPoint.parent.inputOutput[-1])-1] = wire.endPoint.parent
+            elif wire.endPoint.parent.inputOutput[0] == "o":
+                if wire.endPoint.parent.linkedGates[2] != None:
+                    wire.startPoint.parent.linkedGates[2] == wire.endPoint.parent
+                else:
+                    wire.startPoint.parent.linkedGates.append(wire.endPoint.parent)
+                wire.startPoint.parent.indegree += 1
 
 
 
@@ -429,40 +429,40 @@ def main():
         #for shape in createdRectangles:
             #print(shape.indegree)
 
-        q = deque() #q acts as an "advanced list"
-        topoSort = []
+    q = deque() #q acts as an "advanced list"
+    topoSort = []
 
-        markedShapes = []
-        iteration = 0
+    markedShapes = []
+    iteration = 0
 
-        while len(topoSort)-1 != len(createdRectangles) and len(createdRectangles) != 0:
-            #print(len(createdRectangles))
-            for shape in createdRectangles:
-                if shape.indegree == 0:
-                    for i,v in enumerate(shape.linkedGates):
-                        if i > 1:
-                            markedShapes.append(v)
-                    q.append(shape)
-                if iteration == 0:
-                    q.append(inputRect)
-                    for v in inputRect.linkedGates:
-                        if v != None:
-                            v.indegree -= 1
+    while len(topoSort)-1 != len(createdRectangles) and len(createdRectangles) != 0:
+        #print(len(createdRectangles))
+        for shape in createdRectangles:
+            if shape.indegree == 0:
+                for i,v in enumerate(shape.linkedGates):
+                    if i > 1:
+                        markedShapes.append(v)
+                q.append(shape)
+            if iteration == 0:
+                q.append(inputRect)
+                for v in inputRect.linkedGates:
+                    if v != None:
+                        v.indegree -= 1
 
-            while q:
-                shape = q.popleft()
-                topoSort.append(shape)
-            for v in markedShapes:
-                if v != None:
-                    v.indegree -= 1
-            iteration += 1
+        while q:
+            shape = q.popleft()
+            topoSort.append(shape)
+        for v in markedShapes:
+            if v != None:
+                v.indegree -= 1
+        iteration += 1
 
 
 
-        for node in topoSort:
-            if type(node) == logicGate:
-                node.doLogic()
-        topoSort.clear()
+    for node in topoSort:
+        if type(node) == logicGate:
+            node.doLogic()
+    topoSort.clear()
 
 
 
@@ -473,53 +473,53 @@ def main():
 
 #---create or recreate all shapes---
 
-        bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
-        #draw buttons to spawn in gates
+    bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
+    #draw buttons to spawn in gates
 
 
-        pygame.draw.rect(bg, "purple", ANDButton)
-        pygame.draw.rect(bg, "blue", ORButton)
-        pygame.draw.rect(bg, "green", NOTButton)
-        pygame.draw.rect(bg, "yellow", NORButton)
-        pygame.draw.rect(bg, "orange", NANDButton)
-        pygame.draw.rect(bg, "cyan", XORButton)
-        pygame.draw.rect(bg, "pink", XNORButton)
-        #draw input and output box
-
-
-
-
-        for shape in createdNodes:
-            shape.redrawSelf()
-
-        for shape in createdRectangles:
-            pygame.draw.rect(bg, "white", shape.shape)
-            #TODO make circles a seperate class where you can click on them and drag a line to other circles
-
-        for shape in createdWires:
-            shape.drawLine()
-            shape.updateGates()
-
-        for shape in createdRectangles:
-            bg.blit(font.render(shape.type, 1, "black"), (shape.shape[0], shape.shape[1]))
-            # if dragging == True:
-            #shape.doLogic()
-            #print(shape.processingInfo[2])
-            if manipulation_gate == True:
-                if shape.pickedUp == True:
-                    shape.shape = pygame.Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], defaultGateShape[2],defaultGateShape[3])
-
-        outputRect.changeColor()
-        pygame.draw.rect(bg, outputRect.color, outputRect.shape)
-        inputRect.changeColor()
-        pygame.draw.rect(bg, inputRect.color, inputRect.shape)
+    pygame.draw.rect(bg, "purple", ANDButton)
+    pygame.draw.rect(bg, "blue", ORButton)
+    pygame.draw.rect(bg, "green", NOTButton)
+    pygame.draw.rect(bg, "yellow", NORButton)
+    pygame.draw.rect(bg, "orange", NANDButton)
+    pygame.draw.rect(bg, "cyan", XORButton)
+    pygame.draw.rect(bg, "pink", XNORButton)
+    #draw input and output box
 
 
 
 
-        pygame.display.update()  # update screen
-        #sometimes ppl do pygame.display.flip()
-        #update is better in most situations
+    for shape in createdNodes:
+        shape.redrawSelf()
+
+    for shape in createdRectangles:
+        pygame.draw.rect(bg, "white", shape.shape)
+        #TODO make circles a seperate class where you can click on them and drag a line to other circles
+
+    for shape in createdWires:
+        shape.drawLine()
+        shape.updateGates()
+
+    for shape in createdRectangles:
+        bg.blit(font.render(shape.type, 1, "black"), (shape.shape[0], shape.shape[1]))
+        # if dragging == True:
+        #shape.doLogic()
+        #print(shape.processingInfo[2])
+        if manipulation_gate == True:
+            if shape.pickedUp == True:
+                shape.shape = pygame.Rect (pygame.mouse.get_pos () [0], pygame.mouse.get_pos () [1], defaultGateShape[2],defaultGateShape[3])
+
+    outputRect.changeColor()
+    pygame.draw.rect(bg, outputRect.color, outputRect.shape)
+    inputRect.changeColor()
+    pygame.draw.rect(bg, inputRect.color, inputRect.shape)
+
+
+
+
+    pygame.display.update()  # update screen
+    #sometimes ppl do pygame.display.flip()
+    #update is better in most situations
 
 #for most games, this should get you through
 
