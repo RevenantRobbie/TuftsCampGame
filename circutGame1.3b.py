@@ -330,6 +330,8 @@ def main():
                             elif manipulation_gate == False:
                                 manipulation_gate = True
                                 shape.pickedUp = True
+                    if inputRect.collidepoint(event.pos):
+                        inputRect.processingInf[0] = not inputRect.processingInf[0]
 
                     if ANDButton.collidepoint(event.pos): #check if spawning rectangle is clicked on
                         clickedOnNothing = False
