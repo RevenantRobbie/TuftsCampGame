@@ -408,10 +408,10 @@ def main():
             shape.indegree = 0
         for wire in createdWires:
             wire.startPoint.parent.linkedGates = [None, None, None]
-            wire.startPoint.parent.procecssingInfo = [False, False, None]
+            wire.startPoint.parent.processingInfo = [False, False, None]
             if type(wire.endPoint) != list:
                 wire.endPoint.parent.linkedGates = [None, None, None]
-                wire.startPoint.parent.procecssingInfo = [False, False, None]
+                wire.startPoint.parent.processingInfo = [False, False, None]
 
         for wire in createdWires:
             if type(wire.endPoint) == connectorNode:
