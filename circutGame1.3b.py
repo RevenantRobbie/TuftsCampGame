@@ -385,6 +385,7 @@ def main():
 
                                 Node =createdNodes.pop(0)
                                 for i in range(len(createdWires)):
+                                    breakpoint()
                                     wire = createdWires.pop(0)
                                     if wire.startPoint != Node and wire.endPoint != Node:
                                         createdWires.append(wire)
