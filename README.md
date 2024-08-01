@@ -29,8 +29,17 @@ the code will physically block you from spawning one logic gate on top of anothe
 
 If the output you are getting isn't what you expected, please ensure that none of your logic gates create a loop as it messes with logic gate sorting
 
-Finally, if your game ever ends up freezing, please email revenantRobbie100@gmail.com in an emain labled BugReport. In that email, please describe the actions that led up
+If you connect the input button to the output light, you will be unable to remove the wire due to the fact that there is no way to remove individual wires at this moment,
+please restart the game in case this happens
+
+Finally, if your game ever ends up freezing, please email revenantRobbie100@gmail.com in an email labeled BugReport. In that email, please describe the actions that led up
 to that error to the best of your ability
 
+Team Members:
+Aidan: Coding
+Lyles: Coding
+Jackson: Presentation
+Nathan: Bugfixes and QA Testing
 
+A Tufts Coding Academy 2024 production
 
