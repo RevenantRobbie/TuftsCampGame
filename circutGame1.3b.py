@@ -451,8 +451,8 @@ def main():
 
                         if i > 1:
                             markedShapes.append(v)
-                            #print("appended")
-                            #print(markedShapes)
+                            print("appended")
+                            print(markedShapes)
                     q.append(shape)
             while q:
                 e = q.popleft()
