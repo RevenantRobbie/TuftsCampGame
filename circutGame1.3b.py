@@ -483,6 +483,8 @@ def main():
 
         outputRect.changeColor()
         pygame.draw.rect(bg, outputRect.color, outputRect.shape)
+        inputRect.changeColor()
+        pygame.draw.rect(bg, inputRect.color, inputRect.shape)
 
 
 
