@@ -444,8 +444,11 @@ def main():
         markedShapes = []
         unsortedShapes = createdRectangles[:]
         unsortedShapes.append(inputRect)
+        count = 0
 
         while len(topoSort) != len(createdRectangles)+1: #still error prone
+            count += 1
+            print(count)
 
             for shape in unsortedShapes:
                 if shape.indegree == 0:
