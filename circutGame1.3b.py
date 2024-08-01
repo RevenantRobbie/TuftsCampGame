@@ -532,8 +532,10 @@ def main():
 
         outputRect.changeColor()
         pygame.draw.rect(bg, outputRect.color, outputRect.shape)
+        bg.blit(font.render("OUTPUT", 1, "black"), outputRect.shape)
         inputRect.changeColor()
         pygame.draw.rect(bg, inputRect.color, inputRect.shape)
+        bg.blit(font.render("INPUT", 1, "black"), inputRect.shape)
 
 
 
