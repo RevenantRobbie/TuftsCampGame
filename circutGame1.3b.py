@@ -211,8 +211,19 @@ class output:
             self.color = "green"
         elif self.processingInfo[0] == False:
             self.color = "red"
+class input:
+    def __init__(self, shape, processingInfo, color, indegree):
+        self.shape = shape
+        self.processingInfo = processingInfo
+        self.color = color
+        self.indegree = indegree
 
-
+    def changeColor(self):
+        #print(self.processingInfo)
+        if self.processingInfo[0] == True:
+            self.color = "green"
+        elif self.processingInfo[0] == False:
+            self.color = "red"
 
 def main():
 
@@ -251,7 +262,9 @@ def main():
     #initializeGame
 
     outputRect = output(standardOutputRect, [False], "red", 0)
+    inputRect = input(standardInputRect, [False], "red", 0)
     newInput = connectorNode(defaultNodeShape, outputRect, "input1", False)
+    newOuptut = connectorNode(defaultNodeShape, inputRect, "output", false)
     createdNodes.append(newInput)
 
 
