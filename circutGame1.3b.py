@@ -435,8 +435,9 @@ def main():
         currentNum = 0
 
         while len(topoSort) < len(createdRectangles):
-            print(topoSort)
+
             for shape in createdRectangles:
+                print(shape.indegree)
                 if shape.indegree == 0:
                     for i,v in enumerate(shape.linkedGates):
                         if i > 1:
@@ -445,8 +446,8 @@ def main():
                 if iteration == 0:
                     q.append(outputRect)
             while q:
-                shape = q.popleft()
-                topoSort.append(shape)
+                e = q.popleft()
+                topoSort.append(e)
             for v in markedShapes:
                 if v != None:
                     v.indegree -= 1
