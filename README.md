@@ -11,7 +11,7 @@ The purpose of this game is simply to explore how circiuts and logic gates work.
 How to install and run:
 download and unzip the file
 type "pip install pygame" into the terminal
-run circiutGame1.3b.py
+run main.py (it was named circuitGame1.3b.py before this)
 enjoy
 
 How in interact:
