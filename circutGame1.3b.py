@@ -405,7 +405,8 @@ def main():
             shape.indegree = 0
         for wire in createdWires:
             wire.startPoint.parent.linkedGates.clear()
-            wire.endPoint.parent.linkedGates.clear()
+            if type(wire.endPoint) != list:
+                wire.endPoint.parent.linkedGates.clear()
 
         for wire in createdWires:
             if type(wire.endPoint) == connectorNode:
