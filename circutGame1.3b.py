@@ -434,7 +434,7 @@ def main():
         markedShapes = []
         iteration = 0
 
-        while len(topoSort) < len(createdRectangles):
+        while len(topoSort)-1 != len(createdRectangles) and len(createdRectangles) != 0:
             for shape in createdRectangles:
                 if shape.indegree == 0:
                     for i,v in enumerate(shape.linkedGates):
