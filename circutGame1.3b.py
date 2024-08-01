@@ -366,7 +366,7 @@ def main():
                     print("m2 clicked")
 
 
-                    for  shape in createdRectangles: #check if rectangles are clicked on
+                    for shape in createdRectangles: #check if rectangles are clicked on
                         if shape.shape.collidepoint(event.pos):
 
 
