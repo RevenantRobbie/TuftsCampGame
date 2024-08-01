@@ -238,7 +238,7 @@ def main():
     NANDButton = pygame.Rect(screen.get_width()-100, screen.get_height()-525,100,100)
     XORButton = pygame.Rect(screen.get_width()-100, screen.get_height()-625,100,100)
     XNORButton = pygame.Rect(screen.get_width()-100, screen.get_height()-725,100,100)
-    standardOutputRect = pygame.Rect(screen.get_width()/2, 25, 50, 50)
+    standardOutputRect = pygame.Rect(screen.get_width()/2, 0, 50, 50)
     standardInputRect = pygame.Rect(screen.get_width()/2, screen.get_height()-25, 50, 50)
 
     createdRectangles = []
