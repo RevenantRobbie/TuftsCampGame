@@ -308,7 +308,7 @@ def main():
                 elif event.button == 3: #deletes shapes
                     print("m2 clicked")
 #check if any logic gates were clicked on
-                    for  shape in createdRectangles:
+                    for  shape in createdRectangles: #this monster of a loop will iterate through every single created wire and node to see if it has any association with the deleted shape to delete it.
                         if shape.shape.collidepoint(event.pos):
                             print("deleting something")
                             len_Node = len(createdNodes)
@@ -328,7 +328,7 @@ def main():
                                 if Node.parent != shape:
                                     createdNodes.append(Node)
                             createdRectangles.remove(shape)
-#---Wires process connections and calculate indegrees---
+#---Reset most shape parameters to prep them for logic---
         for shape in createdRectangles:
             shape.indegree = 0
             shape.processingInfo = [False, False, None]
@@ -337,6 +337,7 @@ def main():
             if type(wire.endPoint) != list:
                 wire.endPoint.parent.linkedGates = [None, None, None]
 
+#---Wires process connections and calculate indegrees---
         for wire in createdWires:
             if type(wire.endPoint) == connectorNode:
                 #breakpoint()
@@ -371,15 +372,15 @@ def main():
         unsortedShapes = createdRectangles[:]
         unsortedShapes.append(inputRect)
         count = 0
-
-        while len(topoSort) != len(createdRectangles)+1: #still error prone
+#finds shaped with a indegree of 0 and puts into q. Also marks any adjacent shapes to decrease their indegree by 1
+#if your still confused, we're using something called a
+        while len(topoSort) != len(createdRectangles)+1: #still error prone, be careful around here
             count += 1
             #print(count)
             print(len(topoSort))
             if count > 256:
-
-                break
                 #breakpoint()
+                break
 
             for shape in unsortedShapes:
                 if shape.indegree == 0:
@@ -393,6 +394,8 @@ def main():
                     q.append(shape)
                 #else:
                     #breakpoint()
+
+
             while q:
                 e = q.popleft()
                 unsortedShapes.remove(e)
