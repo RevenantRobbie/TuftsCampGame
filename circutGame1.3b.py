@@ -383,7 +383,12 @@ def main():
                             len_Node = len(createdNodes) #logic error here, we don't want to iterate through all nodes, only connectedNodes
                             for i,v in enumerate(createdNodes):
                                 if v.parent == shape:
-                                     Node =createdNodes.pop(0)
+                                    
+
+
+                            for i in range(len_Node):
+
+                                Node =createdNodes.pop(0)
                                 for i in range(len(createdWires)):
                                     breakpoint()
                                     wire = createdWires.pop(0)
@@ -398,7 +403,6 @@ def main():
                                         wire.startPoint.inUse = False
                                 if Node.parent != shape:
                                     createdNodes.append(Node)
-
 
                             #nodes need to be deleted
                             createdRectangles.remove(shape)
