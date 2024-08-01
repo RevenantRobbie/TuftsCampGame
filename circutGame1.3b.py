@@ -222,14 +222,11 @@ class input:
 
     def changeColor(self):
         #print(self.processingInfo)
-        if self.processingInfo[0] == True:
+        if self.processingInfo[2] == True:
             self.color = "green"
-        elif self.processingInfo[0] == False:
+        elif self.processingInfo[2] == False:
             self.color = "red"
-    def doLogic(self):
-        for i,v in enumerate(self.linkedGates):
-            if i > 1:
-            
+
 
 
 def main():
@@ -339,7 +336,7 @@ def main():
                                 manipulation_gate = True
                                 shape.pickedUp = True
                     if standardInputRect.collidepoint(event.pos):
-                        inputRect.processingInfo[0] = not inputRect.processingInfo[0]
+                        inputRect.processingInfo[2] = not inputRect.processingInfo[2]
 
                     if ANDButton.collidepoint(event.pos): #check if spawning rectangle is clicked on
                         clickedOnNothing = False
