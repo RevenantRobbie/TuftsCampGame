@@ -382,7 +382,7 @@ def main():
                             print("deleting something")
                             len_Node = len(createdNodes) #logic error here, we don't want to iterate through all nodes, only connectedNodes
                             for i,v in enumerate(createdNodes):
-                                if createdNodes.parent == shape:
+                                if v.parent == shape:
                                      Node =createdNodes.pop(0)
                                 for i in range(len(createdWires)):
                                     breakpoint()
