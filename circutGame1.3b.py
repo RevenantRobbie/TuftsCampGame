@@ -429,8 +429,8 @@ def main():
         #findLowestIndegree and store all in q
         for shape in createdRectangles:
             for gate in shape.linkedGates:
-                if gate != None:
-                    print(shape.linkedGates)
+                if type(gate )== logicGate or type(gate) == input or type(gate) == output:
+                    print(shape.linkedGates.processingInfo[2])
 
         q = deque() #q acts as an "advanced list"
         topoSort = []
