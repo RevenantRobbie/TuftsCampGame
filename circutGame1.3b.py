@@ -417,14 +417,15 @@ def main():
                         wire.endPoint.parent.indegree += 1
                 elif type(wire.endPoint.parent) == output and type(wire.startPoint.parent) == output:
                     if type(wire.endPoint.parent) == output:
-                        wire
+                        outputRect.linkedGates[0] = wire.startPoint.parent
                     elif type(wire.startPoint.parent) == output:
+                        print("placeholder")
 
                 elif type(wire.endPoint.parent) == input and type(wire.startPoint.parent) == input:
                     if type(wire.endPoint.parent) == input:
-
+                        print("placeholder")
                     elif type(wire.startPoint.parent) == input:
-
+                        print("placeholder")
 
 
 #---process logic---
