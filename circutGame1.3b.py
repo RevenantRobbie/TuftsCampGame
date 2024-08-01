@@ -455,6 +455,7 @@ def main():
         for node in topoSort:
             if type(node) == logicGate:
                 node.doLogic()
+        
 
 
 
