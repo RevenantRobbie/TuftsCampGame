@@ -536,7 +536,7 @@ def main():
         bg.blit(font_inputOutput.render("OUTPUT", 1, "black"), outputRect.shape.midleft)
         inputRect.changeColor()
         pygame.draw.rect(bg, inputRect.color, inputRect.shape)
-        bg.blit(font_inputOutput.render("INPUT", 1, "black"), inputRect.shape.midleft)
+        bg.blit(font_inputOutput.render("  INPUT", 1, "black"), inputRect.shape.midleft)
 
 
 
