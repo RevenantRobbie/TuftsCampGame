@@ -463,7 +463,7 @@ def main():
                 topoSort.append(e)
                 #print("topoSort:",topoSort)
             for v in markedShapes:
-                if v != None:
+                if v != None and v != 0:
                     v.indegree -= 1
             #print("free")
 
