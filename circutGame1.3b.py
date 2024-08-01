@@ -434,12 +434,13 @@ def main():
             #print(shape.indegree)
 
         q = deque() #q acts as an "advanced list"
+        topoSort.clear()
         topoSort = []
         markedShapes = []
         iteration = 0
 
         while len(topoSort)-1 != len(createdRectangles) and len(createdRectangles) != 0:
-            print(topoSort)
+            print(len(topoSort))
             print(len(createdRectangles))
             for shape in createdRectangles:
                 if shape.indegree == 0:
