@@ -435,7 +435,7 @@ def main():
         iteration = 0
 
         while len(topoSort) < len(unsortedShapes):
-
+            print (iteration)
             print(unsortedShapes)
             for shape in unsortedShapes:
                 if shape.indegree == 0:
