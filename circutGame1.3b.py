@@ -262,13 +262,12 @@ def main():
 
     #initializeGame
 
-    outputRect = output(standardOutputRect, [False, False, False], "red", 0)
-    inputRect = input(standardInputRect, [False], "red", 0)
+    outputRect = output(standardOutputRect, [False], "red", 0)
+    inputRect = input(standardInputRect, [False, False, False], "red", 0)
     newInput = connectorNode(defaultNodeShape, outputRect, "input1", False)
     newOutput = connectorNode(defaultNodeShape, inputRect, "output", False)
     createdNodes.append(newInput)
     createdNodes.append(newOutput)
-    if
 
 
 
@@ -402,7 +401,6 @@ def main():
         for wire in createdWires:
             if type(wire.endPoint) == connectorNode:
                 if type(wire.endPoint.parent) == output:
-                    print(wire.startPoint.parent.processingInfo)
                     outputRect.processingInfo[0] = wire.startPoint.parent.processingInfo[2]
                 elif wire.endPoint.inputOutput[0] == "o":
                     wire.startPoint.parent.linkedGates[int(wire.startPoint.inputOutput[-1])-1] = wire.endPoint.parent
