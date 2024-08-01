@@ -432,7 +432,6 @@ def main():
         topoSort = []
         markedShapes = []
         iteration = 0
-        currentNum = 0
 
         while len(topoSort) < len(createdRectangles):
             for shape in createdRectangles:
@@ -451,6 +450,7 @@ def main():
                     v.indegree -= 1
             iteration += 1
 
+        print(topoSort)
         for node in topoSort:
             if type(node) == logicGate:
                 node.doLogic()
