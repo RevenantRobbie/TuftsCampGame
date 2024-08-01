@@ -438,6 +438,7 @@ def main():
 
             for shape in unsortedShapes:
                 if shape.indegree == 0:
+                    print(shape)
                     for i,v in enumerate(shape.linkedGates):
                         print(v)
                         if i > 1:
