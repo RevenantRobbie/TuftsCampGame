@@ -434,14 +434,13 @@ def main():
 
 #---process logic---
         #findLowestIndegree and store all in q
+        #huge thanks to https://www.geeksforgeeks.org/topological-sorting-indegree-based-solution/ for helping with topo sorts
 
         q = deque() #q acts as an "advanced list"
         topoSort = []
         markedShapes = []
         unsortedShapes = createdRectangles[:]
         unsortedShapes.append(inputRect)
-        iteration = 0
-
 
         while len(topoSort) != len(createdRectangles)+1:
 
