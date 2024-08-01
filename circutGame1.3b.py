@@ -436,7 +436,7 @@ def main():
 
         while len(topoSort) < len(unsortedShapes):
 
-            for shape in createdRectangles:
+            for shape in unsortedShapes:
                 print(topoSort)
                 if shape.indegree == 0:
                     for i,v in enumerate(shape.linkedGates):
