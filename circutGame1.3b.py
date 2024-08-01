@@ -471,7 +471,8 @@ def main():
                 if iteration == 0:
                     q.append(inputRect)
                     for v in inputRect.linkedGates:
-                        v.indegree -= 1
+                        if v != None:
+                            v.indegree -= 1
 
             while q:
                 shape = q.popleft()
