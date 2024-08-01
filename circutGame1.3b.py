@@ -425,6 +425,13 @@ def main():
         topoSort = []
         iteration = 0
         currentNum = 0
+
+        while len(topoSort) < len(createdRectangles) + 1:
+            for shape in createdRectangles:
+                if shape.indegree == 1:
+                    shape.in
+                    q.append(shape)
+
         while len(topoSort) < len(createdRectangles):
             for shape in createdRectangles:
                 if currentNum == shape.indegree:
