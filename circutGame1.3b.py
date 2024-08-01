@@ -490,9 +490,13 @@ def main():
 
 
         pygame.draw.rect(bg, "purple", ANDButton)
+        bg.blit(font.render("AND", 1, "black"), (ANDButton[0], ANDButton[1]))
         pygame.draw.rect(bg, "blue", ORButton)
+        bg.blit(font.render("OR", 1, "black"), (ORButton[0], ORButton[1]))
         pygame.draw.rect(bg, "green", NOTButton)
+        bg.blit(font.render("NOT", 1, "black"), (NOTButton[0], NOTButton[1]))
         pygame.draw.rect(bg, "yellow", NORButton)
+        bg.blit(font.render("NOR", 1, "black"), (NORButton[0], NORButton[1]))
         pygame.draw.rect(bg, "orange", NANDButton)
         pygame.draw.rect(bg, "cyan", XORButton)
         pygame.draw.rect(bg, "pink", XNORButton)
