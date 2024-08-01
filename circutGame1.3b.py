@@ -407,6 +407,12 @@ def main():
             shape.indegree = 0
         #objectives, assign indegree values and assign processingInfo values
         for wire in createdWires:
+            #endpoints
+            if wire.endPoint == connectorNode:
+                
+
+            #startpoints
+
 
 
         for wire in createdWires:
