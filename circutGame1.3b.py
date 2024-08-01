@@ -451,7 +451,7 @@ def main():
             count += 1
             #print(count)
             print(len(topoSort))
-            if count > 1000:
+            if count > 256:
 
                 break
                 #breakpoint()
