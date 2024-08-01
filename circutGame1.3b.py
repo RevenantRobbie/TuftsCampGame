@@ -414,6 +414,7 @@ def main():
                     wire.startPoint.linkedGates[int(wire.endPoint.parent.inputOutput[-1])-1] = wire.endPoint.parent
                 elif wire.endPoint.parent.inputOutput[0] == "o":
                     if wire.endPoint.parent.linkedGates[2] != None:
+                        wire startPoint.parent.indegree += 1
                         wire.startPoint.parent.linkedGates[2] == wire.
 
 
