@@ -451,6 +451,7 @@ def main():
             count += 1
             print(count)
             if count > 1000:
+                
                 breakpoint()
 
             for shape in unsortedShapes:
