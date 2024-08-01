@@ -316,6 +316,14 @@ def main():
                                     draggedWire.endPoint.parent #find current connection type
                                     draggedWire = None
 
+
+
+
+
+
+
+
+
                     for shape in createdRectangles: #check if rectangles are clicked on
                         if shape.shape.collidepoint(event.pos):
                             clickedOnNothing = False
@@ -419,11 +427,6 @@ def main():
 
 #---process logic---
         #findLowestIndegree and store all in q
-        for shape in createdRectangles:
-            for gate in shape.linkedGates:
-                if type(gate)== logicGate or type(gate) == input or type(gate) == output:
-                    print(gate.processingInfo)
-
 
         q = deque() #q acts as an "advanced list"
         topoSort = []
