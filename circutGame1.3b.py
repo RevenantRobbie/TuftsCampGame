@@ -384,7 +384,7 @@ def main():
 
                             for i in range(len_Node):
                                 Node =createdNodes.pop(0)
-                                for v in enumerate(createdNodes):
+                                for v in enumerate(createdWires):
                                     wire = createdWires.pop(0)
                                     if wire.startPoint.parent != shape and wire.endPoint.parent != shape:
                                         createdWires.append(wire)
