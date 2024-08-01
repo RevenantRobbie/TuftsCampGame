@@ -116,6 +116,7 @@ class logicGate:
         self.linkedGates = linkedGates
 
         #detects if gate only has one input and deletes one of the two input if so
+        #NOTE (TODO?) to self, I still need to kill linked gates on wire disconnect
     def doLogic(self):
         if self.linkedGates[0] != None:
             self.processingInfo[0] = self.linkedGates[0].processingInfo[2]
