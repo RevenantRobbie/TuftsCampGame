@@ -116,7 +116,7 @@ class logicGate:
 
         #detects if gate only has one input and deletes one of the two input if so
     def doLogic(self):
-        print(self.linkedGates)
+        #print(self.linkedGates)
         if self.linkedGates[0] != None:
             self.processingInfo[0] = self.linkedGates[0].processingInfo[2]
         else:
@@ -408,6 +408,7 @@ def main():
         for wire in createdWires:
             #endpoints
             if wire.endPoint == connectorNode:
+                print("determining")
                 if wire.endPoint.parent.inputOutput[0] == "i":
                     wire.endPoint.parent.indegree += 1
                     wire.startPoint.linkedGates[int(wire.endPoint.parent.inputOutput[-1])-1] = wire.endPoint.parent
