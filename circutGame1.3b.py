@@ -442,6 +442,8 @@ def main():
                         #print(shape.linkedGates)
                         if i > 1:
                             markedShapes.append(v)
+                            print("appended")
+                            print(markedShapes)
                     q.append(shape)
                 if iteration == 0:
                     q.append(outputRect)
@@ -451,9 +453,8 @@ def main():
                 print("topoSort:",topoSort)
             for v in markedShapes:
                 if v != None:
-                    print(v)
                     v.indegree -= 1
-            print("free")
+            #print("free")
             iteration += 1
 
             #print(topoSort)
