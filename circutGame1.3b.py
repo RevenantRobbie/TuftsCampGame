@@ -229,7 +229,7 @@ class input:
     def doLogic(self):
         for i,v in enumerate(self.linkedGates):
             if i > 1:
-                v
+            
 
 
 def main():
