@@ -335,7 +335,8 @@ def main():
                                 manipulation_gate = True
                                 shape.pickedUp = True
                     if standardInputRect.collidepoint(event.pos):
-                        inputRect.processingInfo[0] = not inputRect.processingInfo[0]
+                        inputRect.processingInfo[-1] = not inputRect.processingInfo[-1]
+                        
 
                     if ANDButton.collidepoint(event.pos): #check if spawning rectangle is clicked on
                         clickedOnNothing = False
