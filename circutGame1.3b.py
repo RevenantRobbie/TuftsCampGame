@@ -402,8 +402,10 @@ def main():
                             #nodes need to be deleted
                             createdRectangles.remove(shape)
 #---Wires process connections and calculate indegrees---
+
         for shape in createdRectangles:
             shape.indegree = 0
+
         for wire in createdWires:
             if type(wire.endPoint) == connectorNode:
                 if type(wire.endPoint.parent) == output:
@@ -425,6 +427,7 @@ def main():
 
 
 
+
 #---process logic---
         #findLowestIndegree and store all in q
         #for shape in createdRectangles:
@@ -436,6 +439,8 @@ def main():
         iteration = 0
 
         while len(topoSort)-1 != len(createdRectangles) and len(createdRectangles) != 0:
+            print(len(topoSort)-1 != len(createdRectangles))
+            print(len(createdRectangles))
             for shape in createdRectangles:
                 if shape.indegree == 0:
                     for i,v in enumerate(shape.linkedGates):
