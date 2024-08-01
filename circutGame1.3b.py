@@ -400,6 +400,8 @@ def main():
                             #nodes need to be deleted
                             createdRectangles.remove(shape)
 #---Wires process connections and calculate indegrees---
+        for shape in createdRectangles:
+            shape.indegree = 0
         for wire in createdWires:
             if type(wire.endPoint) == connectorNode:
                 if type(wire.endPoint.parent) == output:
