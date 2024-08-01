@@ -423,6 +423,9 @@ def main():
 
 #---process logic---
         #findLowestIndegree and store all in q
+        for shape in createdRectangles:
+            print(shape.indegree)
+
         q = deque() #q acts as an "advanced list"
         topoSort = []
         markedShapes = []
