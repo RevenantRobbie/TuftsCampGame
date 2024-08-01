@@ -415,19 +415,10 @@ def main():
                             wire.startPoint.parent.linkedGates[2] = wire.endPoint.parent
                         wire.endPoint.parent.linkedGates[int(wire.endPoint.inputOutput[-1])-1] = wire.startPoint.parent
                         wire.endPoint.parent.indegree += 1
-                elif type(wire.endPoint.parent) == output and type(wire.startPoint.parent) == output:
-                    if type(wire.endPoint.parent) == output:
-                        outputRect.linkedGates[0] = wire.startPoint.parent
-                        outputRect.indegree += 1
-                    elif type(wire.startPoint.parent) == output:
-                        outputRect.linkedGates[0] = wire.endPoint.parent
-
-                elif type(wire.endPoint.parent) == input and type(wire.startPoint.parent) == input:
-                    if type(wire.endPoint.parent) == input:
-                        wire.startPoint.parent.linkedGates[int(wire.startPoint.inputOutput[-1])-1] = outputRect
-                        wire.startPoint.parent.indegree += 1
-                    elif type(wire.startPoint.parent) == input:
-                        print("placeholder")
+                elif type(wire.startPoint.parent) == output:
+                    outputRect.linkedGates[0] = wire.endPoint.parent
+                elif type(wire.startPoint.parent) == input:
+                    print("placeholder")
 
 
 #---process logic---
