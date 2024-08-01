@@ -435,7 +435,7 @@ def main():
         iteration = 0
 
         while len(topoSort) < len(unsortedShapes):
-            print(topoSort)
+
             print(unsortedShapes)
             for shape in unsortedShapes:
                 if shape.indegree == 0:
@@ -449,6 +449,7 @@ def main():
             while q:
                 e = q.popleft()
                 topoSort.append(e)
+                print("topoSort:",topoSort)
             for v in markedShapes:
                 if v != None:
                     v.indegree -= 1
