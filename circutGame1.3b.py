@@ -434,7 +434,7 @@ def main():
         unsortedShapes = createdRectangles[:]
         iteration = 0
 
-        while len(topoSort) < len(unsortedShapes):
+        while len(topoSort) < len(createdRectangles):
             print (iteration)
             print(unsortedShapes)
             for shape in unsortedShapes:
