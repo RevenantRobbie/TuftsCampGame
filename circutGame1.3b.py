@@ -253,6 +253,8 @@ def main():
     draggedWire = None
     standardProcessingInfo = [False, False, None]
 
+    ableToSpawnRects = True
+
     def createGate(a):
         print("clicked on button")
         newShape = logicGate(a,defaultGateShape, False, standardProcessingInfo, 0, [None, None, None], False)
@@ -319,6 +321,7 @@ def main():
 
 
                     for shape in createdRectangles: #check if rectangles are clicked on
+
                         if shape.shape.collidepoint(event.pos):
                             clickedOnNothing = False
                             shape.movedAtSomePoint = True
@@ -331,40 +334,42 @@ def main():
                                 shape.pickedUp = True
                     if standardInputRect.collidepoint(event.pos):
                         inputRect.processingInfo[2] = not inputRect.processingInfo[2]
+                    if shape.movedAtSomePoint == False:
+                        ableToSpawnRects = False
 
-                    
+                    if ableToSpawnRects != False:
+                        if ANDButton.collidepoint(event.pos): #check if spawning rectangle is clicked on
+                            clickedOnNothing = False
+                            createGate("AND")
+                        elif ORButton.collidepoint(event.pos):
+                            clickedOnNothing = False
+                            createGate("OR")
+                        elif NORButton.collidepoint(event.pos):
+                            clickedOnNothing = False
+                            createGate("NOR")
+                        elif NANDButton.collidepoint(event.pos):
+                            clickedOnNothing = False
+                            createGate("NAND")
+                        elif XORButton.collidepoint(event.pos):
+                            clickedOnNothing = False
+                            createGate("XOR")
+                        elif XNORButton.collidepoint(event.pos):
+                            clickedOnNothing = False
+                            createGate("XNOR")
+                        elif NOTButton.collidepoint(event.pos):
+                            clickedOnNothing = False
+                            createGate("NOT")
+                    ableToSpawnRects = True
 
-                    if ANDButton.collidepoint(event.pos): #check if spawning rectangle is clicked on
-                        clickedOnNothing = False
-                        createGate("AND")
-                    elif ORButton.collidepoint(event.pos):
-                        clickedOnNothing = False
-                        createGate("OR")
-                    elif NORButton.collidepoint(event.pos):
-                        clickedOnNothing = False
-                        createGate("NOR")
-                    elif NANDButton.collidepoint(event.pos):
-                        clickedOnNothing = False
-                        createGate("NAND")
-                    elif XORButton.collidepoint(event.pos):
-                        clickedOnNothing = False
-                        createGate("XOR")
-                    elif XNORButton.collidepoint(event.pos):
-                        clickedOnNothing = False
-                        createGate("XNOR")
-                    elif NOTButton.collidepoint(event.pos):
-                        clickedOnNothing = False
-                        createGate("NOT")
-                    else: #check if nothing was clicked on
-                        if manipulation_gate == False and clickedOnNothing == True:
-                            print("clicked on nothing")
-                            if len(createdWires) >= 1 and draggedWire != None:
-                                createdWires[-1].startPoint.inUse = False
-                                createdWires.pop(-1)
+                    if manipulation_gate == False and clickedOnNothing == True:
+                        print("clicked on nothing")
+                        if len(createdWires) >= 1 and draggedWire != None:
+                            createdWires[-1].startPoint.inUse = False
+                            createdWires.pop(-1)
 
-                                draggedWire = None
-                            for shape in createdRectangles:
-                                shape.pickedUp = False
+                                    draggedWire = None
+                                for shape in createdRectangles:
+                                    shape.pickedUp = False
 
                 elif event.button == 3: #deletes shapes
                     print("m2 clicked")
