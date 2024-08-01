@@ -431,11 +431,10 @@ def main():
         q = deque() #q acts as an "advanced list"
         topoSort = []
         markedShapes = []
-        unsortedShapes = []
-        unsortedShapes
+        unsortedShapes = createdRectangles[:]
         iteration = 0
 
-        while len(topoSort) < len(createdRectangles):
+        while len(topoSort) < len(unsortedShapes):
 
             for shape in createdRectangles:
                 print(shape.indegree)
