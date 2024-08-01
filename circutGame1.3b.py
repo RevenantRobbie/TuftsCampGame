@@ -239,7 +239,7 @@ def main():
     XORButton = pygame.Rect(screen.get_width()-100, screen.get_height()-625,100,100)
     XNORButton = pygame.Rect(screen.get_width()-100, screen.get_height()-725,100,100)
     standardOutputRect = pygame.Rect(screen.get_width()/2, 0, 50, 50)
-    standardInputRect = pygame.Rect(screen.get_width()/2, screen.get_height()-25, 50, 50)
+    standardInputRect = pygame.Rect(screen.get_width()/2, screen.get_height()-100, 50, 50)
 
     createdRectangles = []
     createdNodes = []
@@ -330,7 +330,7 @@ def main():
                             elif manipulation_gate == False:
                                 manipulation_gate = True
                                 shape.pickedUp = True
-                    if inputRect.collidepoint(event.pos):
+                    if standardInputRect.collidepoint(event.pos):
                         inputRect.processingInf[0] = not inputRect.processingInf[0]
 
                     if ANDButton.collidepoint(event.pos): #check if spawning rectangle is clicked on
