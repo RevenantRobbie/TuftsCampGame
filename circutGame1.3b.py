@@ -458,6 +458,7 @@ def main():
                 else:
                     breakpoint()
             while q:
+                unsortedShapes.
                 e = q.popleft()
                 topoSort.append(e)
                 #print("topoSort:",topoSort)
