@@ -383,7 +383,8 @@ def main():
                             len_Node = len(createdNodes) #logic error here, we don't want to iterate through all nodes, only connectedNodes
                             for i,v in enumerate(createdNodes):
                                 wire = createdWires.pop(0)
-                                if wire.startPoint.parent != 
+                                if wire.startPoint.parent != shape and wire.endPoint.parent != shape:
+                                    
 
                                 if v.parent == shape:
 
