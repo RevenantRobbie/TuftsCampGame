@@ -406,12 +406,11 @@ def main():
 #---Wires process connections and calculate indegrees---
         for shape in createdRectangles:
             shape.indegree = 0
+            shape.processingInfo = [False, False, None]
         for wire in createdWires:
             wire.startPoint.parent.linkedGates = [None, None, None]
-            wire.startPoint.parent.processingInfo = [False, False, None]
             if type(wire.endPoint) != list:
                 wire.endPoint.parent.linkedGates = [None, None, None]
-                wire.startPoint.parent.processingInfo = [False, False, None]
 
         for wire in createdWires:
             if type(wire.endPoint) == connectorNode:
