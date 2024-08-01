@@ -439,11 +439,11 @@ def main():
             for shape in unsortedShapes:
                 if shape.indegree == 0:
                     for i,v in enumerate(shape.linkedGates):
-                        #print(shape.linkedGates)
+                        print(v)
                         if i > 1:
                             markedShapes.append(v)
-                            print("appended")
-                            print(markedShapes)
+                            #print("appended")
+                            #print(markedShapes)
                     q.append(shape)
                 if iteration == 0:
                     q.append(outputRect)
