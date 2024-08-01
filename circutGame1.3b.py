@@ -498,8 +498,11 @@ def main():
         pygame.draw.rect(bg, "yellow", NORButton)
         bg.blit(font.render("NOR", 1, "black"), (NORButton[0], NORButton[1]))
         pygame.draw.rect(bg, "orange", NANDButton)
+        bg.blit(font.render("NAND", 1, "black"), (NANDButton[0], NANDButton[1]))
         pygame.draw.rect(bg, "cyan", XORButton)
+        bg.blit(font.render("XOR", 1, "black"), (XORButton[0], XORButton[1]))
         pygame.draw.rect(bg, "pink", XNORButton)
+        bg.blit(font.render("XNOR", 1, "black"), (XNORButton[0], XNORButton[1]))
         #draw input and output box
 
 
