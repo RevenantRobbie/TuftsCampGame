@@ -204,6 +204,7 @@ class output:
         self.processingInfo = processingInfo
         self.color = color
         self.indegree = indegree
+        self.linkedGates = linkedGates
 
     def changeColor(self):
         #print(self.processingInfo)
@@ -217,6 +218,7 @@ class input:
         self.processingInfo = processingInfo
         self.color = color
         self.indegree = indegree
+        self.linkedGates = linkedGates
 
     def changeColor(self):
         #print(self.processingInfo)
@@ -262,8 +264,8 @@ def main():
 
     #initializeGame
 
-    outputRect = output(standardOutputRect, [False], "red", 0)
-    inputRect = input(standardInputRect, [False, False, False], "red", 0)
+    outputRect = output(standardOutputRect, [False], "red", 0, [None, None, None])
+    inputRect = input(standardInputRect, [False, False, False], "red", 0, [None, None, None])
     newInput = connectorNode(defaultNodeShape, outputRect, "input1", False)
     newOutput = connectorNode(defaultNodeShape, inputRect, "output", False)
     createdNodes.append(newInput)
@@ -399,32 +401,23 @@ def main():
                             createdRectangles.remove(shape)
 #---Wires process connections and calculate indegrees---
         for wire in createdWires:
-            if type(wire.endPoint) == connectorNode and type(wire.startPoint) == connectorNode:
-                if wire.endPoint.inputOutput[0] == "o":
-
-            elif type(wire.endPoint) == output or type(wire.startPoint) == output:
-
-            elif type(wire.endPoint) == input or type(wire.startPoint) == input:
-
-
-
-            # if type(wire.endPoint) == connectorNode:
-            #     if type(wire.endPoint.parent) == output:
-            #         outputRect.processingInfo[0] = wire.startPoint.parent.processingInfo[2]
-            #     elif wire.endPoint.inputOutput[0] == "o":
-            #         wire.startPoint.parent.linkedGates[int(wire.startPoint.inputOutput[-1])-1] = wire.endPoint.parent
-            #         if wire.endPoint.parent.linkedGates[2] != None:
-            #             wire.endPoint.parent.linkedGates.append(wire.startPoint.parent)
-            #         else:
-            #             wire.endPoint.parent.linkedGates[2] = wire.startPoint.parent
-            #         wire.startPoint.parent.indegree +=1
-            #     elif wire.endPoint.inputOutput[0] == "i":
-            #         if wire.startPoint.parent.linkedGates[2] != None:
-            #             wire.startPoint.parent.linkedGates.append(wire.endPoint.parent)
-            #         else:
-            #             wire.startPoint.parent.linkedGates[2] = wire.endPoint.parent
-            #         wire.endPoint.parent.linkedGates[int(wire.endPoint.inputOutput[-1])-1] = wire.startPoint.parent
-            #         wire.endPoint.parent.indegree += 1
+            if type(wire.endPoint) == connectorNode:
+                if type(wire.endPoint.parent) == output:
+                    outputRect.processingInfo[0] = wire.startPoint.parent.processingInfo[2]
+                elif wire.endPoint.inputOutput[0] == "o":
+                    wire.startPoint.parent.linkedGates[int(wire.startPoint.inputOutput[-1])-1] = wire.endPoint.parent
+                    if wire.endPoint.parent.linkedGates[2] != None:
+                        wire.endPoint.parent.linkedGates.append(wire.startPoint.parent)
+                    else:
+                        wire.endPoint.parent.linkedGates[2] = wire.startPoint.parent
+                    wire.startPoint.parent.indegree +=1
+                elif wire.endPoint.inputOutput[0] == "i":
+                    if wire.startPoint.parent.linkedGates[2] != None:
+                        wire.startPoint.parent.linkedGates.append(wire.endPoint.parent)
+                    else:
+                        wire.startPoint.parent.linkedGates[2] = wire.endPoint.parent
+                    wire.endPoint.parent.linkedGates[int(wire.endPoint.inputOutput[-1])-1] = wire.startPoint.parent
+                    wire.endPoint.parent.indegree += 1
 
 
 
