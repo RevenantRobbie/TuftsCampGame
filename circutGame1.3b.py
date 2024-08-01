@@ -417,7 +417,7 @@ def main():
                         wire.startPoint.parent.linkedGates[2] == wire.endPoint.parent
                     else:
                         wire.startPoint.parent.linkedGates.append(wire.endPoint.parent)
-                    wire startPoint.parent.indegree += 1
+                    wire.startPoint.parent.indegree += 1
 
 
             #startpoints
