@@ -373,7 +373,7 @@ def main():
         unsortedShapes.append(inputRect)
         count = 0
 #finds shaped with a indegree of 0 and puts into q. Also marks any adjacent shapes to decrease their indegree by 1
-#if your still confused, we're using something called Kahn's algory
+#if your still confused, we're using something called Kahn’s Algorithm for Topological Sorting
         while len(topoSort) != len(createdRectangles)+1: #still error prone, be careful around here
             count += 1
             #print(count)
@@ -395,7 +395,7 @@ def main():
                 #else:
                     #breakpoint()
 
-
+#pull objects out of q from the left to put them into the list topoSort. This list has all the nodes sorted in topological order, with index 0 being the first node
             while q:
                 e = q.popleft()
                 unsortedShapes.remove(e)
@@ -425,7 +425,7 @@ def main():
 
 
 
-#---create or recreate all shapes---
+#---create, recreate, or render all shapes---
 
         bg.fill((0, 0, 0))  # reset bg to black (0,0,0) screen rgb is out of 255, not 1 like rblx
         #draw buttons to spawn in gates
