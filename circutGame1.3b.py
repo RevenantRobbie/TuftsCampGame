@@ -373,7 +373,7 @@ def main():
         unsortedShapes.append(inputRect)
         count = 0
 #finds shaped with a indegree of 0 and puts into q. Also marks any adjacent shapes to decrease their indegree by 1
-#if your still confused, we're using something called a
+#if your still confused, we're using something called Kahn's algory
         while len(topoSort) != len(createdRectangles)+1: #still error prone, be careful around here
             count += 1
             #print(count)
