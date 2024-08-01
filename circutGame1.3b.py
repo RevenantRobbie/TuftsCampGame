@@ -433,6 +433,7 @@ def main():
         topoSort = []
         markedShapes = []
         unsortedShapes = createdRectangles[:]
+        unsortedShapes.append(outputRect)
         iteration = 0
 
         print(topoSort)
@@ -449,8 +450,6 @@ def main():
                             #print("appended")
                             #print(markedShapes)
                     q.append(shape)
-                if iteration == 0:
-                    q.append(outputRect)
             while q:
                 e = q.popleft()
                 topoSort.append(e)
@@ -459,7 +458,6 @@ def main():
                 if v != None:
                     v.indegree -= 1
             #print("free")
-            iteration += 1
 
             #print(topoSort)
             #print(unsortedShapes)
