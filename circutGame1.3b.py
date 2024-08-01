@@ -68,6 +68,7 @@ bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # create
 
 
 def andGate(input1, input2):
+    print("AND:", input1, input2)
     return input1 and input2
 
 def orGate(input1, input2):
@@ -116,7 +117,6 @@ class logicGate:
 
         #detects if gate only has one input and deletes one of the two input if so
     def doLogic(self):
-        #print(self.linkedGates)
         if self.linkedGates[0] != None:
             self.processingInfo[0] = self.linkedGates[0].processingInfo[2]
         else:
@@ -222,12 +222,10 @@ class input:
 
     def changeColor(self):
         #print(self.processingInfo)
-        if self.processingInfo[2] == True:
+        if self.processingInfo[0] == True:
             self.color = "green"
-        elif self.processingInfo[2] == False:
+        elif self.processingInfo[0] == False:
             self.color = "red"
-
-
 
 def main():
 
@@ -317,6 +315,14 @@ def main():
                                     draggedWire.endPoint.parent #find current connection type
                                     draggedWire = None
 
+
+
+
+
+
+
+
+
                     for shape in createdRectangles: #check if rectangles are clicked on
                         if shape.shape.collidepoint(event.pos):
                             clickedOnNothing = False
@@ -328,7 +334,7 @@ def main():
                                 manipulation_gate = True
                                 shape.pickedUp = True
                     if standardInputRect.collidepoint(event.pos):
-                        inputRect.processingInfo[2] = not inputRect.processingInfo[2]
+                        inputRect.processingInfo[0] = not inputRect.processingInfo[0]
 
                     if ANDButton.collidepoint(event.pos): #check if spawning rectangle is clicked on
                         clickedOnNothing = False
@@ -365,8 +371,10 @@ def main():
                 elif event.button == 3: #deletes shapes
                     print("m2 clicked")
 
+                    for v in createdNodes:
+                            print (v.parent)
 
-                    for shape in createdRectangles: #check if rectangles are clicked on
+                    for  shape in createdRectangles: #check if rectangles are clicked on
                         if shape.shape.collidepoint(event.pos):
 
 
@@ -392,44 +400,41 @@ def main():
                             #nodes need to be deleted
                             createdRectangles.remove(shape)
 #---Wires process connections and calculate indegrees---
-
         for shape in createdRectangles:
             shape.indegree = 0
-        #objectives, assign indegree values and linkedGates
-
         for wire in createdWires:
-            print(type(createdWires[0].endPoint))
-            #endpoints
             if type(wire.endPoint) == connectorNode:
-                if wire.endPoint.inputOutput[0] == "i":
-                    wire.endPoint.parent.indegree += 1
-                    wire.startPoint.parent.linkedGates[int(wire.endPoint.inputOutput[-1])-1] = wire.endPoint.parent
+                if type(wire.endPoint.parent) == output:
+                    outputRect.processingInfo[0] = wire.startPoint.parent.processingInfo[2]
                 elif wire.endPoint.inputOutput[0] == "o":
+                    wire.startPoint.parent.linkedGates[int(wire.startPoint.inputOutput[-1])-1] = wire.endPoint.parent
                     if wire.endPoint.parent.linkedGates[2] != None:
-                        wire.startPoint.parent.linkedGates[2] == wire.endPoint.parent
+                        wire.endPoint.parent.linkedGates.append(wire.startPoint.parent)
                     else:
+                        wire.endPoint.parent.linkedGates[2] = wire.startPoint.parent
+                    wire.startPoint.parent.indegree +=1
+                elif wire.endPoint.inputOutput[0] == "i":
+                    if wire.startPoint.parent.linkedGates[2] != None:
                         wire.startPoint.parent.linkedGates.append(wire.endPoint.parent)
-                    wire.startPoint.parent.indegree += 1
-
-
-
-
+                    else:
+                        wire.startPoint.parent.linkedGates[2] = wire.endPoint.parent
+                    wire.endPoint.parent.linkedGates[int(wire.endPoint.inputOutput[-1])-1] = wire.startPoint.parent
+                    wire.endPoint.parent.indegree += 1
 
 
 
 #---process logic---
         #findLowestIndegree and store all in q
-        #for shape in createdRectangles:
-            #print(shape.indegree)
+        for shape in createdRectangles:
+            print(shape.indegree)
 
         q = deque() #q acts as an "advanced list"
         topoSort = []
-
         markedShapes = []
         iteration = 0
+        currentNum = 0
 
-        while len(topoSort)-1 != len(createdRectangles) and len(createdRectangles) != 0:
-            #print(len(createdRectangles))
+        while len(topoSort) < len(createdRectangles):
             for shape in createdRectangles:
                 if shape.indegree == 0:
                     for i,v in enumerate(shape.linkedGates):
@@ -437,11 +442,7 @@ def main():
                             markedShapes.append(v)
                     q.append(shape)
                 if iteration == 0:
-                    q.append(inputRect)
-                    for v in inputRect.linkedGates:
-                        if v != None:
-                            v.indegree -= 1
-
+                    q.append(outputRect)
             while q:
                 shape = q.popleft()
                 topoSort.append(shape)
@@ -450,12 +451,9 @@ def main():
                     v.indegree -= 1
             iteration += 1
 
-
-
         for node in topoSort:
             if type(node) == logicGate:
                 node.doLogic()
-        topoSort.clear()
 
 
 
