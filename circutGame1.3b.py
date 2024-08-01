@@ -209,7 +209,7 @@ def main():
 
 
 
-    #thanks to prof 
+    #thanks to prof while for the main gameplay loop
     pygame.init() # creates game window
     clock = pygame.time.Clock() # creates needed clock object
 
@@ -227,11 +227,10 @@ def main():
             if event.type == pygame.QUIT: # closes program if X in top right clicked
                 exit() # this function call closes the program
 #---m1 event---
-
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 clickedOnNothing = True
                 if event.button == 1:
-                    #TODO drop logic on m1 click on anything. This can probably be done by changing pickedUp/inUse whenever a m1 event takes place.
+#check if clicked on a node
                     for shape in createdNodes:
                         if shape.shape.collidepoint(event.pos):
                             clickedOnNothing = False
@@ -249,10 +248,10 @@ def main():
                                     if shape.inputOutput != "output":
                                         shape.inUse = True
                                     #draggedWire.startPoint.parent. + draggedWire.startConnectionType #find startConnectionType
-                                    draggedWire.endPoint.parent #find current connection type
+                                    draggedWire.endPoint.parent
                                     draggedWire = None
 
-
+#check if clicked on a logicGate
                     for shape in createdRectangles: #check if rectangles are clicked on
 
                         if shape.shape.collidepoint(event.pos):
@@ -268,11 +267,12 @@ def main():
                         print(manipulation_gate)
                         if shape.movedAtSomePoint == False:
                             ableToSpawnRects = False
+#check if clicked on the input button
                     if standardInputRect.collidepoint(event.pos):
                         inputRect.processingInfo[2] = not inputRect.processingInfo[2]
-
+#check if the logic gate spawning buttons are clicked on
                     if ableToSpawnRects != False:
-                        if ANDButton.collidepoint(event.pos): #check if spawning rectangle is clicked on
+                        if ANDButton.collidepoint(event.pos):
                             clickedOnNothing = False
                             createGate("AND")
                         elif ORButton.collidepoint(event.pos):
@@ -294,7 +294,7 @@ def main():
                             clickedOnNothing = False
                             createGate("NOT")
                     ableToSpawnRects = True
-
+#if all else fails, say that nothing was clicked on
                     if manipulation_gate == False and clickedOnNothing == True:
                         print("clicked on nothing")
                         if len(createdWires) >= 1 and draggedWire != None:
@@ -303,20 +303,15 @@ def main():
                             draggedWire = None
                             for shape in createdRectangles:
                                 shape.pickedUp = False
-
+#---m2 event---
+#check if m2 was clicked and we need to delete a shape
                 elif event.button == 3: #deletes shapes
                     print("m2 clicked")
-
-                    for v in createdNodes:
-                            print (v.parent)
-
-                    for  shape in createdRectangles: #check if rectangles are clicked on
+#check if any logic gates were clicked on
+                    for  shape in createdRectangles:
                         if shape.shape.collidepoint(event.pos):
-
-
                             print("deleting something")
-                            len_Node = len(createdNodes) #logic error here, we don't want to iterate through all nodes, only connectedNodes
-
+                            len_Node = len(createdNodes)
                             for i in range(len_Node):
                                 Node =createdNodes.pop(0)
                                 for v in enumerate(createdWires):
@@ -332,8 +327,6 @@ def main():
                                         wire.startPoint.inUse = False
                                 if Node.parent != shape:
                                     createdNodes.append(Node)
-
-                            #nodes need to be deleted
                             createdRectangles.remove(shape)
 #---Wires process connections and calculate indegrees---
         for shape in createdRectangles:
