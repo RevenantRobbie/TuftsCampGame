@@ -16,6 +16,6 @@ enjoy
 
 How in interact:
 left click on the side bar buttons spawn in the desired logic gate
-clicking on a logic gate picks it up, clicking on it again puts it down
-
+left clicking on a logic gate picks it up, left clicking on it again puts it down
+left clicking on 
 
