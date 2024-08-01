@@ -443,7 +443,7 @@ def main():
 
 
         while len(topoSort) < len(createdRectangles):
-
+            
             for shape in unsortedShapes:
                 if shape.indegree == 0:
 
