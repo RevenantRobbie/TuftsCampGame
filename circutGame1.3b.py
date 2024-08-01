@@ -454,6 +454,8 @@ def main():
                             #print("appended")
                             #print(markedShapes)
                     q.append(shape)
+                else:
+                    breakpoint()
             while q:
                 e = q.popleft()
                 topoSort.append(e)
