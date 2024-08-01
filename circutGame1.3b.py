@@ -410,6 +410,7 @@ def main():
 
         for wire in createdWires:
             if type(wire.endPoint) == connectorNode:
+                breakpoint()
                 if type(wire.endPoint.parent) == output:
                     outputRect.processingInfo[0] = wire.startPoint.parent.processingInfo[2]
                     wire.startPoint.parent.linkedGates[2] = outputRect
