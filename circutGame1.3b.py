@@ -453,8 +453,9 @@ def main():
             for v in markedShapes:
                 if v != None:
                     v.indegree -= 1
-            iteration += 1
             print("free")
+            iteration += 1
+
             #print(topoSort)
             #print(unsortedShapes)
 
