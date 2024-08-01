@@ -422,6 +422,7 @@ def main():
                         wire.startPoint.parent.linkedGates[2] = wire.endPoint.parent
                     wire.endPoint.parent.linkedGates[int(wire.endPoint.inputOutput[-1])-1] = wire.startPoint.parent
                     wire.endPoint.parent.indegree += 1
+                    print(wire.startPoint.linkedGates)
 
 
 
@@ -436,15 +437,14 @@ def main():
         unsortedShapes.append(outputRect)
         iteration = 0
 
-        print(topoSort)
-        print(createdRectangles)
+
         while len(topoSort) < len(createdRectangles):
 
             for shape in unsortedShapes:
                 if shape.indegree == 0:
-                    print(shape)
+
                     for i,v in enumerate(shape.linkedGates):
-                        print(v)
+
                         if i > 1:
                             markedShapes.append(v)
                             #print("appended")
