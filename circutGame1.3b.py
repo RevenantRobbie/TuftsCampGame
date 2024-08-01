@@ -434,8 +434,8 @@ def main():
             #print(shape.indegree)
 
         q = deque() #q acts as an "advanced list"
-        topoSort.clear()
         topoSort = []
+
         markedShapes = []
         iteration = 0
 
@@ -465,6 +465,7 @@ def main():
             if type(node) == logicGate:
                 print(node.linkedGates)
                 node.doLogic()
+        topoSort.clear()
 
 
 
