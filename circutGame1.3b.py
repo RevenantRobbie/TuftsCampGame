@@ -107,13 +107,14 @@ def xnorGate(input1, input2):
 
 """
 class logicGate:
-    def __init__ (self, type, shape, pickedUp, processingInfo, indegree, linkedGates):
+    def __init__ (self, type, shape, pickedUp, processingInfo, indegree, linkedGates, movedAtSomePoint):
         self.shape = shape
         self.type = type
         self.pickedUp = pickedUp
         self.processingInfo = processingInfo
         self.indegree = indegree
         self.linkedGates = linkedGates
+        self.movedAtSomePoint = movedAtSomePoint
 
         #detects if gate only has one input and deletes one of the two input if so
         #NOTE (TODO?) to self, I still need to kill linked gates on wire disconnect
@@ -254,7 +255,7 @@ def main():
 
     def createGate(a):
         print("clicked on button")
-        newShape = logicGate(a,defaultGateShape, False, standardProcessingInfo, 0, [None, None, None])
+        newShape = logicGate(a,defaultGateShape, False, standardProcessingInfo, 0, [None, None, None], False)
         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
         newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
