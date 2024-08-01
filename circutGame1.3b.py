@@ -430,7 +430,7 @@ def main():
         for shape in createdRectangles:
             for gate in shape.linkedGates:
                 if gate != None:
-                    print(gate.)
+                    print(shape.linkedGates)
 
         q = deque() #q acts as an "advanced list"
         topoSort = []
