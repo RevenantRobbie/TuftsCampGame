@@ -437,7 +437,7 @@ def main():
         while len(topoSort) < len(unsortedShapes):
 
             for shape in createdRectangles:
-                #print(shape.indegree)
+                print(topoSort)
                 if shape.indegree == 0:
                     for i,v in enumerate(shape.linkedGates):
                         if i > 1:
@@ -453,7 +453,6 @@ def main():
                     v.indegree -= 1
             iteration += 1
 
-        print("not stuck")
         for node in topoSort:
             if type(node) == logicGate:
                 node.doLogic()
