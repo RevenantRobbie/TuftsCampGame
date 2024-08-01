@@ -423,28 +423,29 @@ def main():
         #findLowestIndegree and store all in q
         q = deque() #q acts as an "advanced list"
         topoSort = []
+        markedShapes = []
         iteration = 0
         currentNum = 0
 
         while len(topoSort) < len(createdRectangles) + 1:
             for shape in createdRectangles:
-                if shape.indegree == 1:
-                    shape.in
+                if shape.indegree == 0:
+                    for i,v in enumerate(shape.linkedGates):
+                        if i > 1:
+                            markedShapes.append(v)
                     q.append(shape)
-
-        while len(topoSort) < len(createdRectangles):
-            for shape in createdRectangles:
-                if currentNum == shape.indegree:
-                    q.append(shape)
-
+                if iteration == 0:
+                    q.append(outputRect)
             while q:
                 shape = q.popleft()
                 topoSort.append(shape)
+            for v in markedShapes:
+                markedShapes.indegree -= 1
             iteration += 1
 
-
         for node in topoSort:
-            node.doLogic()
+            if type(node) == logicGate:
+                node.doLogic()
 
 
 
