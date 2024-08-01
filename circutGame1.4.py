@@ -268,11 +268,13 @@ def main():
 
     #initializeGame
 
-    outputRect = output(standardOutputRect, [False], "red", 0, [None, None, None])
+    outputRect1 = output(standardOutputRect, [False], "red", 0, [None, None, None])
     inputRect = input(standardInputRect, [False, False, False], "red", 0, [None, None, None])
-    newInput = connectorNode(defaultNodeShape, outputRect, "input1", False)
+    newInput1 = connectorNode(defaultNodeShape, outputRect1, "input1", False)
+    newInput2 = connectorNode(defaultNodeShape, outputRect2, "input2", False)
     newOutput = connectorNode(defaultNodeShape, inputRect, "output", False)
-    createdNodes.append(newInput)
+    createdNodes.append(newInput1)
+    createdNodes.append(newInput2)
     createdNodes.append(newOutput)
 
 
