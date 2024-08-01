@@ -226,6 +226,11 @@ class input:
             self.color = "green"
         elif self.processingInfo[0] == False:
             self.color = "red"
+    def doLogic(self):
+        for i,v in enumerate(self.linkedGates):
+            if i > 1:
+                v
+
 
 def main():
 
