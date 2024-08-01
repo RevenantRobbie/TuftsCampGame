@@ -400,6 +400,8 @@ def main():
 #---Wires process connections and calculate indegrees---
         for wire in createdWires:
             if type(wire.endPoint) == connectorNode:
+                
+
                 if type(wire.endPoint.parent) == output:
                     outputRect.processingInfo[0] = wire.startPoint.parent.processingInfo[2]
                 elif wire.endPoint.inputOutput[0] == "o":
