@@ -396,15 +396,15 @@ def main():
         for shape in createdRectangles:
             shape.indegree = 0
         #objectives, assign indegree values and linkedGates
-        print(createdWires)
+
         for wire in createdWires:
-            print("determining")
+            print(type(createdWires[0].endPoint))
             #endpoints
-            if wire.endPoint == connectorNode:
-                if wire.endPoint.parent.inputOutput[0] == "i":
+            if type(wire.endPoint) == connectorNode:
+                if wire.endPoint.inputOutput[0] == "i":
                     wire.endPoint.parent.indegree += 1
-                    wire.startPoint.linkedGates[int(wire.endPoint.parent.inputOutput[-1])-1] = wire.endPoint.parent
-                elif wire.endPoint.parent.inputOutput[0] == "o":
+                    wire.startPoint.parent.linkedGates[int(wire.endPoint.inputOutput[-1])-1] = wire.endPoint.parent
+                elif wire.endPoint.inputOutput[0] == "o":
                     if wire.endPoint.parent.linkedGates[2] != None:
                         wire.startPoint.parent.linkedGates[2] == wire.endPoint.parent
                     else:
