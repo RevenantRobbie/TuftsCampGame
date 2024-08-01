@@ -440,7 +440,8 @@ def main():
                 shape = q.popleft()
                 topoSort.append(shape)
             for v in markedShapes:
-                v.indegree -= 1
+                if v != None:
+                    v.indegree -= 1
             iteration += 1
 
         for node in topoSort:
