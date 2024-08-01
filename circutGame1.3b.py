@@ -332,10 +332,10 @@ def main():
                             elif manipulation_gate == False:
                                 manipulation_gate = True
                                 shape.pickedUp = True
+                        if shape.movedAtSomePoint == False:
+                            ableToSpawnRects = False
                     if standardInputRect.collidepoint(event.pos):
                         inputRect.processingInfo[2] = not inputRect.processingInfo[2]
-                    if shape.movedAtSomePoint == False:
-                        ableToSpawnRects = False
 
                     if ableToSpawnRects != False:
                         if ANDButton.collidepoint(event.pos): #check if spawning rectangle is clicked on
@@ -366,10 +366,9 @@ def main():
                         if len(createdWires) >= 1 and draggedWire != None:
                             createdWires[-1].startPoint.inUse = False
                             createdWires.pop(-1)
-
-                                    draggedWire = None
-                                for shape in createdRectangles:
-                                    shape.pickedUp = False
+                            draggedWire = None
+                            for shape in createdRectangles:
+                                shape.pickedUp = False
 
                 elif event.button == 3: #deletes shapes
                     print("m2 clicked")
