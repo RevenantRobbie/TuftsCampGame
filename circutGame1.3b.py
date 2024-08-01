@@ -68,7 +68,6 @@ bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # create
 
 
 def andGate(input1, input2):
-    print("AND:", input1, input2)
     return input1 and input2
 
 def orGate(input1, input2):
@@ -427,8 +426,8 @@ def main():
 
 #---process logic---
         #findLowestIndegree and store all in q
-        for shape in createdRectangles:
-            print(shape.indegree)
+        #for shape in createdRectangles:
+            #print(shape.indegree)
 
         q = deque() #q acts as an "advanced list"
         topoSort = []
@@ -455,6 +454,7 @@ def main():
         print(topoSort)
         for node in topoSort:
             if type(node) == logicGate:
+                print(node.linkedGates)
                 node.doLogic()
 
 
