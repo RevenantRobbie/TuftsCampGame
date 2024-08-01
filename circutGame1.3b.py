@@ -402,18 +402,7 @@ def main():
             if type(wire.endPoint) == connectorNode and type(wire.startPoint) == connectorNode:
                 if wire.endPoint.inputOutput[0] == "o":
 
-
             elif type(wire.endPoint) == output or type(wire.startPoint) == output:
-                if type(wire.endPoint.parent) == output:
-                    outputRect.processingInfo[0] = wire.startPoint.parent.processingInfo[2]
-
-                elif type(wire.startPoint.parent) == output:
-                    wire.startPoint.parent.linkedGates[int(wire.startPoint.inputOutput[-1])-1] = wire.endPoint.parent #assignStartpoint
-                    if wire.endPoint.parent.linkedGates[2] != None:
-                        wire.endPoint.parent.linkedGates.append(wire.startPoint.parent)
-                    else:
-                        wire.endPoint.parent.linkedGates[2] = wire.startPoint.parent
-
 
             elif type(wire.endPoint) == input or type(wire.startPoint) == input:
 
