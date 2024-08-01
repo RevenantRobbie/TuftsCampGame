@@ -316,14 +316,6 @@ def main():
                                     draggedWire.endPoint.parent #find current connection type
                                     draggedWire = None
 
-
-
-
-
-
-
-
-
                     for shape in createdRectangles: #check if rectangles are clicked on
                         if shape.shape.collidepoint(event.pos):
                             clickedOnNothing = False
