@@ -239,6 +239,7 @@ def main():
     XORButton = pygame.Rect(screen.get_width()-100, screen.get_height()-625,100,100)
     XNORButton = pygame.Rect(screen.get_width()-100, screen.get_height()-725,100,100)
     standardOutputRect = pygame.Rect(screen.get_width()/2, 25, 50, 50)
+    standardInputRect = pygame.Rect(screen.get_width()/2, screen.get_height()-25, 50, 50)
 
     createdRectangles = []
     createdNodes = []
@@ -264,7 +265,7 @@ def main():
     outputRect = output(standardOutputRect, [False], "red", 0)
     inputRect = input(standardInputRect, [False], "red", 0)
     newInput = connectorNode(defaultNodeShape, outputRect, "input1", False)
-    newOuptut = connectorNode(defaultNodeShape, inputRect, "output", false)
+    newOuptut = connectorNode(defaultNodeShape, inputRect, "output", False)
     createdNodes.append(newInput)
 
 
