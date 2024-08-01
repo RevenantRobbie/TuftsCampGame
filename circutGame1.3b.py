@@ -439,7 +439,7 @@ def main():
         iteration = 0
 
         while len(topoSort)-1 != len(createdRectangles) and len(createdRectangles) != 0:
-            print(len(topoSort)-1 != len(createdRectangles))
+            print(topoSort)
             print(len(createdRectangles))
             for shape in createdRectangles:
                 if shape.indegree == 0:
