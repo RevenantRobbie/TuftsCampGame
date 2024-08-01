@@ -424,7 +424,8 @@ def main():
 
                 elif type(wire.endPoint.parent) == input and type(wire.startPoint.parent) == input:
                     if type(wire.endPoint.parent) == input:
-                        
+                        wire.startPoint.parent.linkedGates[int(wire.startPoint.inputOutput[-1])-1] = outputRect
+                        wire.startPoint.parent.indegree += 1
                     elif type(wire.startPoint.parent) == input:
                         print("placeholder")
 
