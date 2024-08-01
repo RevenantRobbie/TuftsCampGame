@@ -431,21 +431,21 @@ def main():
         q = deque() #q acts as an "advanced list"
         topoSort = []
         markedShapes = []
-        unsortedShapes = createdRectangles
-        unsortedShapes.append(outputRect)
+        unsortedShapes = []
+        unsortedShapes
         iteration = 0
 
         while len(topoSort) < len(createdRectangles):
 
-            for shape in unsortedShapes:
+            for shape in createdRectangles:
                 print(shape.indegree)
                 if shape.indegree == 0:
                     for i,v in enumerate(shape.linkedGates):
                         if i > 1:
                             markedShapes.append(v)
                     q.append(shape)
-                # if iteration == 0:
-                #     q.append(outputRect)
+                if iteration == 0:
+                    q.append(outputRect)
             while q:
                 e = q.popleft()
                 topoSort.append(e)
