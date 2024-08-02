@@ -264,7 +264,7 @@ def main():
                             elif manipulation_gate == False:
                                 manipulation_gate = True
                                 shape.pickedUp = True
-                        print(manipulation_gate)
+                        #print(manipulation_gate)
                         if shape.movedAtSomePoint == False:
                             ableToSpawnRects = False
 #check if clicked on the input button
@@ -377,7 +377,7 @@ def main():
         while len(topoSort) != len(createdRectangles)+1: #still error prone, be careful around here
             count += 1
             #print(count)
-            print(len(topoSort))
+            #print(len(topoSort))
             if count > 256:
                 #breakpoint()
                 break
