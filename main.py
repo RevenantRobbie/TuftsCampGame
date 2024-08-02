@@ -38,6 +38,10 @@ def xorGate(input1, input2):
 def xnorGate(input1, input2):
     return notGate(xorGate(input1, input2),0)
 
+def nandGate(input1,input2):
+    return notGate(andGate(input1, input2))
+
+
 
 
 #objects declared
