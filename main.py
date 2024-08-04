@@ -1,4 +1,5 @@
 #this code is held together by sticks duct tape and prayers
+import logicGates
 import pygame
 from collections import deque
 
@@ -8,40 +9,6 @@ screen = pygame.display.set_mode((1280,720))
 SCREEN_W = screen.get_width()  # height of screen
 SCREEN_H = screen.get_height()  # width of screen
 bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # creates specific sized screen. bg stands for background in this case
-
-
-#logic gate functions
-def andGate(input1, input2):
-    return input1 and input2
-
-def orGate(input1, input2):
-    if input1 or input2:
-        return True
-    else:
-        return False
-
-def notGate(input1, input2):
-    if input1 or input2:
-        return False
-    else:
-        return True
-
-def norGate(input1, input2):
-    return notGate(orGate(input1, input2), 0)
-
-
-    return notGate(andGate(input1, input2),0)
-
-def xorGate(input1, input2):
-    return (input1 or input2) and not (input1 == input2)
-
-def xnorGate(input1, input2):
-    return notGate(xorGate(input1, input2),0)
-
-def nandGate(input1,input2):
-    return notGate(andGate(input1, input2), 0)
-
-
 
 
 #objects declared
