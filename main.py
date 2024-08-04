@@ -1,4 +1,5 @@
 #this code is held together by sticks duct tape and prayers
+
 import logicGates
 import pygame
 from collections import deque
@@ -9,6 +10,7 @@ screen = pygame.display.set_mode((1280,720))
 SCREEN_W = screen.get_width()  # height of screen
 SCREEN_H = screen.get_height()  # width of screen
 bg = pygame.display.set_mode((SCREEN_W, SCREEN_H), pygame.SRCALPHA, 32) # creates specific sized screen. bg stands for background in this case
+
 
 
 #objects declared
@@ -46,19 +48,19 @@ class logicGate:
     def computeGate(self):
         #print("doingLogic")
         if self.type == "AND":
-            self.processingInfo[2] = andGate(self.processingInfo[0], self.processingInfo[1])
+            self.processingInfo[2] = logicGates.andGate(self.processingInfo[0], self.processingInfo[1])
         elif self.type == "OR":
-            self.processingInfo[2] = orGate(self.processingInfo[0], self.processingInfo[1])
+            self.processingInfo[2] = logicGates.orGate(self.processingInfo[0], self.processingInfo[1])
         elif self.type == "NOT":
-            self.processingInfo[2] = notGate(self.processingInfo[0], self.processingInfo[1])
+            self.processingInfo[2] = logicGates.notGate(self.processingInfo[0])
         elif self.type == "NOR":
-            self.processingInfo[2] = norGate(self.processingInfo[0], self.processingInfo[1])
+            self.processingInfo[2] = logicGates.norGate(self.processingInfo[0], self.processingInfo[1])
         elif self.type == "NAND":
-            self.processingInfo[2] = nandGate(self.processingInfo[0], self.processingInfo[1])
+            self.processingInfo[2] = logicGates.nandGate(self.processingInfo[0], self.processingInfo[1])
         elif self.type == "XOR":
-            self.processingInfo[2] = xorGate(self.processingInfo[0], self.processingInfo[1])
+            self.processingInfo[2] = logicGates.xorGate(self.processingInfo[0], self.processingInfo[1])
         elif self.type == "XNOR":
-            self.processingInfo[2] = xnorGate(self.processingInfo[0], self.processingInfo[1])
+            self.processingInfo[2] = logicGates.xnorGate(self.processingInfo[0], self.processingInfo[1])
         else:
             print("no logic done")
 
@@ -157,15 +159,17 @@ def main():
     ableToSpawnRects = True
 
     #createGate func declared here due to weird python variable stuff (global and local var problems)
-    def createGate(a):
+    def createGate(gateCreated):       
         print("clicked on button")
-        newShape = logicGate(a,defaultGateShape, False, standardProcessingInfo, 0, [None, None, None], False)
+        newShape = logicGate(gateCreated,defaultGateShape, False, standardProcessingInfo, 0, [None, None, None], False)
         newInput1 = connectorNode(defaultNodeShape, newShape, "input1", False)
-        newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
+        if gateCreated != "NOT":
+            newInput2 = connectorNode(defaultNodeShape, newShape, "input2", False)
         newOutput = connectorNode(defaultNodeShape, newShape, "output", False)
         createdRectangles.append(newShape)
         createdNodes.append(newInput1)
-        createdNodes.append(newInput2)
+        if gateCreated != "NOT":
+            createdNodes.append(newInput2)
         createdNodes.append(newOutput)
 
 
