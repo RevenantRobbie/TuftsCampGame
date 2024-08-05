@@ -11,6 +11,9 @@ The purpose of this game is simply to explore how circiuts and logic gates work.
 How to install and run:
 download and unzip the file
 type "pip install pygame" into the terminal
+
+This may not be necessary 
+
 run main.py (it was named circuitGame1.3b.py before this)
 enjoy
 
@@ -39,7 +42,8 @@ Team Members:
 Aidan: Coding
 Lyles: Coding
 Jackson: Presentation
-Nathan: Bugfixes and QA Testing
+Nathan: Bugfixes, Some Code, QA Testing, Further App Development
 
 A Tufts Coding Academy 2024 production
 
+aiden why did you add that thats cringey
